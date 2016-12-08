@@ -1,7 +1,12 @@
 <%@ page import="jdk.nashorn.internal.runtime.Context" %>
 <%@ page import="org.springframework.web.context.support.HttpRequestHandlerServlet" %>
-<%@ taglib prefix="c" uri="http://www.springframework.org/tags" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+<c:set var="language" value="${not empty param.language ? param.language : not empty language ? language : pageContext.request.locale}" scope="session" />
+<fmt:setLocale value="${language}" />
+<fmt:setBundle basename="com.example.i18n.text" />
+<%--<%@ page session="false"%>--%>
 <%--
   Created by IntelliJ IDEA.
   User: dorsa
@@ -11,7 +16,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
-<html>
+<html lang="${language}">
 <head>
     <title>Home</title>
     <%--External sources--%>
@@ -57,6 +62,7 @@
                 <span class="icon-bar"></span>
             </button>
             <a class="navbar-brand" href="#">Site name</a>
+            <a class="navbar-brand" href="#"><fmt:message key="site.name"/> </a>
         </div>
         <div class="collapse navbar-collapse js-navbar-collapse">
             <ul class="nav navbar-nav">
@@ -337,6 +343,24 @@
             </ul>
         </div>
         <!-- End Carousel -->
+    <%-- Product and service Items--%>
+    <div class="container-fluid" align="center">
+        <div class="row btn btn-default btn-lg btn-block">
+            <img src="/edustry/resources/img/installing-wallpaper.jpg" class="col-md-2">
+            <div align="left" class="col-md-10">
+                <dl class="dl-horizontal small">
+                    <dt>Installing Wallpaper</dt>
+                    <dd>
+                        <p style="text-overflow: clip">
+                            This service is for installing wallpaper!
+                            This service is for installing wallpaper!
+                            This service is for installing wallpaper!
+                        </p>
+                    </dd>
+                </dl>
+            </div>
+        </div>
+    </div>
 </div>
 <%--footer--%>
 <div id="footer">
