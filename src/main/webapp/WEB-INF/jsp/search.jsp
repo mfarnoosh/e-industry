@@ -22,9 +22,14 @@
 </head>
 <body>
 <%--Search Reasult--%>
-<c:forEach var="count" items="${shj}">
-    <p>${count.serviceName}</p>
-    <p>${count.id}</p>
-</c:forEach>
+<c:if test="${not empty shj}">
+    <c:forEach var="count" items="${shj}">
+        <p>${count.serviceName}</p>
+        <p>${count.id}</p>
+    </c:forEach>
+</c:if>
+<c:if test="${empty shj}">
+    <p>Found Nothing</p>
+</c:if>
 </body>
 </html>
