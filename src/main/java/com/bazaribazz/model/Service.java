@@ -1,4 +1,4 @@
-package com.bazaribazz.dao;
+package com.bazaribazz.model;
 
 import java.awt.*;
 import java.util.UUID;
@@ -21,10 +21,6 @@ public class Service {
     public UUID getId() {
         return id;
     }
-
-    /*public void setId(UUID id) {
-        this.id = id;
-    }*/
 
     public String getServiceName() {
         return serviceName;

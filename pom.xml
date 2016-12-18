@@ -10,6 +10,7 @@
   <properties>
     <jdk.version>1.8</jdk.version>
     <spring.version>4.0.2.RELEASE</spring.version>
+    <jackson.version>1.9.10</jackson.version>
   </properties>
   <dependencies>
     <dependency>
@@ -24,18 +25,76 @@
       <artifactId>spring-core</artifactId>
       <version>${spring.version}</version>
     </dependency>
-
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-web</artifactId>
       <version>${spring.version}</version>
     </dependency>
-
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-webmvc</artifactId>
       <version>${spring.version}</version>
     </dependency>
+    <!-- Servlet API -->
+    <!-- http://mvnrepository.com/artifact/javax.servlet/javax.servlet-api -->
+    <dependency>
+      <groupId>javax.servlet</groupId>
+      <artifactId>javax.servlet-api</artifactId>
+      <version>3.1.0</version>
+      <scope>provided</scope>
+    </dependency>
+    <!-- Jstl for jsp page -->
+    <!-- http://mvnrepository.com/artifact/javax.servlet/jstl -->
+    <dependency>
+      <groupId>javax.servlet</groupId>
+      <artifactId>jstl</artifactId>
+      <version>1.1.2</version>
+    </dependency>
+    <!--JSP API-->
+    <dependency>
+      <groupId>javax.servlet.jsp</groupId>
+      <artifactId>jsp-api</artifactId>
+      <version>2.2</version>
+      <scope>provided</scope>
+    </dependency>
+     <!--JSTL Dependency-->
+    <dependency>
+      <groupId>jstl</groupId>
+      <artifactId>jstl</artifactId>
+      <version>1.2</version>
+    </dependency>
+    <!-- need this for @Configuration @ResponseBody -->
+    <dependency>
+      <groupId>cglib</groupId>
+      <artifactId>cglib</artifactId>
+      <version>2.2.2</version>
+    </dependency>
+    <!-- Jackson -->
+    <dependency>
+      <groupId>org.codehaus.jackson</groupId>
+      <artifactId>jackson-mapper-asl</artifactId>
+      <version>${jackson.version}</version>
+    </dependency>
+    <!--tttt-->
+    <dependency>
+      <groupId>taglibs</groupId>
+      <artifactId>standard</artifactId>
+      <version>1.1.2</version>
+    </dependency>
+    <dependency>
+      <groupId>taglibs</groupId>
+      <artifactId>c</artifactId>
+      <version>1.1.2</version>
+      <type>tld</type>
+    </dependency>
+    <dependency>
+      <groupId>taglibs</groupId>
+      <artifactId>fmt</artifactId>
+      <version>1.1.2</version>
+      <type>tld</type>
+    </dependency>
+    <!--ttttt-->
+
   </dependencies>
   <build>
     <finalName>edustry</finalName>

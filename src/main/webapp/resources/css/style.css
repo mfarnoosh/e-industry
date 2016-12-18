@@ -91,7 +91,16 @@ body {
 .nav-pills>li[data-slide-to="1"].active a { background-color: #e67e22; }
 .nav-pills>li[data-slide-to="2"].active a { background-color: #2980b9; }
 .nav-pills>li[data-slide-to="3"].active a { background-color: #8e44ad; }
-
+/*-----------Product and Service Items----------*/
+dd{
+    white-space: normal;
+}
+.info-panel{
+    margin-top: 10px;
+}
+.info-panel-inner{
+    padding: 15px;
+}
 /*------------footer style---------------*/
 /* Footer styles
 -------------------------------------------------- */

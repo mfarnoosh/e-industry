@@ -1,7 +1,8 @@
 <%@ page import="jdk.nashorn.internal.runtime.Context" %>
 <%@ page import="org.springframework.web.context.support.HttpRequestHandlerServlet" %>
-<%@ taglib prefix="c" uri="http://www.springframework.org/tags" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%--
   Created by IntelliJ IDEA.
   User: dorsa
@@ -9,10 +10,11 @@
   Time: 9:43 AM
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%--<%@ page contentType="text/html;charset=UTF-8" language="java" %>--%>
 <!DOCTYPE html>
 <html>
 <head>
+    <meta http-equiv="content-type" content="text/html" charset="UTF-8">
     <title>Home</title>
     <%--External sources--%>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -34,14 +36,14 @@
 <header>
     <div class="header">
         <div class="col-md-3 ">
-            <form class="navbar-form" role="search">
+            <form:form class="navbar-form" role="search" method="get" action="search" commandName="home">
                 <div class="input-group add-on">
-                    <input type="text" class="form-control" placeholder="Search" name="srch-term" id="srch-term">
+                    <input type="text" class="form-control" placeholder="Search" name="srch" id="srch-term" onkeydown="if (event.keyCode == 13) window.location = 'search';">
                     <div class="input-group-btn">
                         <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
                     </div>
                 </div>
-            </form>
+            </form:form>
         </div>
         <input type="button" class="btn btn-default login" value="Login">
     </div>
@@ -57,6 +59,7 @@
                 <span class="icon-bar"></span>
             </button>
             <a class="navbar-brand" href="#">Site name</a>
+            <%--<a class="navbar-brand" href="#"><spring:message code="site.name" /> </a>--%>
         </div>
         <div class="collapse navbar-collapse js-navbar-collapse">
             <ul class="nav navbar-nav">
@@ -337,6 +340,50 @@
             </ul>
         </div>
         <!-- End Carousel -->
+        <%-- Product and service Items--%>
+        <%--${service.get(0).serviceName}--%>
+        <c:forEach items="${ser}" var="vars">
+            <div class="container-fluid table" align="center">
+                <div class="row info-panel">
+                    <img src="/edustry/resources/img/installing-wallpaper.jpg" class="col-md-2">
+                    <div align="left" class="col-md-10 info-panel-inner">
+                        <dl class="dl-horizontal small">
+                            <%--<dt><c:out value="${vars.serviceName}"/></dt>--%>
+                            <dt>Service Name</dt>
+                            <dt></dt>
+                            <dd>
+                                <p>
+                                    Installing Wallpaper.
+                                    <c:out value="${vars.serviceName}"/>
+                                        ${vars.serviceName}
+                                </p>
+                            </dd>
+                            <dt>Company</dt>
+                            <dd>Company Name</dd>
+                        </dl>
+                    </div>
+                </div>
+                <div class="row info-panel">
+                    <img src="/edustry/resources/img/installing-wallpaper.jpg" class="col-md-2">
+                    <div align="left" class="col-md-10">
+                        <dl class="dl-horizontal small">
+                                <%--<dt><c:out value="${vars.serviceName}"/></dt>--%>
+                            <dt>Service Name</dt>
+                            <dt></dt>
+                            <dd>
+                                <p>
+                                    Installing Wallpaper.
+                                        <%--<c:out value="${vars.serviceName}"/>--%>
+                                        <%--${vars.serviceName}--%>
+                                </p>
+                            </dd>
+                            <dt>Company</dt>
+                            <dd>Company Name</dd>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+        </c:forEach>
 </div>
 <%--footer--%>
 <div id="footer">
@@ -376,5 +423,32 @@
         </div>
     </div>
 </div>
+
+
+<script>
+    $(document).ready(function() {
+
+        $('#srch-term').autocomplete({
+            serviceUrl: '${pageContext.request.contextPath}/search',
+            paramName: "srch-term",
+            delimiter: ",",
+            transformResult: function(response) {
+
+                return {
+                    //must convert json to javascript object before process
+                    suggestions: $.map($.parseJSON(response), function(item) {
+
+                        return { value: item.tagName, data: item.id };
+                    })
+
+                };
+
+            }
+
+        });
+
+    });
+</script>
+
 </body>
 </html>

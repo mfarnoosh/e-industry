@@ -147,3 +147,4 @@ hs_err_pid*
 .idea/
 bazaribazz.iml
 /src/main/webapp/resources/bootstrap-3.3.7/
+/src/main/webapp/resources/img/

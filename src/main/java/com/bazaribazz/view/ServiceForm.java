@@ -1,6 +1,6 @@
 package com.bazaribazz.view;
 
-import com.bazaribazz.dao.Service;
+import com.bazaribazz.model.Service;
 
 import java.util.List;
 
