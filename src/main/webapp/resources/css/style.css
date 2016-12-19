@@ -53,27 +53,10 @@ body {
     padding: 5px 60px 5px 5px;
     line-height: 30px;
 }
-/*-------Carousel 1-----------*/
-/*.carousel-control {
-    width: 30px;
-    height: 30px;
-    top: -35px;
 
-}
-.left.carousel-control {
-    right: 30px;
-    left: inherit;
-}
-.carousel-control .glyphicon-chevron-left,
-.carousel-control .glyphicon-chevron-right {
-    font-size: 12px;
-    background-color: #fff;
-    line-height: 30px;
-    text-shadow: none;
-    color: #333;
-    border: 1px solid #ddd;
-}*/
-
+/**
+* Body
+*/
 /*------Carousel 2----------------*/
 #myCarousel .nav a small
 {
@@ -101,9 +84,18 @@ dd{
 .info-panel-inner{
     padding: 15px;
 }
-/*------------footer style---------------*/
-/* Footer styles
--------------------------------------------------- */
+/*----------------Sidebar--------------*/
+/*body{margin-top:50px;}*/
+.glyphicon { margin-left:10px; }
+.panel-body { padding:0px; }
+.panel-body table tr td { padding-left: 15px }
+.panel-body .table {margin-bottom: 0px; }
+.sidebar-first{float: right;}
+
+/**
+* Footer
+*/
+/*------------- Footer styles-------------------------- */
 #footer {
 
     position: relative;
