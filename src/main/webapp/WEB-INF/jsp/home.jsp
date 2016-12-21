@@ -1,8 +1,12 @@
-<%@ page import="jdk.nashorn.internal.runtime.Context" %>
-<%@ page import="org.springframework.web.context.support.HttpRequestHandlerServlet" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+<%@ page pageEncoding="UTF-8" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+<c:set var="language" value="${not empty param.language ? param.language : not empty language ? language : pageContext.request.locale}" scope="session" />
+<fmt:setLocale value="${language}" />
+<fmt:setBundle basename="com.example.i18n.text" />
+<%--<%@ page session="false"%>--%>
 <%--
   Created by IntelliJ IDEA.
   User: dorsa
@@ -12,10 +16,11 @@
 --%>
 <%--<%@ page contentType="text/html;charset=UTF-8" language="java" %>--%>
 <!DOCTYPE html>
-<html>
+<html lang="${language}">
 <head>
-    <meta http-equiv="content-type" content="text/html" charset="UTF-8">
+
     <title>Home</title>
+    <meta http-equiv="content-type" content="text/html" charset="UTF-8">
     <%--External sources--%>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <%--<link href = "//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel = "stylesheet">--%>
@@ -25,6 +30,7 @@
     <%--<script src = "//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>--%>
     <%--Internal sources--%>
     <link href="<c:url value="/resources/css/style.css" />" rel="stylesheet">
+
     <%--<script src="<c:url value="/resources/js/jquery-3.1.1.min.js" />"></script>--%>
     <script src="<c:url value="/resources/js/main.js" />"></script>
     <script src="<c:url value="/resources/bootstrap-3.3.7/dist/js/bootstrap.min.js"/>" type="text/javascript"></script>
@@ -45,9 +51,21 @@
                 </div>
             </form:form>
         </div>
-        <input type="button" class="btn btn-default login" value="Login">
+        <div class="col-md-3">
+            <input type="button" class="btn btn-default login" value="Login">
+        </div>
+        <%--Language--%>
+        <div class="col-md-3">
+            <form>
+                <select id="language" name="language" onchange="submit()">
+                    <option value="en" ${language == 'en' ? 'selected' : ''}>English</option>
+                    <option value="fa" ${language == 'fa' ? 'selected' : ''}>فارسی</option>
+                </select>
+            </form>
+        </div>
     </div>
 </header>
+
 <%--navbar--%>
 <div class="container-navbar">
     <nav class="navbar navbar-default">
@@ -58,13 +76,17 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">Site name</a>
-            <%--<a class="navbar-brand" href="#"><spring:message code="site.name" /> </a>--%>
+            <a class="navbar-brand" href="#">
+                <spring:message code="site.name" text="site.name" />
+            </a>
         </div>
         <div class="collapse navbar-collapse js-navbar-collapse">
             <ul class="nav navbar-nav">
                 <li class="dropdown mega-dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Men <span class="caret"></span></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <spring:message code="menu.services" text="services"/>
+                        <span class="caret"></span>
+                    </a>
                     <ul class="dropdown-menu mega-dropdown-menu">
                         <li class="col-sm-3">
                             <ul>
@@ -341,8 +363,7 @@
         </div>
         <!-- End Carousel -->
         <%-- Product and service Items--%>
-        <%--${service.get(0).serviceName}--%>
-        <c:forEach items="${ser}" var="vars">
+        <%--<c:forEach items="${ser}" var="vars">--%>
             <div class="container-fluid table" align="center">
                 <div class="row info-panel">
                     <img src="/edustry/resources/img/installing-wallpaper.jpg" class="col-md-2">
@@ -383,7 +404,7 @@
                     </div>
                 </div>
             </div>
-        </c:forEach>
+        <%--</c:forEach>--%>
 </div>
 <%--footer--%>
 <div id="footer">
@@ -425,7 +446,7 @@
 </div>
 
 
-<script>
+<%--<script>
     $(document).ready(function() {
 
         $('#srch-term').autocomplete({
@@ -448,7 +469,7 @@
         });
 
     });
-</script>
+</script>--%>
 
 </body>
 </html>
