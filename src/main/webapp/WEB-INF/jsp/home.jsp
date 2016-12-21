@@ -1,3 +1,4 @@
+<%--<%@ page pageEncoding="UTF-8" %>--%>
 <%@ page import="jdk.nashorn.internal.runtime.Context" %>
 <%@ page import="org.springframework.web.context.support.HttpRequestHandlerServlet" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -14,11 +15,12 @@
   Time: 9:43 AM
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%--<%@ page contentType="text/html;charset=UTF-8" language="java" %>--%>
 <!DOCTYPE html>
 <html lang="${language}">
 <head>
     <title>Home</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <%--External sources--%>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <%--<link href = "//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel = "stylesheet">--%>
@@ -28,6 +30,7 @@
     <%--<script src = "//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>--%>
     <%--Internal sources--%>
     <link href="<c:url value="/resources/css/style.css" />" rel="stylesheet">
+
     <%--<script src="<c:url value="/resources/js/jquery-3.1.1.min.js" />"></script>--%>
     <script src="<c:url value="/resources/js/main.js" />"></script>
     <script src="<c:url value="/resources/bootstrap-3.3.7/dist/js/bootstrap.min.js"/>" type="text/javascript"></script>
@@ -48,9 +51,21 @@
                 </div>
             </form>
         </div>
-        <input type="button" class="btn btn-default login" value="Login">
+        <div class="col-md-3">
+            <input type="button" class="btn btn-default login" value="Login">
+        </div>
+        <%--Language--%>
+        <div class="col-md-3">
+            <form>
+                <select id="language" name="language" onchange="submit()">
+                    <option value="en" ${language == 'en' ? 'selected' : ''}>English</option>
+                    <option value="fa" ${language == 'fa' ? 'selected' : ''}>فارسی</option>
+                </select>
+            </form>
+        </div>
     </div>
 </header>
+
 <%--navbar--%>
 <div class="container-navbar">
     <nav class="navbar navbar-default">
@@ -61,13 +76,15 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">Site name</a>
-            <a class="navbar-brand" href="#"><fmt:message key="site.name"/> </a>
+            <a class="navbar-brand" href="#"><spring:message code="site.name" text="site.name" /> </a>
         </div>
         <div class="collapse navbar-collapse js-navbar-collapse">
             <ul class="nav navbar-nav">
                 <li class="dropdown mega-dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Men <span class="caret"></span></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <spring:message code="menu.services" text="services"/>
+                        <span class="caret"></span>
+                    </a>
                     <ul class="dropdown-menu mega-dropdown-menu">
                         <li class="col-sm-3">
                             <ul>
