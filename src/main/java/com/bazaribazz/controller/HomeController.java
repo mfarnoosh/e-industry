@@ -24,9 +24,9 @@ public class HomeController {
     private static List<Service> services = new ArrayList<Service>();
 
     static {
-        services.add(new Service("Install Wallpaper"));
-        services.add(new Service("Painting walls"));
-        services.add(new Service("Install Wallpaper"));
+        services.add(new Service("Install Wallpaper","Name and Family"));
+        services.add(new Service("Painting walls","Name and Family"));
+        services.add(new Service("Install Wallpaper","Name and Family"));
     }
 
     /**

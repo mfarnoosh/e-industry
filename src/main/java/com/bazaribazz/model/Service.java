@@ -9,12 +9,13 @@ import java.util.UUID;
 public class Service {
     private UUID id ;
     private String serviceName;
-    private String details;
+    private String installer;
     private Image image;
 
-    public Service(String serviceName){
+    public Service(String serviceName, String installer){
         this.id = UUID.randomUUID();
         this.serviceName = serviceName;
+        this.installer = installer;
         this.image = image;
     }
 
@@ -28,6 +29,14 @@ public class Service {
 
     public void setServiceName(String serviceName) {
         this.serviceName = serviceName;
+    }
+
+    public String getInstaller() {
+        return installer;
+    }
+
+    public void setInstaller(String installer) {
+        this.installer = installer;
     }
 
     public Image getImage() {

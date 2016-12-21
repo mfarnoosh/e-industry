@@ -1,4 +1,4 @@
-/*----------header style------------*/
+/*----Page: all------header style------------*/
 
 .header{
     height: 60px;
@@ -17,7 +17,8 @@
 .login{
     margin-top: 8px;
 }
-/*----------Navbar Style-----------*/
+/*-----Page: all-----Navbar Style-----------*/
+
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:400,700);
 body {
     font-family: 'Open Sans', 'sans-serif';
@@ -57,7 +58,7 @@ body {
 /**
 * Body
 */
-/*------Carousel 2----------------*/
+/*---Page: Home-----Section: Carousel 2-----------*/
 #myCarousel .nav a small
 {
     display: block;
@@ -74,7 +75,8 @@ body {
 .nav-pills>li[data-slide-to="1"].active a { background-color: #e67e22; }
 .nav-pills>li[data-slide-to="2"].active a { background-color: #2980b9; }
 .nav-pills>li[data-slide-to="3"].active a { background-color: #8e44ad; }
-/*-----------Product and Service Items----------*/
+/*-----Page: Home------Product and Service Items----------*/
+
 dd{
     white-space: normal;
 }
@@ -84,13 +86,26 @@ dd{
 .info-panel-inner{
     padding: 15px;
 }
-/*----------------Sidebar--------------*/
+/*-----Page: Search-------Section: Sidebar--------*/
+
 /*body{margin-top:50px;}*/
 .glyphicon { margin-left:10px; }
 .panel-body { padding:0px; }
 .panel-body table tr td { padding-left: 15px }
 .panel-body .table {margin-bottom: 0px; }
 .sidebar-first{float: right;}
+
+/*----Page: Search ---Section: Search Result----------*/
+
+.search-result{
+    margin: 10px;
+    padding: 8px;
+    background-color: #f8f8f8;
+}
+table,.table>tbody>tr>th,.table>tbody>tr,p{
+    direction: rtl;
+    text-align: right;
+}
 
 /**
 * Footer
