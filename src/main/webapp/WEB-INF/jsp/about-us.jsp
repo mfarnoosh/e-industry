@@ -11,7 +11,7 @@
     <title>About Us</title>
 </head>
 <body>
-<jsp:include page="about-us.jsp"/>
+<jsp:include page="header-menu.jsp"/>
 <jsp:include page="footer.jsp"/>
 </body>
 </html>

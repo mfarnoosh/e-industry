@@ -16,7 +16,7 @@
 --%>
 <%--<%@ page contentType="text/html;charset=UTF-8" language="java" %>--%>
 <!DOCTYPE html>
-<html lang="${language}">
+<html lang="${language}" style="direction: rtl">
 <head>
 
     <title>Home</title>
