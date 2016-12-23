@@ -1,5 +1,6 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%--
   Created by IntelliJ IDEA.
   User: dorsa
@@ -18,25 +19,25 @@
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <%--<script src = "//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>--%>
     <%--Internal sources--%>
-    <link href="<c:url value="/resources/css/style.css" />" rel="stylesheet">
+
     <%--<script src="<c:url value="/resources/js/jquery-3.1.1.min.js" />"></script>--%>
     <script src="<c:url value="/resources/js/main.js" />"></script>
     <script src="<c:url value="/resources/bootstrap-3.3.7/dist/js/bootstrap.min.js"/>" type="text/javascript"></script>
     <link href="<c:url value="/resources/bootstrap-3.3.7/dist/css/bootstrap.min.css"/>" rel="stylesheet">
-
+        <link href="<c:url value="/resources/css/style.css" />" rel="stylesheet">
 </head>
 <body>
 <header>
     <div class="header">
         <div class="col-md-3 ">
-            <form class="navbar-form" role="search">
+            <form:form class="navbar-form" role="search" method="get" action="search" commandName="home">
                 <div class="input-group add-on">
-                    <input type="text" class="form-control" placeholder="Search" name="srch-term" id="srch-term">
+                    <input type="text" class="form-control" placeholder="Search" name="srch" id="srch-term" onkeydown="if (event.keyCode == 13) window.location = 'search';">
                     <div class="input-group-btn">
                         <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
                     </div>
                 </div>
-            </form>
+            </form:form>
         </div>
         <input type="button" class="btn btn-default login" value="Login">
     </div>
