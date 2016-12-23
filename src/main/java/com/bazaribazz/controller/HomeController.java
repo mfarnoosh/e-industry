@@ -62,8 +62,22 @@ public class HomeController {
         }
         return result;
     }
+
+    /**
+     * About us page
+     * @return
+     */
     @RequestMapping(value = "about-us", method = RequestMethod.GET)
-    public String about_us(){
+    public String aboutUs(){
         return "about-us";
     }
+
+    /**
+     * Contact us page
+     */
+    @RequestMapping(value = "contact-us",method = RequestMethod.GET)
+    public String contactUs(){
+        return "contact-us";
+    }
+
 }
