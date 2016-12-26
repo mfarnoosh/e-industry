@@ -1,4 +1,6 @@
 <%@ page pageEncoding="UTF-8" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+
 
 <%--
   Created by IntelliJ IDEA.
@@ -12,12 +14,6 @@
 <html>
 <head>
     <title>Contact Us</title>
-    <style type="text/css">
-        div#map_container{
-            width:100%;
-            height:350px;
-        }
-    </style>
 
     <script type="text/javascript"
             src="https://maps.googleapis.com/maps/api/place/nearbysearch/json" key="AIzaSyCsd-2oiWxJsS5Zi6t7H0nfUhkCoFZx86w" type="text/javascript"></script>
@@ -25,29 +21,58 @@
 </head>
 <body>
 
+<jsp:include page="header-menu.jsp"/>
 <div class="google_map" onload="loadMap()">
     <div id="map_container"></div>
 </div>
-<jsp:include page="header-menu.jsp"/>
+<div class="contact-form">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+                <div class="well well-sm">
+                    <form class="form-horizontal" action="" method="post">
+                        <fieldset>
+                            <legend class="text-center"><spring:message code="form.contact.us"/></legend>
+
+                            <!-- Name input-->
+                            <div class="form-group">
+                                <label class="col-md-3 control-label" for="name"><spring:message code="form.contact.name"/> </label>
+                                <div class="col-md-9">
+                                    <input id="name" name="name" type="text" placeholder="<spring:message code="form.contact.name"/>" class="form-control">
+                                </div>
+                            </div>
+
+                            <!-- Email input-->
+                            <div class="form-group">
+                                <label class="col-md-3 control-label" for="email"><spring:message code="form.contact.email"/> </label>
+                                <div class="col-md-9">
+                                    <input id="email" name="email" type="text" placeholder="<spring:message code="form.contact.email"/>" class="form-control">
+                                </div>
+                            </div>
+
+                            <!-- Message body -->
+                            <div class="form-group">
+                                <label class="col-md-3 control-label" for="message"><spring:message code="form.contact.message"/> </label>
+                                <div class="col-md-9">
+                                    <textarea class="form-control" id="message" name="message" placeholder="<spring:message code="form.contact.text.area.message"/> " rows="5"></textarea>
+                                </div>
+                            </div>
+
+                            <!-- Form actions -->
+                            <div class="form-group">
+                                <div class="col-md-12 text-right">
+                                    <button type="submit" class="btn btn-primary btn-lg"><spring:message code="site.submit"/> </button>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 <jsp:include page="footer.jsp"/>
 
-<script type="text/javascript">
-    function loadMap() {
-        var latlng = new google.maps.LatLng(4.3695030, 101.1224120);
-        var myOptions = {
-            zoom: 4,
-            center: latlng,
-            mapTypeId: google.maps.MapTypeId.ROADMAP
-        };
-        var map = new google.maps.Map(document.getElementById("map_container"),myOptions);
 
-        var marker = new google.maps.Marker({
-            position: latlng,
-            map: map,
-            title:"my hometown, Malim Nawar!"
-        });
-
-    }
-</script>
 </body>
 </html>

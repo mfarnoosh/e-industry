@@ -109,6 +109,10 @@ table,.table>tbody>tr>th,.table>tbody>tr,p{
     direction: rtl;
     text-align: right;
 }
+/*-----Page: Contact us------Section: contact-form*/
+.contact-form{
+    margin-top: 20px;
+}
 
 /**
 * Footer
