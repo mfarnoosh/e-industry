@@ -247,6 +247,7 @@
                     </ul>
                 </li>
                 <li><a href="about-us"><spring:message code="menu.about.us" text="about us"/></a></li>
+                <li><a href="contact-us"><spring:message code="menu.contact.us" text="contact us"/></a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">
