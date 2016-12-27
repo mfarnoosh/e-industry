@@ -24,20 +24,24 @@ public class HomeController {
     private static List<Service> services = new ArrayList<Service>();
 
     static {
-        services.add(new Service("Install Wallpaper","Name and Family"));
-        services.add(new Service("Painting walls","Name and Family"));
-        services.add(new Service("Install Wallpaper","Name and Family"));
+        services.add(new Service("نصب کاغذ دیواری","نصب کاغذ دیواری"));
+        services.add(new Service("کابینت","نصب کابینت"));
+        services.add(new Service("طراحی و دکوراسیون","طراحی و دکوراسیون داخلی"));
+        services.add(new Service("نقاشی ساختمان","رنگ و نقاشی ساختمان"));
+        services.add(new Service("تعمیر کار","تعمیرکار یخچال"));
     }
 
     /**
      * Home
+     * @param model
      * @return
      */
 
     @RequestMapping(value = {"/","home"},method = {RequestMethod.GET,RequestMethod.POST})
-    public String viewHome(){
+    public String viewHome(Model model){
         ServiceForm serviceForm = new ServiceForm();
         serviceForm.setServices(services);
+        model.addAttribute("myservice",serviceForm.getServices());
         return "home";
     }
 

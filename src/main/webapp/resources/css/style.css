@@ -75,9 +75,18 @@ body {
 .nav-pills>li[data-slide-to="1"].active a { background-color: #e67e22; }
 .nav-pills>li[data-slide-to="2"].active a { background-color: #2980b9; }
 .nav-pills>li[data-slide-to="3"].active a { background-color: #8e44ad; }
-/*rtl setting*/
+
+/*------rtl setting*/
 ul.nav.nav-pills.nav-justified{    padding: 0;  }
-.navbar-form{direction: ltr}
+.navbar-form{direction: ltr;}
+img.item-image{float:right !important;}
+dt{
+    float: right !important;
+}
+dd{
+    margin-right: 180px;
+    text-align: right;
+}
 /*-----Page: Home------Product and Service Items----------*/
 
 dd{

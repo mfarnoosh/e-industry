@@ -26,8 +26,9 @@
 </head>
 <body style="direction: rtl">
 <jsp:include page="header-menu.jsp"/>
-<%--Sidebar--%>
+
 <div class="container">
+    <%--Sidebar--%>
     <div class="row">
         <div class="col-sm-3 col-md-3 sidebar-first">
             <div class="panel-group" id="accordion">
@@ -42,20 +43,24 @@
                     </div>
                     <div id="collapseOne" class="panel-collapse collapse in">
                         <div class="panel-body">
-                            <table class="table">
-                                <tr>
-                                    <td>
-                                        <span class="glyphicon glyphicon-grain text-primary"></span>
-                                        <a href="http://www.jquery2dotnet.com">Wallpaper</a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <span class="glyphicon glyphicon-pencil text-primary"></span>
-                                        <a href="http://www.jquery2dotnet.com">Painting</a>
-                                    </td>
-                                </tr>
-                            </table>
+                            <c:if test="${not empty shj}">
+                                <c:forEach var="count" items="${shj}">
+                                    <table class="table">
+                                        <tr>
+                                            <td>
+                                                <span class="glyphicon glyphicon-grain text-primary"></span>
+                                                <a href="http://www.jquery2dotnet.com">${count.profession}</a>
+                                            </td>
+                                        </tr>
+                                        <%--<tr>
+                                            <td>
+                                                <span class="glyphicon glyphicon-pencil text-primary"></span>
+                                                <a href="http://www.jquery2dotnet.com">Painting</a>
+                                            </td>
+                                        </tr>--%>
+                                    </table>
+                                </c:forEach>
+                            </c:if>
                         </div>
                     </div>
                 </div>
@@ -73,7 +78,7 @@
                         </tr>
                         <tr>
                             <td>
-                                <p>${count.installer}</p>
+                                <p>${count.profession}</p>
                             </td>
                         </tr>
                     </table>
