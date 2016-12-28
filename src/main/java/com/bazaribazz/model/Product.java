@@ -1,5 +1,6 @@
 package com.bazaribazz.model;
 
+import java.math.BigDecimal;
 import java.util.UUID;
 
 /**
@@ -12,6 +13,8 @@ public class Product {
     private String brand;
     private String productName;
     private double price;
+
+
     public Product(String pt, String producer,String brand, String pn,double price){
 
         ID = UUID.randomUUID();

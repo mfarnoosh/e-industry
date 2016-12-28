@@ -35,8 +35,8 @@ private static List<Product> products = new ArrayList<Product>();
     }
 
     static {
-        products.add(new Product("یخچال","شرکت ...","سامسونگ","s123",100));
-        products.add(new Product("کولر","شرکت ...","آبسال","c443",200));
+        products.add(new Product("یخچال","شرکت ...","سامسونگ","s123",2000));
+        products.add(new Product("کولر","شرکت ...","آبسال","c443",1000));
     }
     /**
      * Home

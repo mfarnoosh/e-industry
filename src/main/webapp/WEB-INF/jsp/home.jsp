@@ -48,7 +48,7 @@
                                     <%--<dt><c:out value="${vars.serviceName}"/></dt>--%>
                                 <dt><spring:message code="item.service.profession"/> </dt>
                                 <dd>
-                                        ${mitem.profession}
+                                    ${mitem.profession}
                                 </dd>
                                 <dt><spring:message code="item.service.nameservice"/></dt>
                                 <dd>
