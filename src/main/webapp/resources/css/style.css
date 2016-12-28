@@ -89,14 +89,33 @@ dd{
 }
 /*-----Page: Home------Product and Service Items----------*/
 /*service*/
-dd{
+/*dd{
     white-space: normal;
 }
 .info-panel{
-    margin-top: 10px;
+    margin: 1%;
+    padding: 2%;
+
+}
+.info-panel:hover{
+    background-color: #C2CCD1;
 }
 .info-panel-inner{
     padding: 15px;
+}*/
+.servicebox{
+    background-color:#ffffff;
+    padding:10px;
+    margin-bottom:10px;
+    -webkit-box-shadow: 0 8px 6px -6px  #999;
+    -moz-box-shadow: 0 8px 6px -6px  #999;
+    box-shadow: 0 8px 6px -6px #999;
+}
+.servicebox:hover{
+    background-color: #C2CCD1;
+}
+.servicetitle{
+    font-weight: normal;
 }
 /*product*/
 .productbox {
@@ -110,7 +129,7 @@ dd{
 .productbox:hover{
     background-color: #dadada;
 }
-.producttitle {
+.producttitle{
     font-weight:bold;
     padding:5px 0 5px 0;
     font-size: 20px;

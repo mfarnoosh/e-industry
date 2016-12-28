@@ -41,10 +41,10 @@
         <%-- Product and service Items--%>
             <div class="container-fluid table" align="center">
                 <c:forEach var="mitem" items="${myservice}">
-                    <div class="row info-panel">
-                        <img src="/edustry/resources/img/brush.jpg" class="item-image col-md-2">
-                        <div align="left" class="col-md-10 info-panel-inner">
-                            <dl class="dl-horizontal small">
+                    <div class="col-md-4 column servicebox">
+                        <img src="/edustry/resources/img/brush.jpg" class="img-responsive">
+                        <div class="servicetitle">
+                            <dl>
                                     <%--<dt><c:out value="${vars.serviceName}"/></dt>--%>
                                 <dt><spring:message code="item.service.profession"/> </dt>
                                 <dd>
@@ -64,9 +64,12 @@
                 <div class="col-md-2 column productbox">
                     <img src="resources/img/refreg.jpg" class="img-responsive">
                     <div class="producttitle">${mitem.productType}</div>
-                    <div class="productprice"><div class="pull-right">
+                    <div class="productprice">
+                        <div class="pull-right">
                         <a href="#" class="btn btn-danger btn-sm" role="button">خرید</a>
-                    </div><div class="pricetext">${mitem.price}تومان</div></div>
+                        </div>
+                        <div class="pricetext">${mitem.price}تومان</div>
+                    </div>
                 </div>
             </c:forEach>
         </div>
