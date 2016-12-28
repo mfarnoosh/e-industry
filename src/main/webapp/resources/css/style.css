@@ -88,7 +88,7 @@ dd{
     text-align: right;
 }
 /*-----Page: Home------Product and Service Items----------*/
-
+/*service*/
 dd{
     white-space: normal;
 }
@@ -97,6 +97,39 @@ dd{
 }
 .info-panel-inner{
     padding: 15px;
+}
+/*product*/
+.productbox {
+    background-color:#ffffff;
+    padding:10px;
+    margin-bottom:10px;
+    -webkit-box-shadow: 0 8px 6px -6px  #999;
+    -moz-box-shadow: 0 8px 6px -6px  #999;
+    box-shadow: 0 8px 6px -6px #999;
+}
+.productbox:hover{
+    background-color: #dadada;
+}
+.producttitle {
+    font-weight:bold;
+    padding:5px 0 5px 0;
+    font-size: 20px;
+}
+
+.productprice {
+    border-top:1px solid #dadada;
+    padding-top:5px;
+}
+
+.pricetext {
+    font-weight:normal;
+    font-size:1em;
+    float: left;
+}
+.img-responsive{
+    max-height: 200px;
+    max-width: 200px;
+    margin-right: 20%;
 }
 /*-----Page: Search-------Section: Sidebar--------*/
 

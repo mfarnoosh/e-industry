@@ -59,6 +59,17 @@
                     </div>
                 </c:forEach>
             </div>
+        <div class="product-container">
+            <c:forEach var="mitem" items="${myproduct}">
+                <div class="col-md-2 column productbox">
+                    <img src="resources/img/refreg.jpg" class="img-responsive">
+                    <div class="producttitle">${mitem.productType}</div>
+                    <div class="productprice"><div class="pull-right">
+                        <a href="#" class="btn btn-danger btn-sm" role="button">خرید</a>
+                    </div><div class="pricetext">${mitem.price}تومان</div></div>
+                </div>
+            </c:forEach>
+        </div>
         <%--</c:forEach>--%>
 </div>
 <%--footer--%>

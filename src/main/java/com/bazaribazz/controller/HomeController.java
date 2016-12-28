@@ -1,6 +1,8 @@
 package com.bazaribazz.controller;
 
+import com.bazaribazz.model.Product;
 import com.bazaribazz.model.Service;
+import com.bazaribazz.view.ProductForm;
 import com.bazaribazz.view.ServiceForm;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -22,6 +24,7 @@ import java.util.Map;
 public class HomeController {
 @Autowired
     private static List<Service> services = new ArrayList<Service>();
+private static List<Product> products = new ArrayList<Product>();
 
     static {
         services.add(new Service("نصب کاغذ دیواری","نصب کاغذ دیواری"));
@@ -31,6 +34,10 @@ public class HomeController {
         services.add(new Service("تعمیر کار","تعمیرکار یخچال"));
     }
 
+    static {
+        products.add(new Product("یخچال","شرکت ...","سامسونگ","s123",100));
+        products.add(new Product("کولر","شرکت ...","آبسال","c443",200));
+    }
     /**
      * Home
      * @param model
@@ -42,6 +49,10 @@ public class HomeController {
         ServiceForm serviceForm = new ServiceForm();
         serviceForm.setServices(services);
         model.addAttribute("myservice",serviceForm.getServices());
+
+        ProductForm productForm = new ProductForm();
+        productForm.setProducts(products);
+        model.addAttribute("myproduct",productForm.getProducts());
         return "home";
     }
 
