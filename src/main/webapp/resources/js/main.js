@@ -13,7 +13,7 @@ $(document).ready(function(){
 /*---------carousel-------------*/
 $(document).ready( function() {
     $('#myCarousel').carousel({
-        interval:   4000
+        interval:   10000
     });
 
     var clickEvent = false;

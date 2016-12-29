@@ -87,22 +87,22 @@ dd{
     margin-right: 180px;
     text-align: right;
 }
+li.col-sm-3{
+    text-align: right;
+}
+input#srch-term {
+    text-align: right;
+    direction: rtl;
+}
+nav.navbar.navbar-default{
+    padding-right: 50px;
+}
+li.col-sm-3{
+    float: right;
+}
+.search-box{float: right;}
 /*-----Page: Home------Product and Service Items----------*/
 /*service*/
-/*dd{
-    white-space: normal;
-}
-.info-panel{
-    margin: 1%;
-    padding: 2%;
-
-}
-.info-panel:hover{
-    background-color: #C2CCD1;
-}
-.info-panel-inner{
-    padding: 15px;
-}*/
 .servicebox{
     background-color:#ffffff;
     padding:10px;

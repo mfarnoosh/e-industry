@@ -56,6 +56,11 @@
                                 </dd>
                             </dl>
                         </div>
+                        <div class="productprice">
+                            <div class="pull-right">
+                                <a href="#" class="btn btn-danger btn-sm" role="button">بیشتر</a>
+                            </div>
+                        </div>
                     </div>
                 </c:forEach>
             </div>
@@ -66,7 +71,7 @@
                     <div class="producttitle">${mitem.productType}</div>
                     <div class="productprice">
                         <div class="pull-right">
-                        <a href="#" class="btn btn-danger btn-sm" role="button">خرید</a>
+                        <a href="#" class="btn btn-danger btn-sm" role="button">بیشتر</a>
                         </div>
                         <div class="pricetext">${mitem.price}تومان</div>
                     </div>

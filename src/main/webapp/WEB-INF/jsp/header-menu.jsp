@@ -1,3 +1,4 @@
+<%@ page pageEncoding="UTF-8" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
@@ -29,37 +30,40 @@
 <body>
 <header>
     <div class="header">
-        <div class="col-md-3 ">
+        <div class="col-md-3 search-box">
             <form:form class="navbar-form" role="search" method="get" action="search" commandName="home">
                 <div class="input-group add-on">
-                    <input type="text" class="form-control" placeholder="Search" name="srch" id="srch-term" onkeydown="if (event.keyCode == 13) window.location = 'search';">
+                    <input type="text" class="form-control" placeholder="<spring:message code="header.search" text="header.search"/>" name="srch" id="srch-term" onkeydown="if (event.keyCode == 13) window.location = 'search';">
                     <div class="input-group-btn">
                         <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
                     </div>
                 </div>
             </form:form>
         </div>
-        <input type="button" class="btn btn-default login" value="Login">
+        <input type="button" class="btn btn-default login" value="<spring:message code="header.login"/>">
     </div>
 </header>
 <%--navbar--%>
-<div class="container-navbar">
+<div class="container-navbar" style="direction: rtl">
     <nav class="navbar navbar-default">
-        <div class="navbar-header">
+        <div class="navbar-header navbar-right">
             <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".js-navbar-collapse">
                 <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#"><spring:message code="site.name" text="site.name"/> </a>
+            <a class="navbar-brand" href="home"><spring:message code="site.name" text="site.name"/> </a>
         </div>
-        <div class="collapse navbar-collapse js-navbar-collapse">
+        <div class="collapse navbar-collapse js-navbar-collapse pull-right">
             <ul class="nav navbar-nav">
-                <li class="dropdown mega-dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><spring:message code="menu.services"/><span class="caret"></span></a>
+                <li class="dropdown mega-dropdown navbar-right">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <spring:message code="menu.services"/>
+                        <%--<span class="caret"></span>--%>
+                    </a>
                     <ul class="dropdown-menu mega-dropdown-menu">
-                        <li class="col-sm-3">
+                        <%--<li class="col-sm-3">
                             <ul>
                                 <li class="dropdown-header">Men Collection</li>
                                 <div id="menCollection" class="carousel slide" data-ride="carousel">
@@ -117,21 +121,21 @@
                                 <li><a href="#">View all Collection <span
                                         class="glyphicon glyphicon-chevron-right pull-right"></span></a></li>
                             </ul>
-                        </li>
+                        </li>--%>
                         <li class="col-sm-3">
                             <ul>
-                                <li class="dropdown-header">Features</li>
-                                <li><a href="#">Auto Carousel</a></li>
-                                <li><a href="#">Carousel Control</a></li>
-                                <li><a href="#">Left & Right Navigation</a></li>
-                                <li><a href="#">Four Columns Grid</a></li>
+                                <li class="dropdown-header">حرفه</li>
+                                <li><a href="#">کابینت</a></li>
+                                <li><a href="#">کاغذ دیواری</a></li>
+                                <li><a href="#">تعمیرکار</a></li>
+                                <li><a href="#">تعمیرات دکوراسیون</a></li>
                                 <li class="divider"></li>
-                                <li class="dropdown-header">Fonts</li>
-                                <li><a href="#">Glyphicon</a></li>
-                                <li><a href="#">Google Fonts</a></li>
+                                <li class="dropdown-header">صنف</li>
+                                <li><a href="#">طراحی</a></li>
+                                <li><a href="#">صنایع چوب</a></li>
                             </ul>
                         </li>
-                        <li class="col-sm-3">
+                        <%--<li class="col-sm-3">
                             <ul>
                                 <li class="dropdown-header">Plus</li>
                                 <li><a href="#">Navbar Inverse</a></li>
@@ -148,35 +152,38 @@
                                 <li><a href="#">Custom Fonts</a></li>
                                 <li><a href="#">Slide down on Hover</a></li>
                             </ul>
-                        </li>
+                        </li>--%>
                     </ul>
                 </li>
-                <li class="dropdown mega-dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><spring:message code="menu.products"/><span class="caret"></span></a>
+                <li class="dropdown mega-dropdown navbar-right">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <spring:message code="menu.products"/>
+                        <%--<span class="caret"></span>--%>
+                    </a>
                     <ul class="dropdown-menu mega-dropdown-menu">
                         <li class="col-sm-3">
                             <ul>
-                                <li class="dropdown-header">Features</li>
-                                <li><a href="#">Auto Carousel</a></li>
-                                <li><a href="#">Carousel Control</a></li>
-                                <li><a href="#">Left & Right Navigation</a></li>
-                                <li><a href="#">Four Columns Grid</a></li>
+                                <li class="dropdown-header">لوازم خانگی</li>
+                                <li><a href="#">یخچال</a></li>
+                                <li><a href="#">ماشین لباسشویی</a></li>
+                                <li><a href="#">گاز</a></li>
+                                <li><a href="#">جاروبرقی</a></li>
                                 <li class="divider"></li>
-                                <li class="dropdown-header">Fonts</li>
+                                <%--<li class="dropdown-header">Fonts</li>
                                 <li><a href="#">Glyphicon</a></li>
-                                <li><a href="#">Google Fonts</a></li>
+                                <li><a href="#">Google Fonts</a></li>--%>
                             </ul>
                         </li>
                         <li class="col-sm-3">
                             <ul>
-                                <li class="dropdown-header">Plus</li>
-                                <li><a href="#">Navbar Inverse</a></li>
-                                <li><a href="#">Pull Right Elements</a></li>
-                                <li><a href="#">Coloured Headers</a></li>
-                                <li><a href="#">Primary Buttons & Default</a></li>
+                                <li class="dropdown-header">کالای دیجیتال</li>
+                                <li><a href="#">رایانه</a></li>
+                                <li><a href="#">تلفن همراه</a></li>
+                                <li><a href="#">لوازم جانبی</a></li>
+                                <li><a href="#">ماشین‌های اداری</a></li>
                             </ul>
                         </li>
-                        <li class="col-sm-3">
+                        <%--<li class="col-sm-3">
                             <ul>
                                 <li class="dropdown-header">Much more</li>
                                 <li><a href="#">Easy to Customize</a></li>
@@ -184,8 +191,8 @@
                                 <li><a href="#">Custom Fonts</a></li>
                                 <li><a href="#">Slide down on Hover</a></li>
                             </ul>
-                        </li>
-                        <li class="col-sm-3">
+                        </li>--%>
+                        <%--<li class="col-sm-3">
                             <ul>
                                 <li class="dropdown-header">Women Collection</li>
                                 <div id="womenCollection" class="carousel slide" data-ride="carousel">
@@ -243,13 +250,13 @@
                                 <li><a href="#">View all Collection <span
                                         class="glyphicon glyphicon-chevron-right pull-right"></span></a></li>
                             </ul>
-                        </li>
+                        </li>--%>
                     </ul>
                 </li>
                 <li><a href="about-us"><spring:message code="menu.about.us" text="about us"/></a></li>
                 <li><a href="contact-us"><spring:message code="menu.contact.us" text="contact us"/></a></li>
             </ul>
-            <ul class="nav navbar-nav navbar-right">
+            <%--<ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">My
                         account <span class="caret"></span></a>
@@ -262,7 +269,7 @@
                     </ul>
                 </li>
                 <li><a href="#">My cart (0) items</a></li>
-            </ul>
+            </ul>--%>
         </div><!-- /.nav-collapse -->
     </nav>
 </div>
