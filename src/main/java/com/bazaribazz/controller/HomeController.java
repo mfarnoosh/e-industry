@@ -89,10 +89,20 @@ private static List<Product> products = new ArrayList<Product>();
 
     /**
      * Contact us page
+     * @return
      */
     @RequestMapping(value = "contact-us",method = RequestMethod.GET)
     public String contactUs(){
         return "contact-us";
+    }
+
+    /**
+     * Service add form
+     * @return
+     */
+    @RequestMapping(value = "add-service", method = RequestMethod.GET)
+    public String addService(){
+        return "add-service";
     }
 
 }

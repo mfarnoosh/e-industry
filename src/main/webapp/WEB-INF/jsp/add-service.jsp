@@ -1,52 +1,42 @@
 <%@ page pageEncoding="UTF-8" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
-
-
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%--
   Created by IntelliJ IDEA.
   User: dorsa
-  Date: 12/23/16
-  Time: 7:16 PM
+  Date: 12/29/16
+  Time: 11:50 AM
   To change this template use File | Settings | File Templates.
 --%>
-<%--<%@ page contentType="text/html;charset=UTF-8" language="java" %>--%>
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Contact Us</title>
-
-    <script type="text/javascript"
-            src="https://maps.googleapis.com/maps/api/place/nearbysearch/json" key="AIzaSyCsd-2oiWxJsS5Zi6t7H0nfUhkCoFZx86w" type="text/javascript"></script>
-
+    <title></title>
 </head>
 <body style="direction: rtl">
-
 <jsp:include page="header-menu.jsp"/>
-<div class="google_map" onload="loadMap()">
-    <div id="map_container"></div>
-</div>
-<div class="contact-form" >
+<div class="service-form">
     <div class="container">
         <div class="row">
             <div class="col-md-6 col-md-offset-3">
                 <div class="well well-sm">
                     <form class="form-horizontal" action="" method="post">
                         <fieldset>
-                            <legend class="text-center"><spring:message code="form.contact.us"/></legend>
+                            <legend class="text-center"><spring:message code="form.servive.title"/></legend>
 
-                            <!-- Name input-->
+                            <!-- Service Name input-->
                             <div class="form-group">
-                                <label class="col-md-3 control-label" for="name"><spring:message code="form.contact.name"/> </label>
+                                <label class="col-md-3 control-label" for="name"><spring:message code="form.service.serviceTitle"/> </label>
                                 <div class="col-md-9">
-                                    <input id="name" name="name" type="text" placeholder="<spring:message code="form.contact.name"/>" class="form-control">
+                                    <input id="name" name="name" type="text" placeholder="<spring:message code="form.service.serviceTitle"/>" class="form-control">
                                 </div>
                             </div>
 
-                            <!-- Email input-->
+                            <!-- Profession input-->
                             <div class="form-group">
-                                <label class="col-md-3 control-label" for="email"><spring:message code="form.contact.email"/> </label>
+                                <label class="col-md-3 control-label" for="profession"><spring:message code="form.service.guild"/> </label>
                                 <div class="col-md-9">
-                                    <input id="email" name="email" type="text" placeholder="<spring:message code="form.contact.email"/>" class="form-control">
+                                    <input id="profession" name="profession" type="text" placeholder="<spring:message code="form.service.guild"/>" class="form-control">
                                 </div>
                             </div>
 
@@ -71,8 +61,5 @@
         </div>
     </div>
 </div>
-<jsp:include page="footer.jsp"/>
-
-
 </body>
 </html>

@@ -101,6 +101,7 @@ li.col-sm-3{
     float: right;
 }
 .search-box{float: right;}
+label.col-md-3.control-label{float: right;}
 /*-----Page: Home------Product and Service Items----------*/
 /*service*/
 .servicebox{
