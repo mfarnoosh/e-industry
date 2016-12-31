@@ -105,4 +105,9 @@ private static List<Product> products = new ArrayList<Product>();
         return "add-service";
     }
 
+    @RequestMapping(value = "add-product", method = RequestMethod.GET)
+    public String addProduct(){
+        return "add-product";
+    }
+
 }
