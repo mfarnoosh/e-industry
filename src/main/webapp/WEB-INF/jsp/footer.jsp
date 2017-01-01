@@ -5,7 +5,7 @@
   Time: 10:41 AM
   To change this template use File | Settings | File Templates.
 --%>
-<%--<%@ page contentType="text/html;charset=UTF-8" language="java" %>--%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
 
@@ -14,14 +14,16 @@
 <div id="footer">
     <div class="container">
         <div class="row">
-            <h3 class="footertext">Footer</h3>
+            <%--<h3 class="footertext">Footer</h3>--%>
             <br>
-            <div class="col-md-4">
+            <div class="col-md-4 address">
                 <center>
-                    <%--<img src="http://oi60.tinypic.com/w8lycl.jpg" class="img-circle" alt="the-brains">--%>
+                    <img src="http://statics.drupalexp.com/orane/footer-map.png" alt="address">
                     <br>
-                    <h4 class="footertext">Programmer</h4>
-                    <p class="footertext">You can thank all the crazy programming here to this guy.<br>
+                    <h4 class="footertext"> اطلاعات تماس</h4>
+                    <p class="footertext"><i class="glyphicon glyphicon-home"></i><span>آدرس</span><br>
+                    <p class="footertext"><i class="glyphicon glyphicon-phone-alt"></i><span>تلفن</span><br>
+                    <p class="footertext"><i class="glyphicon glyphicon-envelope"></i><span>پست الکترونیکی</span><br>
                 </center>
             </div>
             <div class="col-md-4">

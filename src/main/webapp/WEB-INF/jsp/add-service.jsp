@@ -41,6 +41,13 @@
                                     <input id="profession" name="profession" type="text" placeholder="<spring:message code="form.service.guild"/>" class="form-control">
                                 </div>
                             </div>
+                            <!-- State input-->
+                            <div class="form-group">
+                                <label class="col-md-3 control-label" for="state"><spring:message code="form.service.state"/> </label>
+                                <div class="col-md-9">
+                                    <input id="state" name="state" type="text" placeholder="<spring:message code="form.service.state"/>" class="form-control">
+                                </div>
+                            </div>
                             <!--File Input-->
                             <div class="form-group">
                                 <label class="col-md-3 control-label" for="imageFile"><spring:message code="form.image"/> </label>
