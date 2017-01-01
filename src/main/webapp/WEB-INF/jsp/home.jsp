@@ -38,6 +38,7 @@
     <%-- Start Carousel--%>
     <jsp:include page="carousel.jsp"/>
         <!-- End Carousel -->
+
         <%-- Product and service Items--%>
             <div class="container-fluid table" align="center">
                 <c:forEach var="mitem" items="${myservice}">
@@ -53,6 +54,10 @@
                                 <dt><spring:message code="item.service.nameservice"/></dt>
                                 <dd>
                                     ${mitem.serviceName}
+                                </dd>
+                                <dt><spring:message code="item.service.state"/></dt>
+                                <dd>
+                                    ${mitem.state}
                                 </dd>
                             </dl>
                         </div>

@@ -1,7 +1,9 @@
 package com.bazaribazz.model;
 
-import java.awt.*;
-import java.util.UUID;
+import org.springframework.web.multipart.MultipartFile;
+
+import java.io.File;
+import java.util.*;
 
 /**
  * Created by dorsa on 12/5/16.
@@ -10,13 +12,14 @@ public class Service {
     private UUID id ;
     private String profession;
     private String serviceName;
-    private Image image;
+    private MultipartFile imageFile;
+    private String state;
 
-    public Service(String profession, String servicename){
+    public Service(String profession, String servicename, String state){
         this.id = UUID.randomUUID();
         this.serviceName = servicename;
         this.profession = profession;
-        this.image = image;
+        this.state = state;
     }
 
     public UUID getId() {
@@ -39,11 +42,19 @@ public class Service {
         this.profession = profession;
     }
 
-    public Image getImage() {
-        return image;
+    public MultipartFile getImageFile() {
+        return imageFile;
     }
 
-    public void setImage(Image image) {
-        this.image = image;
+    public void setImageFile(MultipartFile imageFile) {
+        this.imageFile = imageFile;
+    }
+
+    public String getState() {
+        return state;
+    }
+
+    public void setState(String state) {
+        this.state = state;
     }
 }

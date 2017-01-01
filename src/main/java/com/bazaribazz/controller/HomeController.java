@@ -7,31 +7,29 @@ import com.bazaribazz.view.ServiceForm;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.multipart.MultipartFile;
 
-import javax.servlet.http.HttpServletRequest;
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 /**
  * Created by dorsa on 12/3/16.
  */
 @Controller
-
 public class HomeController {
-@Autowired
+
     private static List<Service> services = new ArrayList<Service>();
 private static List<Product> products = new ArrayList<Product>();
 
     static {
-        services.add(new Service("نصب کاغذ دیواری","نصب کاغذ دیواری"));
-        services.add(new Service("کابینت","نصب کابینت"));
-        services.add(new Service("طراحی و دکوراسیون","طراحی و دکوراسیون داخلی"));
-        services.add(new Service("نقاشی ساختمان","رنگ و نقاشی ساختمان"));
-        services.add(new Service("تعمیر کار","تعمیرکار یخچال"));
+        services.add(new Service("نصب کاغذ دیواری","نصب کاغذ دیواری","تهران"));
+        services.add(new Service("کابینت","نصب کابینت","تهران"));
+        services.add(new Service("طراحی و دکوراسیون","طراحی و دکوراسیون داخلی","کرج"));
+        services.add(new Service("نقاشی ساختمان","رنگ و نقاشی ساختمان","کرج"));
+        services.add(new Service("تعمیر کار","تعمیرکار یخچال","تهران"));
     }
 
     static {
@@ -105,9 +103,35 @@ private static List<Product> products = new ArrayList<Product>();
         return "add-service";
     }
 
+    /**
+     * Add product page
+     * @return
+     */
     @RequestMapping(value = "add-product", method = RequestMethod.GET)
     public String addProduct(){
         return "add-product";
+    }
+    @RequestMapping(value = "saved",method = RequestMethod.POST)
+    public String transactionResponse(@ModelAttribute("uploadForm") Service service,
+                                      Model map) throws IllegalStateException, IOException{
+        String saveDirectory = "/home/dorsa/testfile/";
+
+        MultipartFile image = service.getImageFile();
+
+        List<String> fileNames = new ArrayList<String>();
+
+        if (null != image && image.getSize() > 0) {
+            String fileName = image.getOriginalFilename();
+            if (!"".equalsIgnoreCase(fileName)) {
+                // Handle file content - multipartFile.getInputStream()
+                image.transferTo(new File(saveDirectory + fileName));
+                fileNames.add(fileName);
+            }
+        }
+
+        map.addAttribute("files", fileNames);
+
+        return "success";
     }
 
 }

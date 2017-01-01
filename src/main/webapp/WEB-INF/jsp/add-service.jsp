@@ -12,6 +12,7 @@
 <html>
 <head>
     <title></title>
+
 </head>
 <body style="direction: rtl">
 <jsp:include page="header-menu.jsp"/>
@@ -20,7 +21,8 @@
         <div class="row">
             <div class="col-md-6 col-md-offset-3">
                 <div class="well well-sm">
-                    <form class="form-horizontal" action="" method="post">
+                    <form:form class="form-horizontal" action="saved" method="post"
+                          modelAttribute="uploadForm" enctype="multipart/form-data">
                         <fieldset>
                             <legend class="text-center"><spring:message code="form.servive.title"/></legend>
 
@@ -39,6 +41,13 @@
                                     <input id="profession" name="profession" type="text" placeholder="<spring:message code="form.service.guild"/>" class="form-control">
                                 </div>
                             </div>
+                            <!--File Input-->
+                            <div class="form-group">
+                                <label class="col-md-3 control-label" for="imageFile"><spring:message code="form.image"/> </label>
+                                <div class="col-md-9">
+                                    <input id="imageFile" name="File[0]" type="file" placeholder="<spring:message code="form.image"/>" class="form-control">
+                                </div>
+                            </div>
 
                             <!-- Message body -->
                             <div class="form-group">
@@ -55,7 +64,7 @@
                                 </div>
                             </div>
                         </fieldset>
-                    </form>
+                    </form:form>
                 </div>
             </div>
         </div>

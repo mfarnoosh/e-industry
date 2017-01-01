@@ -20,7 +20,7 @@
     <script src="<c:url value="/resources/bootstrap-3.3.7/dist/js/bootstrap.min.js"/>" type="text/javascript"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link href="<c:url value="/resources/bootstrap-3.3.7/dist/css/bootstrap.min.css"/>" rel="stylesheet">
-    <link href="<c:url value="/resources/css/style.css" />" rel="stylesheet">--%>
+    <link href="<c:url value="/resources/css/font-style.css" />" rel="stylesheet">--%>
 
 
 </head>

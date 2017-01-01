@@ -1,3 +1,4 @@
+@import "yekan/font-style.css";
 /*----Page: all------header style------------*/
 
 .header{
@@ -19,9 +20,10 @@
 }
 /*-----Page: all-----Navbar Style-----------*/
 
-@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,700);
+/*@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,700);*/
+
 body {
-    font-family: 'Open Sans', 'sans-serif';
+    font-family: yekan !important;
 }
 .mega-dropdown {
     position: static !important;
