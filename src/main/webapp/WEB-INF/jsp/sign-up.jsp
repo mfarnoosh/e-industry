@@ -1,4 +1,6 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: dorsa
@@ -11,6 +13,13 @@
 <html>
 <head>
     <title>Sign Up</title>
+    <link href="<c:url value="/resources/css/style.css" />" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src = "https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="<c:url value="/resources/js/main.js" />"></script>
+    <script src="<c:url value="/resources/bootstrap-3.3.7/dist/js/bootstrap.min.js"/>" type="text/javascript"></script>
+    <link href="<c:url value="/resources/bootstrap-3.3.7/dist/css/bootstrap.min.css"/>" rel="stylesheet">
+
 </head>
 <body style="direction: rtl">
 <jsp:include page="header-menu.jsp"/>
@@ -19,7 +28,7 @@
         <div class="row">
             <div class="col-md-6 col-md-offset-3">
                 <div class="well well-sm">
-                    <form class="form-horizontal" action="" method="post">
+                    <form:form class="form-horizontal" action="" method="post">
                         <fieldset>
                             <legend class="text-center"><spring:message code="sign.up.page.title"/></legend>
 
@@ -68,7 +77,7 @@
                                 </div>
                             </div>
                         </fieldset>
-                    </form>
+                    </form:form>
                 </div>
             </div>
         </div>

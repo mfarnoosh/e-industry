@@ -1,5 +1,6 @@
 <%@ page pageEncoding="UTF-8" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 
 <%--
@@ -14,6 +15,12 @@
 <html>
 <head>
     <title>Contact Us</title>
+    <link href="<c:url value="/resources/css/style.css" />" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src = "https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="<c:url value="/resources/js/main.js" />"></script>
+    <script src="<c:url value="/resources/bootstrap-3.3.7/dist/js/bootstrap.min.js"/>" type="text/javascript"></script>
+    <link href="<c:url value="/resources/bootstrap-3.3.7/dist/css/bootstrap.min.css"/>" rel="stylesheet">
 
     <script type="text/javascript"
             src="https://maps.googleapis.com/maps/api/place/nearbysearch/json" key="AIzaSyCsd-2oiWxJsS5Zi6t7H0nfUhkCoFZx86w" type="text/javascript"></script>

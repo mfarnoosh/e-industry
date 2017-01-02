@@ -1,4 +1,5 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: dorsa
@@ -11,6 +12,12 @@
 <html>
 <head>
     <title>Login</title>
+    <link href="<c:url value="/resources/css/style.css" />" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src = "https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="<c:url value="/resources/js/main.js" />"></script>
+    <script src="<c:url value="/resources/bootstrap-3.3.7/dist/js/bootstrap.min.js"/>" type="text/javascript"></script>
+    <link href="<c:url value="/resources/bootstrap-3.3.7/dist/css/bootstrap.min.css"/>" rel="stylesheet">
 </head>
 <body style="direction: rtl">
 <jsp:include page="header-menu.jsp"/>
@@ -25,9 +32,9 @@
 
                             <!-- UserName or Email input-->
                             <div class="form-group">
-                                <label class="col-md-3 control-label" for="username"><spring:message code="login.username.or.email"/> </label>
+                                <label class="col-md-3 control-label" for="username"><spring:message code="login.username"/> </label>
                                 <div class="col-md-9">
-                                    <input id="username" name="username" type="text" placeholder="<spring:message code="login.username.or.email"/>" class="form-control">
+                                    <input id="username" name="username" type="text" placeholder="<spring:message code="login.username"/>" class="form-control">
                                 </div>
                             </div>
 
