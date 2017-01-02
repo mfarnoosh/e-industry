@@ -111,6 +111,15 @@ private static List<Product> products = new ArrayList<Product>();
     public String addProduct(){
         return "add-product";
     }
+
+    /**
+     * Get image file
+     * @param service
+     * @param map
+     * @return to success page
+     * @throws IllegalStateException
+     * @throws IOException
+     */
     @RequestMapping(value = "saved",method = RequestMethod.POST)
     public String transactionResponse(@ModelAttribute("uploadForm") Service service,
                                       Model map) throws IllegalStateException, IOException{
@@ -132,6 +141,11 @@ private static List<Product> products = new ArrayList<Product>();
         map.addAttribute("files", fileNames);
 
         return "success";
+    }
+
+    @RequestMapping(value = "login",method = RequestMethod.GET)
+    public String loginPage(){
+        return "login";
     }
 
 }

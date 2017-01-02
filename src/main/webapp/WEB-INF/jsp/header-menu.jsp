@@ -40,7 +40,7 @@
                 </div>
             </form:form>
         </div>
-        <input type="button" class="btn btn-default login" value="<spring:message code="header.login"/>">
+        <input type="button" onclick="location.href='login'" class="btn btn-default login" value="<spring:message code="header.login"/>">
     </div>
 </header>
 <%--navbar--%>
