@@ -1,0 +1,79 @@
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+<%--
+  Created by IntelliJ IDEA.
+  User: dorsa
+  Date: 1/2/17
+  Time: 10:52 AM
+  To change this template use File | Settings | File Templates.
+--%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sign Up</title>
+</head>
+<body style="direction: rtl">
+<jsp:include page="header-menu.jsp"/>
+<div id="body">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+                <div class="well well-sm">
+                    <form class="form-horizontal" action="" method="post">
+                        <fieldset>
+                            <legend class="text-center"><spring:message code="sign.up.page.title"/></legend>
+
+                            <!-- First Name input-->
+                            <div class="form-group">
+                                <label class="col-md-3 control-label" for="first-name"><spring:message code="sign.up.first.name"/> </label>
+                                <div class="col-md-9">
+                                    <input id="first-name" name="first-name" type="text" placeholder="<spring:message code="sign.up.first.name"/>" class="form-control">
+                                </div>
+                            </div>
+                            <!-- Last Name input-->
+                            <div class="form-group">
+                                <label class="col-md-3 control-label" for="last-name"><spring:message code="sign.up.last.name"/> </label>
+                                <div class="col-md-9">
+                                    <input id="last-name" name="last-name" type="text" placeholder="<spring:message code="sign.up.last.name"/>" class="form-control">
+                                </div>
+                            </div>
+                            <!-- Last Name input-->
+                            <div class="form-group">
+                                <label class="col-md-3 control-label" for="username"><spring:message code="sign.up.username"/> </label>
+                                <div class="col-md-9">
+                                    <input id="username" name="username" type="text" placeholder="<spring:message code="sign.up.username"/>" class="form-control">
+                                </div>
+                            </div>
+
+                            <!-- Password input-->
+                            <div class="form-group">
+                                <label class="col-md-3 control-label" for="password"><spring:message code="sign.up.password"/> </label>
+                                <div class="col-md-9">
+                                    <input id="password" name="password" type="password" placeholder="<spring:message code="sign.up.password"/>" class="form-control">
+                                </div>
+                            </div>
+                            <!-- Retype Password input-->
+                            <div class="form-group">
+                                <label class="col-md-3 control-label" for="re-password"><spring:message code="sign.up.retype.password"/> </label>
+                                <div class="col-md-9">
+                                    <input id="re-password" name="re-password" type="password" placeholder="<spring:message code="sign.up.retype.password"/>" class="form-control">
+                                </div>
+                            </div>
+
+
+                            <!-- Form actions -->
+                            <div class="form-group">
+                                <div class="col-md-12 text-right">
+                                    <button type="submit" class="btn btn-primary btn-lg"><spring:message code="sign.up.register"/> </button>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<jsp:include page="footer.jsp"/>
+</body>
+</html>

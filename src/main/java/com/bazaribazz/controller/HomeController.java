@@ -143,9 +143,17 @@ private static List<Product> products = new ArrayList<Product>();
         return "success";
     }
 
+    /**
+     * Login page
+     * @return
+     */
     @RequestMapping(value = "login",method = RequestMethod.GET)
     public String loginPage(){
         return "login";
     }
 
+    @RequestMapping(value = "sign-up",method = RequestMethod.GET)
+    public String signUp(){
+        return "sign-up";
+    }
 }

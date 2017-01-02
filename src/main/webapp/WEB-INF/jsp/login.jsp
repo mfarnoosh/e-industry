@@ -31,7 +31,7 @@
                                 </div>
                             </div>
 
-                            <!-- Email input-->
+                            <!-- Password input-->
                             <div class="form-group">
                                 <label class="col-md-3 control-label" for="password"><spring:message code="login.password"/> </label>
                                 <div class="col-md-9">
@@ -44,7 +44,7 @@
                             <div class="form-group">
                                 <div class="col-md-12 text-right">
                                     <button type="submit" class="btn btn-primary btn-lg"><spring:message code="login.enter.button"/> </button>
-                                    <input type="button" onclick="location.href='signup'"  class="btn btn-primary btn-lg" value="<spring:message code="login.I.want.to.create.an.account"/>"/>
+                                    <input type="button" onclick="location.href='sign-up'"  class="btn btn-primary btn-lg" value="<spring:message code="login.I.want.to.create.an.account"/>"/>
                                 </div>
                             </div>
                         </fieldset>
