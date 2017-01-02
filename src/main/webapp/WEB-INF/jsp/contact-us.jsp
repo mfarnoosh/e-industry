@@ -25,7 +25,7 @@
 <div class="google_map" onload="loadMap()">
     <div id="map_container"></div>
 </div>
-<div class="contact-form" >
+<div class="contact-form" id="body">
     <div class="container">
         <div class="row">
             <div class="col-md-6 col-md-offset-3">

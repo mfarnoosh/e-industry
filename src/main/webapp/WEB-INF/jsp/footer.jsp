@@ -44,9 +44,9 @@
             </div>
         </div>
         <div class="row">
-            <p>
+            <%--<p>
                 <center><a href="#">Contact Stuff Here</a>
-            <p class="footertext">Copyright 2014</p></center></p>
+            <p class="footertext">Copyright 2014</p></center></p>--%>
         </div>
     </div>
 </div>

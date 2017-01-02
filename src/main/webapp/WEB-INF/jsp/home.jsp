@@ -34,13 +34,13 @@
 <jsp:include page="header-menu.jsp"/>
 
 <%--content container--%>
-<div class="container">
+<div class="container" id="body">
     <%-- Start Carousel--%>
     <jsp:include page="carousel.jsp"/>
         <!-- End Carousel -->
 
         <%-- Product and service Items--%>
-            <div class="container-fluid table" align="center">
+        <div class="container-fluid table" align="center">
                 <c:forEach var="mitem" items="${myservice}">
                     <div class="col-md-4 column servicebox">
                         <img src="/edustry/resources/img/brush.jpg" class="img-responsive">
