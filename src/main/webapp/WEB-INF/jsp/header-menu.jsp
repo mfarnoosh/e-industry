@@ -53,7 +53,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="home"><spring:message code="site.name" text="site.name"/> </a>
+            <a class="navbar-brand" href="/edustry"><spring:message code="site.name" text="site.name"/> </a>
         </div>
         <div class="collapse navbar-collapse js-navbar-collapse pull-right">
             <ul class="nav navbar-nav">

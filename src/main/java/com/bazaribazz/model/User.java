@@ -3,13 +3,21 @@ package com.bazaribazz.model;
 
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
+
+import javax.annotation.Generated;
 import javax.validation.constraints.Size;
 import java.util.UUID;
 
 /**
  * Created by dorsa on 1/2/17.
  */
+/*
+* @Entity
+*@Table(name="users")
+* */
 public class User {
+
+//    private Integer id;
     private UUID userID;
     @NotEmpty(message = "Please Enter Your First Name.")
     private String firstName;
@@ -23,6 +31,7 @@ public class User {
     @NotEmpty
     @Size(min = 6,max = 15,message = "Your password must between 6 and 15 characters")
     private String password;
+    private Role role;
 
     public User(){
         userID = UUID.randomUUID();
@@ -70,5 +79,13 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public Role getRole() {
+        return role;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
     }
 }

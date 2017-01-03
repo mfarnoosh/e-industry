@@ -26,7 +26,7 @@
         <div class="row">
             <div class="col-md-6 col-md-offset-3">
                 <div class="well well-sm">
-                    <form class="form-horizontal" action="" method="post">
+                    <form class="form-horizontal" action="/edustry" method="post">
                         <fieldset>
                             <legend class="text-center"><spring:message code="login.page.title"/></legend>
 
@@ -49,9 +49,9 @@
 
                             <!-- Form actions -->
                             <div class="form-group">
-                                <div class="col-md-12 text-right">
+                                <div class="col-md-12 text-center">
                                     <button type="submit" class="btn btn-primary btn-lg"><spring:message code="login.enter.button"/> </button>
-                                    <input type="button" onclick="location.href='sign-up'"  class="btn btn-primary btn-lg" value="<spring:message code="login.I.want.to.create.an.account"/>"/>
+                                    <input type="button" onclick="location.href='sign-up'"  class="btn btn-primary btn-lg" value="<spring:message code="login.register.button"/>"/>
                                 </div>
                             </div>
                         </fieldset>

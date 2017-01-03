@@ -1,3 +1,4 @@
+/*--------Mega Menu------------*/
 $(document).ready(function(){
     $(".dropdown").hover(
         function() {
@@ -33,4 +34,19 @@ $(document).ready( function() {
         }
         clickEvent = false;
     });
+});
+
+/*---------Confirm Password----------*/
+function checkPasswordMatch() {
+    var password = $('#password').val();
+    var confirmPassword = $('#re-password').val();
+    if (password != confirmPassword)
+        $("#divCheckPasswordMatch").html("گذرواژه‌هایکسان نیستند!");
+    else
+        // $("#divCheckPasswordMatch").html("Passwords match.");
+        $("#divCheckPasswordMatch").hide();
+
+}
+$(document).ready(function () {
+    $("#password, #re-password").keyup(checkPasswordMatch);
 });

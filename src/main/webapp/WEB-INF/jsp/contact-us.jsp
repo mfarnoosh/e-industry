@@ -67,7 +67,7 @@
 
                             <!-- Form actions -->
                             <div class="form-group">
-                                <div class="col-md-12 text-right">
+                                <div class="col-md-12 text-left">
                                     <button type="submit" class="btn btn-primary btn-lg"><spring:message code="site.submit"/> </button>
                                 </div>
                             </div>

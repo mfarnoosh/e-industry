@@ -28,7 +28,7 @@
         <div class="row">
             <div class="col-md-6 col-md-offset-3">
                 <div class="well well-sm">
-                    <form:form class="form-horizontal" action="" method="post">
+                    <form:form class="form-horizontal" action="success" method="post">
                         <fieldset>
                             <legend class="text-center"><spring:message code="sign.up.page.title"/></legend>
 
@@ -46,7 +46,7 @@
                                     <input id="last-name" name="last-name" type="text" placeholder="<spring:message code="sign.up.last.name"/>" class="form-control">
                                 </div>
                             </div>
-                            <!-- Last Name input-->
+                            <!-- UserName input-->
                             <div class="form-group">
                                 <label class="col-md-3 control-label" for="username"><spring:message code="sign.up.username"/> </label>
                                 <div class="col-md-9">
@@ -66,13 +66,14 @@
                                 <label class="col-md-3 control-label" for="re-password"><spring:message code="sign.up.retype.password"/> </label>
                                 <div class="col-md-9">
                                     <input id="re-password" name="re-password" type="password" placeholder="<spring:message code="sign.up.retype.password"/>" class="form-control">
+                                    <div class="registrationFormAlert" id="divCheckPasswordMatch"></div>
                                 </div>
                             </div>
 
 
                             <!-- Form actions -->
                             <div class="form-group">
-                                <div class="col-md-12 text-right">
+                                <div class="col-md-12 text-left">
                                     <button type="submit" class="btn btn-primary btn-lg"><spring:message code="sign.up.register"/> </button>
                                 </div>
                             </div>
