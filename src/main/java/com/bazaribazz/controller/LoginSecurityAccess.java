@@ -26,7 +26,7 @@ public class LoginSecurityAccess extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-                .antMatchers("/", "/home").access("hasRole('USER')")
+                .antMatchers("/", "/home").access("isAnonymous()")
                 .antMatchers("/admin/**").access("hasRole('ADMIN')")
                 .antMatchers("/db/**").access("hasRole('ADMIN') and hasRole('DBA')")
                 .and().formLogin().loginPage("/login").successHandler(customSuccessHandler)

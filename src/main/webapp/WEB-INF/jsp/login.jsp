@@ -26,7 +26,8 @@
         <div class="row">
             <div class="col-md-6 col-md-offset-3">
                 <div class="well well-sm">
-                    <form class="form-horizontal" action="/edustry" method="post">
+                    <c:url var="loginUrl" value="/login" />
+                    <form class="form-horizontal" action="${loginUrl}" method="post">
                         <fieldset>
                             <legend class="text-center"><spring:message code="login.page.title"/></legend>
 
@@ -34,7 +35,7 @@
                             <div class="form-group">
                                 <label class="col-md-3 control-label" for="username"><spring:message code="login.username"/> </label>
                                 <div class="col-md-9">
-                                    <input id="username" name="username" type="text" placeholder="<spring:message code="login.username"/>" class="form-control">
+                                    <input id="username" name="ssoId" type="text" placeholder="<spring:message code="login.username"/>" class="form-control">
                                 </div>
                             </div>
 
@@ -46,7 +47,7 @@
                                 </div>
                             </div>
 
-
+                            <input type="hidden" name="${_csrf.parameterName}"  value="${_csrf.token}" />
                             <!-- Form actions -->
                             <div class="form-group">
                                 <div class="col-md-12 text-center">

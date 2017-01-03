@@ -4,9 +4,11 @@ import com.bazaribazz.model.Product;
 import com.bazaribazz.model.Service;
 import com.bazaribazz.view.ProductForm;
 import com.bazaribazz.view.ServiceForm;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -98,18 +100,18 @@ private static List<Product> products = new ArrayList<Product>();
      * Service add form
      * @return
      */
-    @RequestMapping(value = "add-service", method = RequestMethod.GET)
+    @RequestMapping(value = "new-service", method = RequestMethod.GET)
     public String addService(){
-        return "add-service";
+        return "new-service";
     }
 
     /**
      * Add product page
      * @return
      */
-    @RequestMapping(value = "add-product", method = RequestMethod.GET)
+    @RequestMapping(value = "new-product", method = RequestMethod.GET)
     public String addProduct(){
-        return "add-product";
+        return "new-product";
     }
 
     /**
@@ -152,8 +154,35 @@ private static List<Product> products = new ArrayList<Product>();
         return "login";
     }
 
+    /**
+     * Sign up page
+     *
+     * @return
+     */
     @RequestMapping(value = "sign-up",method = RequestMethod.GET)
     public String signUp(){
         return "sign-up";
+    }
+
+    @RequestMapping(value = "admin",method = RequestMethod.GET)
+    public String adminPage(ModelMap model){
+        model.addAttribute("user", getPrincipal());
+        return "admin";
+    }
+    @RequestMapping(value = "/Access_Denied", method = RequestMethod.GET)
+    public String accessDeniedPage(ModelMap model) {
+        model.addAttribute("user", getPrincipal());
+        return "accessDenied";
+    }
+    private String getPrincipal(){
+        String userName = null;
+        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+
+        if (principal instanceof UserDetails) {
+            userName = ((UserDetails)principal).getUsername();
+        } else {
+            userName = principal.toString();
+        }
+        return userName;
     }
 }
