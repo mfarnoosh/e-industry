@@ -6,11 +6,11 @@
 
     <http auto-config="true" >
 
-        <intercept-url pattern="/" access="isAnonymous()" />
-        <intercept-url pattern="/home" access="isAnonymous()" />
+        <!--<intercept-url pattern="/" access="isAnonymous()" />
+        <intercept-url pattern="/home" access="isAnonymous()" />-->
         <intercept-url pattern="/admin**" access="hasRole('ADMIN')" />
         <intercept-url pattern="/admin/*" access="hasRole('ADMIN')" />
-        <intercept-url pattern="/dba**" access="hasRole('ADMIN') and hasRole('DBA')" />
+        <intercept-url pattern="/seller**" access="hasRole('ADMIN') and hasRole('SELLER')" />
         <form-login  login-page="/login"
                      default-target-url="/"
                      username-parameter="ssoId"
@@ -25,7 +25,7 @@
             <user-service>
                 <user name="bill"  password="abc123"  authorities="ROLE_USER" />
                 <user name="admin" password="root123" authorities="ROLE_ADMIN" />
-                <user name="dba"   password="root123" authorities="ROLE_ADMIN,ROLE_DBA" />
+                <user name="seller"   password="123456" authorities="ROLE_ADMIN,ROLE_SELLER" />
             </user-service>
         </authentication-provider>
     </authentication-manager>

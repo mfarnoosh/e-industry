@@ -14,27 +14,29 @@
 <body>
 <div class="actions">
     <div class="col-md-3 pull-right">
-        <span class=""><a href="admin/new-service"><i class="glyphicon glyphicon-plus-sign"></i><spring:message code="services.add.service"/></a></span>
+        <span class=""><a href="admin/new-user"><i class="glyphicon glyphicon-plus-sign"></i>افزودن کاربر</a></span>
     </div>
 </div>
 <div class="table-responsive">
     <table class="table table-hover">
         <thead>
         <tr>
-            <th><spring:message code="services.id"/> </th>
-            <th><spring:message code="services.name"/> </th>
-            <th><spring:message code="services.guild"/> </th>
-            <th><spring:message code="services.comment"/> </th>
-            <th></th>
+            <th>ID</th>
+            <th>First name</th>
+            <th>Last name</th>
+            <th>username</th>
+            <th>Role</th>
+            <th>operations</th>
         </tr>
         </thead>
         <tbody>
         <tr>
             <td>1</td>
-            <td>wallpaper</td>
-            <td>wood</td>
-            <td>comment coment comment</td>
-            <td><a href="#"><spring:message code="site.edit"/> </a> </td>
+            <td>admin</td>
+            <td>admin</td>
+            <td>admin</td>
+            <td>admin</td>
+            <td><a href="#">edit</a> </td>
         </tr>
         </tbody>
     </table>

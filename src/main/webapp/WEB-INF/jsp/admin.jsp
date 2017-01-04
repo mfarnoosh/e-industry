@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: dorsa
@@ -10,6 +11,8 @@
 <html>
 <head>
     <title>admin</title>
+    <%--<script src = "https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>--%>
+<%--<script src="<c:url value="/resources/js/main.js" />"></script>--%>
 </head>
 <body style="direction: rtl">
 <jsp:include page="header-menu.jsp"/>

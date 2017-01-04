@@ -20,7 +20,7 @@ public class LoginSecurityAccess extends WebSecurityConfigurerAdapter {
     public void configureGlobalSecurity(AuthenticationManagerBuilder auth) throws Exception {
         auth.inMemoryAuthentication().withUser("bill").password("abc123").roles("USER");
         auth.inMemoryAuthentication().withUser("admin").password("root123").roles("ADMIN");
-        auth.inMemoryAuthentication().withUser("dba").password("root123").roles("ADMIN","DBA");
+        auth.inMemoryAuthentication().withUser("seller").password("123456").roles("ADMIN","SELLER");
     }
 
     @Override
@@ -28,7 +28,7 @@ public class LoginSecurityAccess extends WebSecurityConfigurerAdapter {
         http.authorizeRequests()
                 .antMatchers("/", "/home").access("isAnonymous()")
                 .antMatchers("/admin/**").access("hasRole('ADMIN')")
-                .antMatchers("/db/**").access("hasRole('ADMIN') and hasRole('DBA')")
+                .antMatchers("/seller/**").access("hasRole('ADMIN') and hasRole('SELLER')")
                 .and().formLogin().loginPage("/login").successHandler(customSuccessHandler)
                 .usernameParameter("ssoId").passwordParameter("password")
                 .and().csrf()

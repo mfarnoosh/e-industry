@@ -28,62 +28,65 @@
     <link href="<c:url value="/resources/css/style.css" />" rel="stylesheet">
 
 </head>
-<body>
+<body data-spy="scroll" data-target=".container-navbar" data-offset="50">
 
 <%--Header and Menu--%>
 <jsp:include page="header-menu.jsp"/>
-
+<%-- Start Carousel--%>
+<jsp:include page="carousel.jsp"/>
+<!-- End Carousel -->
 <%--content container--%>
 <div class="container" id="body">
-    <%-- Start Carousel--%>
-    <jsp:include page="carousel.jsp"/>
-        <!-- End Carousel -->
-
-        <%-- Product and service Items--%>
-        <div class="container-fluid table" align="center">
-                <c:forEach var="mitem" items="${myservice}">
-                    <div class="col-md-4 column servicebox">
-                        <img src="/edustry/resources/img/brush.jpg" class="img-responsive">
-                        <div class="servicetitle">
-                            <dl>
-                                    <%--<dt><c:out value="${vars.serviceName}"/></dt>--%>
-                                <dt><spring:message code="item.service.profession"/> </dt>
-                                <dd>
-                                    ${mitem.profession}
-                                </dd>
-                                <dt><spring:message code="item.service.nameservice"/></dt>
-                                <dd>
-                                    ${mitem.serviceName}
-                                </dd>
-                                <dt><spring:message code="item.service.state"/></dt>
-                                <dd>
-                                    ${mitem.state}
-                                </dd>
-                            </dl>
-                        </div>
-                        <div class="productprice">
-                            <div class="pull-right">
-                                <a href="#" class="btn btn-danger btn-sm" role="button">بیشتر</a>
-                            </div>
-                        </div>
-                    </div>
-                </c:forEach>
-            </div>
-        <div class="product-container">
-            <c:forEach var="mitem" items="${myproduct}">
-                <div class="col-md-2 column productbox">
-                    <img src="resources/img/refreg.jpg" class="img-responsive">
-                    <div class="producttitle">${mitem.productType}</div>
-                    <div class="productprice">
-                        <div class="pull-right">
+    <div id="service" style="display: inline;">
+        <h3 style="margin-top: 3%; margin-right: 3%;">خدمات</h3>
+    </div>
+    <%-- Product and service Items--%>
+    <div class="container-fluid table" align="center">
+        <c:forEach var="mitem" items="${myservice}">
+            <div class="col-md-4 column servicebox pull-right">
+                <img src="/edustry/resources/img/brush.jpg" class="img-responsive">
+                <div class="servicetitle">
+                    <dl>
+                            <%--<dt><c:out value="${vars.serviceName}"/></dt>--%>
+                        <dt><spring:message code="item.service.profession"/> </dt>
+                        <dd>
+                                ${mitem.profession}
+                        </dd>
+                        <dt><spring:message code="item.service.nameservice"/></dt>
+                        <dd>
+                                ${mitem.serviceName}
+                        </dd>
+                        <dt><spring:message code="item.service.state"/></dt>
+                        <dd>
+                                ${mitem.state}
+                        </dd>
+                    </dl>
+                </div>
+                <div class="productprice">
+                    <div class="pull-right">
                         <a href="#" class="btn btn-danger btn-sm" role="button">بیشتر</a>
-                        </div>
-                        <div class="pricetext">${mitem.price}تومان</div>
                     </div>
                 </div>
-            </c:forEach>
-        </div>
-        <%--</c:forEach>--%>
+            </div>
+        </c:forEach>
+    </div>
+    <div style="display: inline;">
+        <h3 style="margin-top: 3%; margin-right: 3%;">محصولات</h3>
+    </div>
+    <div class="product-container">
+        <c:forEach var="mitem" items="${myproduct}">
+            <div class="col-md-2 column pull-right productbox">
+                <img src="resources/img/refreg.jpg" class="img-responsive">
+                <div class="producttitle">${mitem.productType}</div>
+                <div class="productprice">
+                    <div class="pull-right">
+                        <a href="#" class="btn btn-danger btn-sm" role="button">بیشتر</a>
+                    </div>
+                    <div class="pricetext">${mitem.price}تومان</div>
+                </div>
+            </div>
+        </c:forEach>
+    </div>
 </div>
 <%--footer--%>
 <jsp:include page="footer.jsp"/>

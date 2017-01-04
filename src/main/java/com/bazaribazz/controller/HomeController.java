@@ -194,4 +194,8 @@ private static List<Product> products = new ArrayList<Product>();
     public String productsPage(){
         return "products";
     }
+    @RequestMapping(value = "admin/users",method = RequestMethod.GET)
+    public String usersPage(){
+        return "users";
+    }
 }

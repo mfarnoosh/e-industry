@@ -9,27 +9,27 @@
   Time: 1:20 PM
   To change this template use File | Settings | File Templates.
 --%>
-
+<!DOCTYPE html>
 <html>
 <head>
     <%--External sources--%>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <%--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">--%>
     <%--<link href = "//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel = "stylesheet">--%>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src = "https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <%--<script src = "https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>--%>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <%--<script src = "//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>--%>
     <%--Internal sources--%>
 
     <%--<script src="<c:url value="/resources/js/jquery-3.1.1.min.js" />"></script>--%>
-    <script src="<c:url value="/resources/js/main.js" />"></script>
-    <script src="<c:url value="/resources/bootstrap-3.3.7/dist/js/bootstrap.min.js"/>" type="text/javascript"></script>
-    <link href="<c:url value="/resources/bootstrap-3.3.7/dist/css/bootstrap.min.css"/>" rel="stylesheet">
+    <%--<script src="<c:url value="/resources/js/main.js" />"></script>--%>
+    <%--<script src="<c:url value="/resources/bootstrap-3.3.7/dist/js/bootstrap.min.js"/>" type="text/javascript"></script>--%>
+    <%--<link href="<c:url value="/resources/bootstrap-3.3.7/dist/css/bootstrap.min.css"/>" rel="stylesheet">--%>
         <link href="<c:url value="/resources/css/style.css" />" rel="stylesheet">
 </head>
 <body>
 <header>
-    <div class="header">
+    <div class="header container-fluid">
         <div class="col-md-3 search-box">
             <form:form class="navbar-form" role="search" method="get" action="search" commandName="home">
                 <div class="input-group add-on">
@@ -45,7 +45,7 @@
 </header>
 <%--navbar--%>
 <div class="container-navbar" style="direction: rtl">
-    <nav class="navbar navbar-default">
+    <nav class="navbar navbar-default" data-spy="affix" data-offset-top="57">
         <div class="navbar-header navbar-right">
             <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".js-navbar-collapse">
                 <span class="sr-only">Toggle navigation</span>

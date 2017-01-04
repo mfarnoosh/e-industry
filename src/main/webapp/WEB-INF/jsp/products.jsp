@@ -14,18 +14,17 @@
 <body>
 <div class="actions">
     <div class="col-md-3 pull-right">
-        <span class=""><a href="admin/new-product"><i class="glyphicon glyphicon-plus-sign"></i>افزودن محصول</a></span>
+        <span class=""><a href="admin/new-product"><i class="glyphicon glyphicon-plus-sign"></i><spring:message code="products.add.product"/> </a></span>
     </div>
 </div>
 <div class="table-responsive">
     <table class="table table-hover">
         <thead>
         <tr>
-            <th>ID</th>
-            <th>product name</th>
-            <th>product profession</th>
-            <th>product comment</th>
-            <th>operations</th>
+            <th><spring:message code="products.id"/> </th>
+            <th><spring:message code="products.name"/> </th>
+            <th><spring:message code="product.SKU"/> </th>
+            <th></th>
         </tr>
         </thead>
         <tbody>
@@ -33,8 +32,7 @@
             <td>1</td>
             <td>wallpaper</td>
             <td>wood</td>
-            <td>comment coment comment</td>
-            <td><a href="#">edit</a> </td>
+            <td><a href="#"><spring:message code="site.edit"/> </a> </td>
         </tr>
         </tbody>
     </table>

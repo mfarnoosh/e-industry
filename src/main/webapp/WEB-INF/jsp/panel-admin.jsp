@@ -28,7 +28,7 @@
         <i class="glyphicon glyphicon glyphicon-briefcase btn-block gi-4x"></i>
         <span class="text-bottom btn-block"><spring:message code="admin.products"/></span>
     </div>
-    <div class="col-md-2 text-center dashboard-box pull-right">
+    <div class="col-md-2 text-center dashboard-box pull-right"onclick="openPage('admin/users');">
         <i class="glyphicon glyphicon-user btn-block gi-4x"></i>
         <span class="text-bottom btn-block"><spring:message code="admin.users"/></span>
     </div>

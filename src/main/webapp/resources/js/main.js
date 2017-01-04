@@ -1,3 +1,4 @@
+// $('body').scrollspy({ target: '.container-navbar' })
 /*--------Mega Menu------------*/
 $(document).ready(function(){
     $(".dropdown").hover(
@@ -12,29 +13,24 @@ $(document).ready(function(){
     );
 });
 /*---------carousel-------------*/
-$(document).ready( function() {
-    $('#myCarousel').carousel({
-        interval:   10000
-    });
+(function ($) {
+    $('#myCarousel').carousel();
+    var winWidth = $(window).innerWidth();
+    $(window).resize(function () {
 
-    var clickEvent = false;
-    $('#myCarousel').on('click', '.nav a', function() {
-        clickEvent = true;
-        $('.nav li').removeClass('active');
-        $(this).parent().addClass('active');
-    }).on('slid.bs.carousel', function(e) {
-        if(!clickEvent) {
-            var count = $('.nav').children().length -1;
-            var current = $('.nav li.active');
-            current.removeClass('active').next().addClass('active');
-            var id = parseInt(current.data('slide-to'));
-            if(count == id) {
-                $('.nav li').first().addClass('active');
-            }
+        if ($(window).innerWidth() < winWidth) {
+            $('.carousel-inner>.item>img').css({
+                'min-width': winWidth, 'width': winWidth
+            });
         }
-        clickEvent = false;
+        else {
+            winWidth = $(window).innerWidth();
+            $('.carousel-inner>.item>img').css({
+                'min-width': '', 'width': ''
+            });
+        }
     });
-});
+})(jQuery);
 
 /*---------Confirm Password----------*/
 function checkPasswordMatch() {

@@ -38,7 +38,7 @@
                                 </div>
                             </div>
 
-                            <!-- Profession input-->
+                            <!-- SKU input-->
                             <div class="form-group">
                                 <label class="col-md-3 control-label" for="product-sku"><spring:message code="form.product.SKU"/> </label>
                                 <div class="col-md-9">

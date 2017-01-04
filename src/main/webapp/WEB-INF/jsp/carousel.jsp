@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: dorsa
@@ -8,76 +9,74 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
+    <%--<script src = "https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>--%>
+    <%--<script src="<c:url value="/resources/js/main.js" />"></script>--%>
+    <%--<script src="<c:url value="/resources/bootstrap-3.3.7/dist/js/bootstrap.min.js"/>" type="text/javascript"></script>--%>
+
 
 </head>
 <body>
-<div class="container">
-    <div id="myCarousel" class="carousel slide" data-ride="carousel">
-        <!-- Wrapper for slides -->
-        <div class="carousel-inner">
-            <div class="item active">
-                <img src="http://placehold.it/1200x400/16a085/ffffff&text=About Us">
-                <div class="carousel-caption">
-                    <h3>
-                        Headline</h3>
-                    <p>
-                        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
-                        tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. Lorem
-                        ipsum dolor sit amet, consetetur sadipscing elitr.</p>
-                </div>
-            </div>
-            <!-- End Item -->
-            <div class="item">
-                <img src="http://placehold.it/1200x400/e67e22/ffffff&text=Projects">
-                <div class="carousel-caption">
-                    <h3>
-                        Headline</h3>
-                    <p>
-                        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
-                        tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. Lorem
-                        ipsum dolor sit amet, consetetur sadipscing elitr.</p>
-                </div>
-            </div>
-            <!-- End Item -->
-            <div class="item">
-                <img src="http://placehold.it/1200x400/2980b9/ffffff&text=Portfolio">
-                <div class="carousel-caption">
-                    <h3>
-                        Headline</h3>
-                    <p>
-                        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
-                        tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. Lorem
-                        ipsum dolor sit amet, consetetur sadipscing elitr.</p>
-                </div>
-            </div>
-            <!-- End Item -->
-            <div class="item">
-                <img src="http://placehold.it/1200x400/8e44ad/ffffff&text=Services">
-                <div class="carousel-caption">
-                    <h3>
-                        Headline</h3>
-                    <p>
-                        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
-                        tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. Lorem
-                        ipsum dolor sit amet, consetetur sadipscing elitr.</p>
-                </div>
-            </div>
-            <!-- End Item -->
+<%--slideshow--%>
+<div id="myCarousel" class="carousel slide">
+    <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="" contenteditable="false"></li>
+        <li data-target="#myCarousel" data-slide-to="1" class="active" contenteditable="false"></li>
+        <li data-target="#myCarousel" data-slide-to="2" class="" contenteditable="false"></li>
+        <li data-target="#myCarousel" data-slide-to="3" class="" contenteditable="false"></li>
+    </ol>
+    <div class="carousel-inner">
+        <div class="item" style="">
+            <img src="http://worldofwood.life/wp-content/uploads/2016/07/cropped-image-7-1-1200x400.jpg" alt="" class="">
+            <%--<div class="carousel-caption">
+                <h4 class="">First Slide Title</h4>
+                <p class="">
+                    Description for First Slide, this First Slide.
+                </p>
+            </div>--%>
         </div>
-        <!-- End Carousel Inner -->
-        <ul class="nav nav-pills nav-justified">
-            <li data-target="#myCarousel" data-slide-to="0" class="active"><a href="#">About<small>Lorem
-                ipsum dolor sit</small></a></li>
-            <li data-target="#myCarousel" data-slide-to="1"><a href="#">Projects<small>Lorem ipsum
-                dolor sit</small></a></li>
-            <li data-target="#myCarousel" data-slide-to="2"><a href="#">Portfolio<small>Lorem ipsum
-                dolor sit</small></a></li>
-            <li data-target="#myCarousel" data-slide-to="3"><a href="#">Services<small>Lorem ipsum
-                dolor sit</small></a></li>
-        </ul>
+        <div class="item active">
+            <img src="http://mns.design/wp-content/uploads/2015/06/image1.jpg" alt="" class="">
+            <%--<div class="carousel-caption">
+                <h4 class="">Second Slide Title</h4>
+
+                <p class="">
+                    Description for Second Slide, this is Second Slide.
+                </p>
+            </div>--%>
+        </div>
+        <div class="item" style="">
+            <img src="http://www.customwallpaper.net.au/wp-content/uploads/2016/05/hp_elephant.jpg" alt="" class="">
+            <%--<div class="carousel-caption">
+                <h4 class="">Third Slide Title</h4>
+
+                <p class="">
+                    Description for Third Slide, this is Third Slide.
+                </p>
+            </div>--%>
+        </div>
+        <div class="item" style="">
+            <img src="http://www.applicart.co.uk/wp-content/uploads/2015/03/LatticeWhiteHeader-1200x400.jpg" alt="" class="">
+            <%--<div class="carousel-caption">
+                <h4 class="">Third Slide Title</h4>
+
+                <p class="">
+                    Description for Third Slide, this is Third Slide.
+                </p>
+            </div>--%>
+        </div>
     </div>
-    <!-- End Carousel -->
+
+    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left"></span>
+    </a>
+
+    <a class="right carousel-control" href="#myCarousel" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right"></span>
+    </a>
+
+
 </div>
+
 
 </body>
 </html>
