@@ -179,7 +179,7 @@ label.col-md-3.control-label{float: right;}
     padding: 8px;
     background-color: #f8f8f8;
 }
-table,.table>tbody>tr>th,.table>tbody>tr,p{
+table,.table>tbody>tr>th,.table>tbody>tr,.table>thead>tr>th,p{
     direction: rtl;
     text-align: right;
 }
@@ -194,7 +194,7 @@ table,.table>tbody>tr>th,.table>tbody>tr,p{
 #body{
     padding-bottom: 280px;
 }
-/*------Page: Admin-------section: --------*/
+/*------Page: Admin-------section: dashboard--------*/
 .gi-4x{
     font-size: 4em;
     margin-left: 0px;
@@ -217,6 +217,16 @@ table,.table>tbody>tr>th,.table>tbody>tr,p{
     z-index: 20;
     background: rgba(238, 162, 54, 0.8);
     transition: all 0.5s;
+}
+.bottom-margin2x{
+    margin-bottom: 2em;
+}
+/*-----Page: Admin------section: page view-------*/
+.table-responsive{
+    display: inline;
+}
+.actions{
+    margin-bottom: 5%;
 }
 /**
 * Footer

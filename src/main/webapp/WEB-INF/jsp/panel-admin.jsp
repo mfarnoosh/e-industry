@@ -19,12 +19,12 @@
 </head>
 <body>
 <div class="container" id="body">
-    <h3><spring:message code="admin.page.title"/> </h3>
-    <div class="col-md-2 text-center dashboard-box pull-right">
+    <h3 class="bottom-margin2x"><spring:message code="admin.page.title"/> </h3>
+    <div class="col-md-2 text-center dashboard-box pull-right" onclick="openPage('admin/services');">
         <i class="glyphicon glyphicon-wrench btn-block gi-4x"></i>
         <span class="text-bottom btn-block"><spring:message code="admin.services"/></span>
     </div>
-    <div class="col-md-2 text-center dashboard-box pull-right" onclick="location.href=''">
+    <div class="col-md-2 text-center dashboard-box pull-right" onclick="openPage('admin/products');">
         <i class="glyphicon glyphicon glyphicon-briefcase btn-block gi-4x"></i>
         <span class="text-bottom btn-block"><spring:message code="admin.products"/></span>
     </div>
@@ -33,5 +33,7 @@
         <span class="text-bottom btn-block"><spring:message code="admin.users"/></span>
     </div>
 </div>
+<div id="page-view" class="container"></div>
+<script> function openPage(pageURL){ $('#page-view').load(pageURL); } </script>
 </body>
 </html>

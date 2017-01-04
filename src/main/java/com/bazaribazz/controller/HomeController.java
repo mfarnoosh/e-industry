@@ -100,7 +100,7 @@ private static List<Product> products = new ArrayList<Product>();
      * Service add form
      * @return
      */
-    @RequestMapping(value = "new-service", method = RequestMethod.GET)
+    @RequestMapping(value = "admin/new-service", method = RequestMethod.GET)
     public String addService(){
         return "new-service";
     }
@@ -109,7 +109,7 @@ private static List<Product> products = new ArrayList<Product>();
      * Add product page
      * @return
      */
-    @RequestMapping(value = "new-product", method = RequestMethod.GET)
+    @RequestMapping(value = "admin/new-product", method = RequestMethod.GET)
     public String addProduct(){
         return "new-product";
     }
@@ -184,5 +184,14 @@ private static List<Product> products = new ArrayList<Product>();
             userName = principal.toString();
         }
         return userName;
+    }
+
+    @RequestMapping(value = "admin/services",method = RequestMethod.GET)
+    public String servicesPage(){
+        return "services";
+    }
+    @RequestMapping(value = "admin/products",method = RequestMethod.GET)
+    public String productsPage(){
+        return "products";
     }
 }
