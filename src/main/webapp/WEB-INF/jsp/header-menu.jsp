@@ -40,7 +40,20 @@
                 </div>
             </form:form>
         </div>
-        <input type="button" onclick="location.href='login'" class="btn btn-default login" value="<spring:message code="header.login"/>">
+        <c:choose>
+            <c:when test="${pageContext.request.userPrincipal.authenticated}">
+                <div type="button" onclick="location.href='logout'" class="btn btn-default login">
+                    <i class="glyphicon glyphicon-log-out"></i>
+                    <span><spring:message code="header.logout"/></span>
+                </div>
+            </c:when>
+            <c:otherwise>
+                <div type="button" onclick="location.href='login'" class="btn btn-default login">
+                    <i class="glyphicon glyphicon-log-in"></i>
+                    <span><spring:message code="header.login"/></span>
+                </div>
+            </c:otherwise>
+        </c:choose>
     </div>
 </header>
 <%--navbar--%>

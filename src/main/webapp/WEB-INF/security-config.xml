@@ -5,31 +5,27 @@
     http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-4.0.xsd">
 
     <http auto-config="true" >
-
-        <!--<intercept-url pattern="/" access="isAnonymous()" />
-        <intercept-url pattern="/home" access="isAnonymous()" />-->
+        <intercept-url pattern="/" access="permitAll" />
+        <intercept-url pattern="list" access="hasRole('ADMIN')" />
         <intercept-url pattern="/admin**" access="hasRole('ADMIN')" />
         <intercept-url pattern="/admin/*" access="hasRole('ADMIN')" />
-        <intercept-url pattern="/seller**" access="hasRole('ADMIN') and hasRole('SELLER')" />
+        <intercept-url pattern="/seller/*" access="hasRole('ADMIN') and hasRole('SELLER')" />
+        <intercept-url pattern="/job/*" access="hasRole('ADMIN') and hasRole('JOB')" />
         <form-login  login-page="/login"
-                     default-target-url="/"
                      username-parameter="ssoId"
                      password-parameter="password"
-                     authentication-success-handler-ref="customSuccessHandler"
                      authentication-failure-url="/Access_Denied" />
         <csrf/>
     </http>
 
     <authentication-manager >
-        <authentication-provider>
-            <user-service>
-                <user name="bill"  password="abc123"  authorities="ROLE_USER" />
-                <user name="admin" password="root123" authorities="ROLE_ADMIN" />
-                <user name="seller"   password="123456" authorities="ROLE_ADMIN,ROLE_SELLER" />
-            </user-service>
+        <authentication-provider user-service-ref="customUserDetailsService">
+            <password-encoder ref="bcryptEncoder"/>
         </authentication-provider>
     </authentication-manager>
 
-    <beans:bean id="customSuccessHandler" class="com.bazaribazz.controller.CustomSuccessHandler" />
+    <beans:bean id="bcryptEncoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder" />
+
+    <beans:bean id="customUserDetailsService" class="com.bazaribazz.security.CustomUserDetailsService" />
 
 </beans:beans>

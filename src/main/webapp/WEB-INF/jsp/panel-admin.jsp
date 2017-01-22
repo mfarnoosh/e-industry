@@ -24,7 +24,7 @@
         <i class="glyphicon glyphicon-wrench btn-block gi-4x"></i>
         <span class="text-bottom btn-block"><spring:message code="admin.services"/></span>
     </div>
-    <div class="col-md-2 text-center dashboard-box pull-right" onclick="openPage('admin/products');">
+    <div class="col-md-2 text-center dashboard-box pull-right" onclick="openPage('products');">
         <i class="glyphicon glyphicon glyphicon-briefcase btn-block gi-4x"></i>
         <span class="text-bottom btn-block"><spring:message code="admin.products"/></span>
     </div>

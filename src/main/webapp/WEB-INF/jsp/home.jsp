@@ -35,12 +35,15 @@
 <%-- Start Carousel--%>
 <jsp:include page="carousel.jsp"/>
 <!-- End Carousel -->
+
+<%@include file="authheader.jsp" %>
+
 <%--content container--%>
 <div class="container" id="body">
     <div id="service" style="display: inline;">
         <h3 style="margin-top: 3%; margin-right: 3%;">خدمات</h3>
     </div>
-    <%-- Product and service Items--%>
+    <%-- service Items--%>
     <div class="container-fluid table" align="center">
         <c:forEach var="mitem" items="${myservice}">
             <div class="col-md-4 column servicebox pull-right">

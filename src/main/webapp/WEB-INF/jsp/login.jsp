@@ -26,16 +26,26 @@
         <div class="row">
             <div class="col-md-6 col-md-offset-3">
                 <div class="well well-sm">
-                    <c:url var="loginUrl" value="/login" />
+                    <c:url var="loginUrl" value="login" />
                     <form class="form-horizontal" action="${loginUrl}" method="post">
                         <fieldset>
                             <legend class="text-center"><spring:message code="login.page.title"/></legend>
 
+                            <c:if test="${param.error != null}">
+                                <div class="alert alert-danger">
+                                    <p>Invalid username and password.</p>
+                                </div>
+                            </c:if>
+                            <c:if test="${param.logout != null}">
+                                <div class="alert alert-success">
+                                    <p>You have been logged out successfully.</p>
+                                </div>
+                            </c:if>
                             <!-- UserName or Email input-->
                             <div class="form-group">
                                 <label class="col-md-3 control-label" for="username"><spring:message code="login.username"/> </label>
                                 <div class="col-md-9">
-                                    <input id="username" name="ssoId" type="text" placeholder="<spring:message code="login.username"/>" class="form-control">
+                                    <input id="username" name="ssoId" type="text" placeholder="<spring:message code="login.username"/>" class="form-control" required>
                                 </div>
                             </div>
 
@@ -43,7 +53,7 @@
                             <div class="form-group">
                                 <label class="col-md-3 control-label" for="password"><spring:message code="login.password"/> </label>
                                 <div class="col-md-9">
-                                    <input id="password" name="password" type="password" placeholder="<spring:message code="login.password"/>" class="form-control">
+                                    <input id="password" name="password" type="password" placeholder="<spring:message code="login.password"/>" class="form-control" required>
                                 </div>
                             </div>
 
@@ -52,7 +62,7 @@
                             <div class="form-group">
                                 <div class="col-md-12 text-center">
                                     <button type="submit" class="btn btn-primary btn-lg"><spring:message code="login.enter.button"/> </button>
-                                    <input type="button" onclick="location.href='sign-up'"  class="btn btn-primary btn-lg" value="<spring:message code="login.register.button"/>"/>
+                                    <input type="button" onclick="location.href='newuser'"  class="btn btn-primary btn-lg" value="<spring:message code="login.register.button"/>"/>
                                 </div>
                             </div>
                         </fieldset>

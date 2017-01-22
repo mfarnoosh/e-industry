@@ -13,7 +13,7 @@ $(document).ready(function(){
     );
 });
 /*---------carousel-------------*/
-(function ($) {
+$(document).ready(function () {
     $('#myCarousel').carousel();
     var winWidth = $(window).innerWidth();
     $(window).resize(function () {
@@ -30,9 +30,10 @@ $(document).ready(function(){
             });
         }
     });
-})(jQuery);
+})
 
 /*---------Confirm Password----------*/
+/*
 function checkPasswordMatch() {
     var password = $('#password').val();
     var confirmPassword = $('#re-password').val();
@@ -45,4 +46,6 @@ function checkPasswordMatch() {
 }
 $(document).ready(function () {
     $("#password, #re-password").keyup(checkPasswordMatch);
-});
+});*/
+
+/*-----submit button-------*/
