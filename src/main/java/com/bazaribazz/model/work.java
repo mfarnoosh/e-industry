@@ -12,32 +12,38 @@ import java.util.*;
  */
 @Entity
 @Table(name = "SERVICES")
-public class Service {
+public class work {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Integer id ;
-    @NotEmpty
+    /*@NotEmpty
     @Column(name = "SKU",nullable = false,unique = true)
-    private String sku;
+    private String sku;*/
     @NotEmpty
     @Column(name = "PROFESSION", unique = true, nullable = false)
     private String profession;
     @NotEmpty
     @Column(name = "SERVICE_NAME", nullable = false)
     private String serviceName;
-    @Lob
+    /*@Lob
     @Column(name = "IMAGE", length = Integer.MAX_VALUE)
-    private byte[] imageFile;
+    private byte[] imageFile;*/
     @Column(name = "KEYWORDS",nullable = false)
     private String[] keywords;
     @NotEmpty
     @Column(name = "STATE",nullable = false)
     private String state;
-    @Column(name = "MESSAGE")
-    private String message;
+    @NotEmpty
+    @Column(name = "OWNER")
+    //@ManyToOne/*(optional = false, fetch = FetchType.LAZY)*/
+//    @JoinColumn(name="OWNER", referencedColumnName="id", insertable = false, updatable = false)
+    private User owner;
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "Create_Date", nullable = false)
+    private Date createDate;
 
-    /*public Service(String profession, String servicename, String state){
+    /*public work(String profession, String servicename, String state){
         this.id = UUID.randomUUID();
         this.serviceName = servicename;
         this.profession = profession;
@@ -52,13 +58,13 @@ public class Service {
         this.id = id;
     }
 
-    public String getSku() {
+    /*public String getSku() {
         return sku;
     }
 
     public void setSku(String sku) {
         this.sku = sku;
-    }
+    }*/
 
     public String getServiceName() {
         return serviceName;
@@ -76,13 +82,13 @@ public class Service {
         this.profession = profession;
     }
 
-    public byte[] getImageFile() {
+    /*public byte[] getImageFile() {
         return imageFile;
     }
 
     public void setImageFile(byte[] imageFile) {
         this.imageFile = imageFile;
-    }
+    }*/
 
     public String[] getKeywords() {
         return keywords;
@@ -100,17 +106,40 @@ public class Service {
         this.state = state;
     }
 
-    public String getMessage() {
-        return message;
+    public User getOwner() {
+        return owner;
     }
 
-    public void setMessage(String message) {
-        this.message = message;
+    public void setOwner(User owner) {
+        this.owner = owner;
     }
+
+    public Date getCreateDate() {
+        return createDate;
+    }
+
+    public void setCreateDate(Date createDate) {
+        this.createDate = createDate;
+    }
+
+    /*@Override
+    public String toString(){
+        return "work [id="+id+"profession="+profession
+                +"serviceName="+serviceName+"state="+state+"]";
+    }*/
 
     @Override
-    public String toString(){
-        return "Service [id="+id+"profession="+profession
-                +"serviceName="+serviceName+"state="+state+"]";
+    public String toString() {
+        return "work{" +
+                "id=" + id +
+//                ", sku='" + sku + '\'' +
+                ", profession='" + profession + '\'' +
+                ", serviceName='" + serviceName + '\'' +
+//                ", imageFile=" + Arrays.toString(imageFile) +
+                ", keywords=" + Arrays.toString(keywords) +
+                ", state='" + state + '\'' +
+                ", owner=" + owner +
+                ", createDate=" + createDate +
+                '}';
     }
 }

@@ -26,19 +26,19 @@
 </head>
 <body style="direction: rtl">
 <jsp:include page="header-menu.jsp"/>
-<div class="service-form">
+<div class="work-form">
     <div class="container">
         <div class="row">
             <div class="col-md-6 col-md-offset-3">
                 <div class="well well-sm">
-                    <form:form class="form-horizontal" method="post"
-                          modelAttribute="uploadForm" enctype="multipart/form-data">
+                    <%--enctype="multipart/form-data"--%>
+                    <form:form class="form-horizontal" method="post" commandName="work">
                         <fieldset>
                             <legend class="text-center"><spring:message code="form.servive.title"/></legend>
                             <form:input path="id" id="id" type="hidden"/>
-                            <!-- Service Name input-->
+                            <!-- work Name input-->
                             <div class="form-group">
-                                <label class="col-md-3 control-label" for="name"><spring:message code="form.service.serviceTitle"/> </label>
+                                <label class="col-md-3 control-label" for="name"><spring:message code="form.work.serviceTitle"/> </label>
                                 <div class="col-md-9">
                                     <form:input path="serviceName" id="name" name="name" type="text" class="form-control"/>
                                 </div>
@@ -46,14 +46,14 @@
 
                             <!-- Profession input-->
                             <div class="form-group">
-                                <label class="col-md-3 control-label" for="profession"><spring:message code="form.service.guild"/> </label>
+                                <label class="col-md-3 control-label" for="profession"><spring:message code="form.work.guild"/> </label>
                                 <div class="col-md-9">
                                     <form:input path="profession" id="profession" name="profession" type="text" class="form-control"/>
                                 </div>
                             </div>
                             <!-- State input-->
                             <div class="form-group">
-                                <label class="col-md-3 control-label" for="state"><spring:message code="form.service.state"/> </label>
+                                <label class="col-md-3 control-label" for="state"><spring:message code="form.work.state"/> </label>
                                 <div class="col-md-9">
                                     <form:input path="state" id="state" name="state" type="text" class="form-control"/>
                                 </div>

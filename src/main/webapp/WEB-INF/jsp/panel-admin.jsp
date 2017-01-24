@@ -20,15 +20,15 @@
 <body>
 <div class="container" id="body">
     <h3 class="bottom-margin2x"><spring:message code="admin.page.title"/> </h3>
-    <div class="col-md-2 text-center dashboard-box pull-right" onclick="openPage('admin/services');">
+    <div class="col-md-2 text-center dashboard-box pull-right" onclick="openPage('works');">
         <i class="glyphicon glyphicon-wrench btn-block gi-4x"></i>
-        <span class="text-bottom btn-block"><spring:message code="admin.services"/></span>
+        <span class="text-bottom btn-block"><spring:message code="admin.works"/></span>
     </div>
     <div class="col-md-2 text-center dashboard-box pull-right" onclick="openPage('products');">
         <i class="glyphicon glyphicon glyphicon-briefcase btn-block gi-4x"></i>
         <span class="text-bottom btn-block"><spring:message code="admin.products"/></span>
     </div>
-    <div class="col-md-2 text-center dashboard-box pull-right"onclick="openPage('admin/users');">
+    <div class="col-md-2 text-center dashboard-box pull-right"onclick="openPage('users');">
         <i class="glyphicon glyphicon-user btn-block gi-4x"></i>
         <span class="text-bottom btn-block"><spring:message code="admin.users"/></span>
     </div>

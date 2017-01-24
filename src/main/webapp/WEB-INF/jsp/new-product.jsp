@@ -21,7 +21,7 @@
 </head>
 <body style="direction: rtl">
 <jsp:include page="header-menu.jsp"/>
-<div class="service-form">
+<div class="work-form">
     <div class="container">
         <div class="row">
             <div class="col-md-6 col-md-offset-3">
@@ -30,7 +30,7 @@
                         <fieldset>
                             <legend class="text-center"><spring:message code="form.product.title"/></legend>
 
-                            <!-- Service Name input-->
+                            <!-- work Name input-->
                             <div class="form-group">
                                 <label class="col-md-3 control-label" for="name"><spring:message code="form.product.productTitle"/> </label>
                                 <div class="col-md-9">

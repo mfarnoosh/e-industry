@@ -1,11 +1,12 @@
 package com.bazaribazz.controller;
 
-import com.bazaribazz.model.Service;
+import com.bazaribazz.model.UserProfileType;
+import com.bazaribazz.model.work;
 import com.bazaribazz.model.User;
 import com.bazaribazz.model.UserProfile;
 import com.bazaribazz.service.UserProfileService;
 import com.bazaribazz.service.UserService;
-import com.bazaribazz.view.ServiceForm;
+import com.bazaribazz.service.WorkService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.security.authentication.AuthenticationTrustResolver;
@@ -19,12 +20,10 @@ import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
-import java.io.File;
 import java.io.IOException;
 import java.util.*;
 
@@ -50,11 +49,21 @@ public class AppController {
     @Autowired
     MessageSource messageSource;
 
+    @Autowired
+    WorkService workService;
+
+    Object userProfiles;
+    String[] str;
 
     @RequestMapping(value = {"list","admin/users"}, method = RequestMethod.GET)
     public String listUsers(ModelMap model) {
-
         List<User> users = userService.findAllUsers();
+
+        for(User user:users){
+//            userProfiles =user.getUserProfiles();
+            str=user.getUserProfiles().toString().split("=");
+        }
+        model.addAttribute("userRole",str);
         model.addAttribute("users", users);
         model.addAttribute("loggedinuser", getPrincipal());
         return "users";
@@ -236,14 +245,14 @@ public class AppController {
     /**
      * Home controller
      */
-    private static List<Service> services = new ArrayList<Service>();
+    private static List<work> works = new ArrayList<work>();
 
     /*static {
-        services.add(new Service("نصب کاغذ دیواری","نصب کاغذ دیواری","تهران"));
-        services.add(new Service("کابینت","نصب کابینت","تهران"));
-        services.add(new Service("طراحی و دکوراسیون","طراحی و دکوراسیون داخلی","کرج"));
-        services.add(new Service("نقاشی ساختمان","رنگ و نقاشی ساختمان","کرج"));
-        services.add(new Service("تعمیر کار","تعمیرکار یخچال","تهران"));
+        works.add(new work("نصب کاغذ دیواری","نصب کاغذ دیواری","تهران"));
+        works.add(new work("کابینت","نصب کابینت","تهران"));
+        works.add(new work("طراحی و دکوراسیون","طراحی و دکوراسیون داخلی","کرج"));
+        works.add(new work("نقاشی ساختمان","رنگ و نقاشی ساختمان","کرج"));
+        works.add(new work("تعمیر کار","تعمیرکار یخچال","تهران"));
     }*/
 
     /**
@@ -254,9 +263,9 @@ public class AppController {
 
     @RequestMapping(value = {"/","home"},method = {RequestMethod.GET,RequestMethod.POST})
     public String viewHome(Model model){
-        ServiceForm serviceForm = new ServiceForm();
-        serviceForm.setServices(services);
-        model.addAttribute("myservice",serviceForm.getServices());
+//        ServiceForm serviceForm = new ServiceForm();
+//        serviceForm.setWorks(works);
+//        model.addAttribute("myservice",serviceForm.getWorks());
         model.addAttribute("loggedinuser", getPrincipal());
         return "home";
     }
@@ -273,13 +282,13 @@ public class AppController {
      */
     @RequestMapping(value = "search", method = RequestMethod.GET)
     public String search(@RequestParam("srch") String serviceName,Model model){
-        List<Service> sr = searchResult(serviceName);
+        List<work> sr = searchResult(serviceName);
         model.addAttribute("shj",sr);
         return "search";
     }
-    private List<Service> searchResult(String name){
-        List<Service> result = new ArrayList<Service>();
-        for (Service se : services){
+    private List<work> searchResult(String name){
+        List<work> result = new ArrayList<work>();
+        for (work se : works){
             if (se.getServiceName().contains(name)){
                 result.add(se);
             }
@@ -306,11 +315,13 @@ public class AppController {
     }
 
     /**
-     * Service add form
+     * work add form
      * @return
      */
     @RequestMapping(value = "admin/new-service", method = RequestMethod.GET)
-    public String addService(){
+    public String addService(ModelMap map){
+        work work = new work();
+        map.addAttribute("service",work);
         return "new-service";
     }
 
@@ -333,24 +344,24 @@ public class AppController {
      * @throws IOException
      */
     @RequestMapping(value = "saved",method = RequestMethod.POST)
-    public String transactionResponse(@ModelAttribute("uploadForm") Service service,
+    public String transactionResponse(@ModelAttribute("uploadForm") work service,
                                       Model map) throws IllegalStateException, IOException{
         String saveDirectory = "/home/dorsa/testfile/";
 
-        byte[] image = service.getImageFile();
+//        byte[] image = service.getImageFile();
 
-        List<String> fileNames = new ArrayList<String>();
+//        List<String> fileNames = new ArrayList<String>();
 
-        if (null != image && image.length > 0) {
+//        if (null != image && image.length > 0) {
             /*String fileName = image.getOriginalFilename();
             if (!"".equalsIgnoreCase(fileName)) {
                 // Handle file content - multipartFile.getInputStream()
                 image.transferTo(new File(saveDirectory + fileName));
                 fileNames.add(fileName);
             }*/
-        }
+//        }
 
-        map.addAttribute("files", fileNames);
+//        map.addAttribute("files", fileNames);
 
         return "success";
     }
@@ -358,7 +369,7 @@ public class AppController {
 
     @RequestMapping(value = "admin/services",method = RequestMethod.GET)
     public String servicesPage(){
-        return "services";
+        return "works";
     }
     @RequestMapping(value = "admin/products",method = RequestMethod.GET)
     public String productsPage(){

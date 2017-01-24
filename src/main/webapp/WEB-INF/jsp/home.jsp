@@ -40,10 +40,10 @@
 
 <%--content container--%>
 <div class="container" id="body">
-    <div id="service" style="display: inline;">
+    <div id="work" style="display: inline;">
         <h3 style="margin-top: 3%; margin-right: 3%;">خدمات</h3>
     </div>
-    <%-- service Items--%>
+    <%-- work Items--%>
     <div class="container-fluid table" align="center">
         <c:forEach var="mitem" items="${myservice}">
             <div class="col-md-4 column servicebox pull-right">
@@ -51,15 +51,15 @@
                 <div class="servicetitle">
                     <dl>
                             <%--<dt><c:out value="${vars.serviceName}"/></dt>--%>
-                        <dt><spring:message code="item.service.profession"/> </dt>
+                        <dt><spring:message code="item.work.profession"/> </dt>
                         <dd>
                                 ${mitem.profession}
                         </dd>
-                        <dt><spring:message code="item.service.nameservice"/></dt>
+                        <dt><spring:message code="item.work.nameservice"/></dt>
                         <dd>
                                 ${mitem.serviceName}
                         </dd>
-                        <dt><spring:message code="item.service.state"/></dt>
+                        <dt><spring:message code="item.work.state"/></dt>
                         <dd>
                                 ${mitem.state}
                         </dd>

@@ -72,7 +72,7 @@
             <ul class="nav navbar-nav">
                 <li class="dropdown mega-dropdown navbar-right">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                        <spring:message code="menu.services"/>
+                        <spring:message code="menu.works"/>
                         <%--<span class="caret"></span>--%>
                     </a>
                     <ul class="dropdown-menu mega-dropdown-menu">

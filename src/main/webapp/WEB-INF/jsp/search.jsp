@@ -36,7 +36,7 @@
                         <h4 class="panel-title">
                             <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
                                 <span class="glyphicon glyphicon-folder-close"></span>
-                                <spring:message code="menu.services" text="services"/>
+                                <spring:message code="menu.works" text="works"/>
                             </a>
                         </h4>
                     </div>

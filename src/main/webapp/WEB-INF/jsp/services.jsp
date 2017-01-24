@@ -14,17 +14,17 @@
 <body>
 <div class="actions">
     <div class="col-md-3 pull-right">
-        <span class=""><a href="admin/new-service"><i class="glyphicon glyphicon-plus-sign"></i><spring:message code="services.add.service"/></a></span>
+        <span class=""><a href="new-work"><i class="glyphicon glyphicon-plus-sign"></i><spring:message code="works.add.work"/></a></span>
     </div>
 </div>
 <div class="table-responsive">
     <table class="table table-hover">
         <thead>
         <tr>
-            <th><spring:message code="services.id"/> </th>
-            <th><spring:message code="services.name"/> </th>
-            <th><spring:message code="services.guild"/> </th>
-            <th><spring:message code="services.comment"/> </th>
+            <th><spring:message code="works.id"/> </th>
+            <th><spring:message code="works.name"/> </th>
+            <th><spring:message code="works.guild"/> </th>
+            <th><spring:message code="works.comment"/> </th>
             <th></th>
         </tr>
         </thead>
