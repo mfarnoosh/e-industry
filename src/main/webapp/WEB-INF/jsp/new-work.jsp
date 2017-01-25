@@ -32,7 +32,7 @@
             <div class="col-md-6 col-md-offset-3">
                 <div class="well well-sm">
                     <%--enctype="multipart/form-data"--%>
-                    <form:form class="form-horizontal" method="post" commandName="work">
+                    <form:form class="form-horizontal" method="post" commandName="mwork">
                         <fieldset>
                             <legend class="text-center"><spring:message code="form.servive.title"/></legend>
                             <form:input path="id" id="id" type="hidden"/>
@@ -59,7 +59,7 @@
                                 </div>
                             </div>
                             <!--File Input-->
-                            <div class="form-group">
+                            <%--<div class="form-group">
                                 <label class="col-md-3 control-label" for="fileinput"><spring:message code="form.image"/> </label>
                                 <div class="fileinput fileinput-new" data-provides="fileinput">
                                     <div id="fileinput" class="fileinput-preview thumbnail" data-trigger="fileinput" style="width: 200px; height: 150px;"></div>
@@ -68,22 +68,22 @@
                                         <a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a>
                                     </div>
                                 </div>
-                            </div>
+                            </div>--%>
                             <!-- Tags -->
-                            <div class="form-group">
+                            <%--<div class="form-group">
                                 <label class="col-md-3 control-label" for="tags">tags</label>
                                 <div class="col-md-9">
                                     <form:input path="keywords" class="form-control" type="text" value="Amsterdam,Washington,Sydney,Beijing,Cairo"
                                            data-role="tagsinput" id="tags" name="tags"/>
                                 </div>
-                            </div>
+                            </div>--%>
                             <!-- Message body -->
-                            <div class="form-group">
+                            <%--<div class="form-group">
                                 <label class="col-md-3 control-label" for="message"><spring:message code="form.comment"/> </label>
                                 <div class="col-md-9">
                                     <form:textarea path="message" class="form-control" id="message" name="message" rows="5"/>
                                 </div>
-                            </div>
+                            </div>--%>
 
 
                             <!-- Form actions -->

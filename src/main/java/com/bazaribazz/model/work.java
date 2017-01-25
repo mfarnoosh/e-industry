@@ -11,37 +11,38 @@ import java.util.*;
  * Created by dorsa on 12/5/16.
  */
 @Entity
-@Table(name = "SERVICES")
+@Table(name = "WORKS")
 public class work {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Integer id ;
-    /*@NotEmpty
-    @Column(name = "SKU",nullable = false,unique = true)
-    private String sku;*/
     @NotEmpty
     @Column(name = "PROFESSION", unique = true, nullable = false)
     private String profession;
     @NotEmpty
     @Column(name = "SERVICE_NAME", nullable = false)
     private String serviceName;
-    /*@Lob
-    @Column(name = "IMAGE", length = Integer.MAX_VALUE)
-    private byte[] imageFile;*/
-    @Column(name = "KEYWORDS",nullable = false)
-    private String[] keywords;
     @NotEmpty
     @Column(name = "STATE",nullable = false)
     private String state;
-    @NotEmpty
-    @Column(name = "OWNER")
-    //@ManyToOne/*(optional = false, fetch = FetchType.LAZY)*/
-//    @JoinColumn(name="OWNER", referencedColumnName="id", insertable = false, updatable = false)
+
+    @ManyToOne
+    @MapsId
+    @JoinColumn(name = "OWNER")
     private User owner;
+
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "Create_Date", nullable = false)
     private Date createDate;
+
+    /*@Lob
+    @Column(name = "IMAGE", length = Integer.MAX_VALUE)
+    private byte[] imageFile;*/
+    /*@Column(name = "KEYWORDS",nullable = false)
+    private String[] keywords;*/
+
+
 
     /*public work(String profession, String servicename, String state){
         this.id = UUID.randomUUID();
@@ -90,13 +91,13 @@ public class work {
         this.imageFile = imageFile;
     }*/
 
-    public String[] getKeywords() {
+    /*public String[] getKeywords() {
         return keywords;
     }
 
     public void setKeywords(String[] keywords) {
         this.keywords = keywords;
-    }
+    }*/
 
     public String getState() {
         return state;
@@ -136,7 +137,7 @@ public class work {
                 ", profession='" + profession + '\'' +
                 ", serviceName='" + serviceName + '\'' +
 //                ", imageFile=" + Arrays.toString(imageFile) +
-                ", keywords=" + Arrays.toString(keywords) +
+//                ", keywords=" + Arrays.toString(keywords) +
                 ", state='" + state + '\'' +
                 ", owner=" + owner +
                 ", createDate=" + createDate +

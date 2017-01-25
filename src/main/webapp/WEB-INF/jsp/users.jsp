@@ -31,7 +31,7 @@
             <th><spring:message code="users.first.name"/></th>
             <th><spring:message code="users.last.name"/></th>
             <th><spring:message code="users.username"/></th>
-            <th>Email</th>
+            <th><spring:message code="users.email"/></th>
             <th><spring:message code="users.role"/></th>
             <sec:authorize access="hasRole('ADMIN') or hasRole('DBA')">
                 <th width="100"></th>
@@ -50,7 +50,6 @@
                 <td>${user.ssoId}</td>
                 <td>${user.email}</td>
                 <td>${userRole}</td>
-                <%--<td><jsp:getProperty name="user" property="userProfiles"/></td>--%>
                 <sec:authorize access="hasRole('ADMIN') or hasRole('DBA')">
                     <td><a href="<c:url value='edit-user-${user.ssoId}' />" class="btn btn-success custom-width">edit</a></td>
                 </sec:authorize>

@@ -316,11 +316,11 @@ public class AppController {
      * work add form
      * @return
      */
-    @RequestMapping(value = "admin/new-service", method = RequestMethod.GET)
+    @RequestMapping(value = "admin/new-work", method = RequestMethod.GET)
     public String addService(ModelMap map){
         work work = new work();
-        map.addAttribute("service",work);
-        return "new-service";
+        map.addAttribute("mwork",work);
+        return "new-work";
     }
 
     /**
@@ -365,7 +365,7 @@ public class AppController {
     }
 
 
-    @RequestMapping(value = "admin/services",method = RequestMethod.GET)
+    @RequestMapping(value = "admin/works",method = RequestMethod.GET)
     public String servicesPage(){
         return "works";
     }
