@@ -1,6 +1,6 @@
 package com.bazaribazz.dao;
 
-import com.bazaribazz.model.work;
+import com.bazaribazz.model.Work;
 
 import java.util.List;
 
@@ -8,16 +8,16 @@ import java.util.List;
  * Created by dorsa on 1/22/17.
  */
 public interface WorkDao {
-    work findById(int id);
+    Work findById(int id);
 
-    work findByName(String serviceName);
+    Work findByName(String serviceName);
 
-    work findByProfession(String profession);
+    Work findByProfession(String profession);
 
-    void create(work work);
+    void create(Work work);
 
     void deleteById(int id);
 
-    List<work> findAllService();
+    List<Work> findAllService();
 
 }

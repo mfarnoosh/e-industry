@@ -43,7 +43,7 @@
     <div id="work" style="display: inline;">
         <h3 style="margin-top: 3%; margin-right: 3%;">خدمات</h3>
     </div>
-    <%-- work Items--%>
+    <%-- Work Items--%>
     <div class="container-fluid table" align="center">
         <c:forEach var="mitem" items="${myservice}">
             <div class="col-md-4 column servicebox pull-right">

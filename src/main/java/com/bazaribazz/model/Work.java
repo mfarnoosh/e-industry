@@ -11,8 +11,8 @@ import java.util.*;
  * Created by dorsa on 12/5/16.
  */
 @Entity
-@Table(name = "WORKS")
-public class work {
+@Table(name = "WORK")
+public class Work {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
@@ -27,7 +27,7 @@ public class work {
     @Column(name = "STATE",nullable = false)
     private String state;
 
-    @ManyToOne
+    @OneToOne(cascade = {CascadeType.ALL},fetch= FetchType.EAGER,mappedBy = "id")
     @MapsId
     @JoinColumn(name = "OWNER")
     private User owner;
@@ -44,7 +44,7 @@ public class work {
 
 
 
-    /*public work(String profession, String servicename, String state){
+    /*public Work(String profession, String servicename, String state){
         this.id = UUID.randomUUID();
         this.serviceName = servicename;
         this.profession = profession;
@@ -125,13 +125,13 @@ public class work {
 
     /*@Override
     public String toString(){
-        return "work [id="+id+"profession="+profession
+        return "Work [id="+id+"profession="+profession
                 +"serviceName="+serviceName+"state="+state+"]";
     }*/
 
     @Override
     public String toString() {
-        return "work{" +
+        return "Work{" +
                 "id=" + id +
 //                ", sku='" + sku + '\'' +
                 ", profession='" + profession + '\'' +

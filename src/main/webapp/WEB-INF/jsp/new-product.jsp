@@ -30,7 +30,7 @@
                         <fieldset>
                             <legend class="text-center"><spring:message code="form.product.title"/></legend>
 
-                            <!-- work Name input-->
+                            <!-- Work Name input-->
                             <div class="form-group">
                                 <label class="col-md-3 control-label" for="name"><spring:message code="form.product.productTitle"/> </label>
                                 <div class="col-md-9">

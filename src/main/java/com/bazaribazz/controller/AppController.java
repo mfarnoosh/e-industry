@@ -1,7 +1,6 @@
 package com.bazaribazz.controller;
 
-import com.bazaribazz.model.UserProfileType;
-import com.bazaribazz.model.work;
+import com.bazaribazz.model.Work;
 import com.bazaribazz.model.User;
 import com.bazaribazz.model.UserProfile;
 import com.bazaribazz.service.UserProfileService;
@@ -25,6 +24,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 /**
@@ -243,14 +243,14 @@ public class AppController {
     /**
      * Home controller
      */
-    private static List<work> works = new ArrayList<work>();
+    private static List<Work> works = new ArrayList<Work>();
 
     /*static {
-        works.add(new work("نصب کاغذ دیواری","نصب کاغذ دیواری","تهران"));
-        works.add(new work("کابینت","نصب کابینت","تهران"));
-        works.add(new work("طراحی و دکوراسیون","طراحی و دکوراسیون داخلی","کرج"));
-        works.add(new work("نقاشی ساختمان","رنگ و نقاشی ساختمان","کرج"));
-        works.add(new work("تعمیر کار","تعمیرکار یخچال","تهران"));
+        works.add(new Work("نصب کاغذ دیواری","نصب کاغذ دیواری","تهران"));
+        works.add(new Work("کابینت","نصب کابینت","تهران"));
+        works.add(new Work("طراحی و دکوراسیون","طراحی و دکوراسیون داخلی","کرج"));
+        works.add(new Work("نقاشی ساختمان","رنگ و نقاشی ساختمان","کرج"));
+        works.add(new Work("تعمیر کار","تعمیرکار یخچال","تهران"));
     }*/
 
     /**
@@ -280,13 +280,13 @@ public class AppController {
      */
     @RequestMapping(value = "search", method = RequestMethod.GET)
     public String search(@RequestParam("srch") String serviceName,Model model){
-        List<work> sr = searchResult(serviceName);
+        List<Work> sr = searchResult(serviceName);
         model.addAttribute("shj",sr);
         return "search";
     }
-    private List<work> searchResult(String name){
-        List<work> result = new ArrayList<work>();
-        for (work se : works){
+    private List<Work> searchResult(String name){
+        List<Work> result = new ArrayList<Work>();
+        for (Work se : works){
             if (se.getServiceName().contains(name)){
                 result.add(se);
             }
@@ -313,13 +313,19 @@ public class AppController {
     }
 
     /**
-     * work add form
+     * Work add form
      * @return
      */
-    @RequestMapping(value = "admin/new-work", method = RequestMethod.GET)
-    public String addService(ModelMap map){
-        work work = new work();
-        map.addAttribute("mwork",work);
+    @RequestMapping(value = "admin/new-work", method = {RequestMethod.POST,RequestMethod.GET})
+    public String addService(@Valid Work work,BindingResult result,ModelMap map){
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:MM:SS");
+        dateFormat.format(new Date());
+
+//        map.addAttribute("mwork",work);
+        map.addAttribute("loggedinuser", getPrincipal());
+        String username =getPrincipal();
+        work.setOwner(userService.findBySSO(username));
+        workService.create(work);
         return "new-work";
     }
 
@@ -342,7 +348,7 @@ public class AppController {
      * @throws IOException
      */
     @RequestMapping(value = "saved",method = RequestMethod.POST)
-    public String transactionResponse(@ModelAttribute("uploadForm") work service,
+    public String transactionResponse(@ModelAttribute("uploadForm") Work service,
                                       Model map) throws IllegalStateException, IOException{
         String saveDirectory = "/home/dorsa/testfile/";
 

@@ -1,6 +1,6 @@
 package com.bazaribazz.dao;
 
-import com.bazaribazz.model.work;
+import com.bazaribazz.model.Work;
 import org.hibernate.Hibernate;
 import org.hibernate.SessionFactory;
 import org.slf4j.Logger;
@@ -14,13 +14,13 @@ import java.util.List;
  * Created by dorsa on 1/22/17.
  */
 @Repository("workDao")
-public class WorkDaoImpl extends AbstractDao<Integer,work> implements WorkDao {
+public class WorkDaoImpl extends AbstractDao<Integer,Work> implements WorkDao {
     static final Logger logger = LoggerFactory.getLogger(UserDaoImpl.class);
     @Autowired
     private SessionFactory sessionFactory;
     @Override
-    public work findById(int id) {
-        work work = getByKey(id);
+    public Work findById(int id) {
+        Work work = getByKey(id);
         if (work !=null){
             Hibernate.initialize(work);
         }
@@ -28,19 +28,18 @@ public class WorkDaoImpl extends AbstractDao<Integer,work> implements WorkDao {
     }
 
     @Override
-    public work findByName(String serviceName) {
+    public Work findByName(String serviceName) {
         return null;
     }
 
     @Override
-    public work findByProfession(String profession) {
+    public Work findByProfession(String profession) {
         return null;
     }
 
     @Override
-    public void create(work work) {
-//        logger.info("SSO : {}", sso);
-
+    public void create(Work work) {
+        persist(work);
     }
 
     @Override
@@ -49,7 +48,7 @@ public class WorkDaoImpl extends AbstractDao<Integer,work> implements WorkDao {
     }
 
     @Override
-    public List<work> findAllService() {
+    public List<Work> findAllService() {
         return null;
     }
 }

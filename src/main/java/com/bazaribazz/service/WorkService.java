@@ -1,14 +1,14 @@
 package com.bazaribazz.service;
 
-import com.bazaribazz.model.work;
+import com.bazaribazz.model.Work;
 
 /**
  * Created by dorsa on 1/23/17.
  */
 public interface WorkService {
-    work findById(int id);
+    Work findById(int id);
 
-    work findBySku(String sku);
+    Work findBySku(String sku);
 
-    void create(work work);
+    void create(Work work);
 }

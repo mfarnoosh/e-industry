@@ -1,7 +1,7 @@
 package com.bazaribazz.service;
 
 import com.bazaribazz.dao.WorkDao;
-import com.bazaribazz.model.work;
+import com.bazaribazz.model.Work;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,17 +17,17 @@ public class WorkServiceImpl implements WorkService {
     @Autowired
     public WorkDao dao;
     @Override
-    public work findById(int id) {
+    public Work findById(int id) {
         return null;
     }
 
     @Override
-    public work findBySku(String sku) {
+    public Work findBySku(String sku) {
         return null;
     }
 
     @Override
-    public void create(work work) {
-
+    public void create(Work work) {
+        dao.create(work);
     }
 }

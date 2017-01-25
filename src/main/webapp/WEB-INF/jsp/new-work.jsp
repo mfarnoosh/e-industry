@@ -2,6 +2,7 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%--
   Created by IntelliJ IDEA.
   User: dorsa
@@ -36,7 +37,8 @@
                         <fieldset>
                             <legend class="text-center"><spring:message code="form.servive.title"/></legend>
                             <form:input path="id" id="id" type="hidden"/>
-                            <!-- work Name input-->
+                            <form:input path="owner" type="hidden" value="${loggedinuser}"/>
+                            <!-- Work Name input-->
                             <div class="form-group">
                                 <label class="col-md-3 control-label" for="name"><spring:message code="form.work.serviceTitle"/> </label>
                                 <div class="col-md-9">
@@ -56,6 +58,13 @@
                                 <label class="col-md-3 control-label" for="state"><spring:message code="form.work.state"/> </label>
                                 <div class="col-md-9">
                                     <form:input path="state" id="state" name="state" type="text" class="form-control"/>
+                                </div>
+                            </div>
+                            <!-- Date input-->
+                            <div class="form-group" hidden>
+                                <label class="col-md-3 control-label" for="date"><spring:message code="form.work.state"/> </label>
+                                <div class="col-md-9">
+                                    <form:input path="createDate" id="date" name="state" type="text" class="form-control"/>
                                 </div>
                             </div>
                             <!--File Input-->
@@ -89,7 +98,7 @@
                             <!-- Form actions -->
                             <div class="form-group">
                                 <div class="col-md-12 text-right">
-                                    <input class="btn btn-primary btn-lg" onclick="document.forms[0].submit();" value="<spring:message code="form.submit"/>">
+                                    <button type="submit" class="btn btn-primary btn-lg" ><spring:message code="form.submit"/></button>
                                 </div>
                             </div>
                         </fieldset>
