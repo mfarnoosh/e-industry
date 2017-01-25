@@ -49,7 +49,7 @@
                 <td>${user.lastName}</td>
                 <td>${user.ssoId}</td>
                 <td>${user.email}</td>
-                <td>${user.userProfiles}</td>
+                <td>${userRole}</td>
                 <%--<td><jsp:getProperty name="user" property="userProfiles"/></td>--%>
                 <sec:authorize access="hasRole('ADMIN') or hasRole('DBA')">
                     <td><a href="<c:url value='edit-user-${user.ssoId}' />" class="btn btn-success custom-width">edit</a></td>

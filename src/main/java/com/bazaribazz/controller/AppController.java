@@ -52,16 +52,14 @@ public class AppController {
     @Autowired
     WorkService workService;
 
-    Object userProfiles;
-    String[] str;
+
+    String str;
 
     @RequestMapping(value = {"list","admin/users"}, method = RequestMethod.GET)
     public String listUsers(ModelMap model) {
         List<User> users = userService.findAllUsers();
-
         for(User user:users){
-//            userProfiles =user.getUserProfiles();
-            str=user.getUserProfiles().toString().split("=");
+            str=user.getUserProfiles().toString().split("\\[")[2].split("=")[2].split("\\]")[0];
         }
         model.addAttribute("userRole",str);
         model.addAttribute("users", users);
