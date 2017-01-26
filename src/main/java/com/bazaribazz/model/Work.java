@@ -27,11 +27,11 @@ public class Work {
     @Column(name = "STATE",nullable = false)
     private String state;
 
-    @OneToOne(cascade = {CascadeType.ALL},fetch= FetchType.EAGER,mappedBy = "id")
-    @MapsId
-    @JoinColumn(name = "OWNER")
+//    @MapsId
+    @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private User owner;
 
+    @Transient
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "Create_Date", nullable = false)
     private Date createDate;

@@ -33,11 +33,11 @@
             <div class="col-md-6 col-md-offset-3">
                 <div class="well well-sm">
                     <%--enctype="multipart/form-data"--%>
-                    <form:form class="form-horizontal" method="post" commandName="mwork">
+                    <form:form class="form-horizontal" method="post" commandName="work">
                         <fieldset>
                             <legend class="text-center"><spring:message code="form.servive.title"/></legend>
                             <form:input path="id" id="id" type="hidden"/>
-                            <form:input path="owner" type="hidden" value="${loggedinuser}"/>
+                            <%--<form:input path="owner" type="hidden" value="${loggedinuser}"/>--%>
                             <!-- Work Name input-->
                             <div class="form-group">
                                 <label class="col-md-3 control-label" for="name"><spring:message code="form.work.serviceTitle"/> </label>

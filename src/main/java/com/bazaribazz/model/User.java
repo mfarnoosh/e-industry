@@ -44,6 +44,10 @@ public class User implements Serializable {
             inverseJoinColumns = { @JoinColumn(name = "USER_PROFILE_ID") })
     private Set<UserProfile> userProfiles = new HashSet<UserProfile>();
 
+    @Transient
+    @OneToMany(mappedBy = "owner")
+    private Set<Work> works = new HashSet<Work>();
+
     public Integer getId() {
         return id;
     }
@@ -98,6 +102,14 @@ public class User implements Serializable {
 
     public void setUserProfiles(Set<UserProfile> userProfiles) {
         this.userProfiles = userProfiles;
+    }
+
+    public Set<Work> getWorks() {
+        return works;
+    }
+
+    public void setWorks(Set<Work> works) {
+        this.works = works;
     }
 
     @Override

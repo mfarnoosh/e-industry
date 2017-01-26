@@ -312,19 +312,28 @@ public class AppController {
         return "contact-us";
     }
 
+    @RequestMapping(value = "admin/new-work", method = RequestMethod.GET)
+    public String newWork(ModelMap map){
+        Work work = new Work();
+        map.addAttribute("work",work);
+        map.addAttribute("loggedinuser", getPrincipal());
+        return "new-work";
+    }
+
     /**
      * Work add form
      * @return
      */
-    @RequestMapping(value = "admin/new-work", method = {RequestMethod.POST,RequestMethod.GET})
+    @RequestMapping(value = "admin/new-work", method = RequestMethod.POST)
     public String addService(@Valid Work work,BindingResult result,ModelMap map){
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:MM:SS");
         dateFormat.format(new Date());
 
-//        map.addAttribute("mwork",work);
+
         map.addAttribute("loggedinuser", getPrincipal());
         String username =getPrincipal();
         work.setOwner(userService.findBySSO(username));
+        work.setCreateDate(new Date());
         workService.create(work);
         return "new-work";
     }
