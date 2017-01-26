@@ -326,10 +326,6 @@ public class AppController {
      */
     @RequestMapping(value = "admin/new-work", method = RequestMethod.POST)
     public String addService(@Valid Work work,BindingResult result,ModelMap map){
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:MM:SS");
-        dateFormat.format(new Date());
-
-
         map.addAttribute("loggedinuser", getPrincipal());
         String username =getPrincipal();
         work.setOwner(userService.findBySSO(username));

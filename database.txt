@@ -65,7 +65,7 @@ CREATE TABLE WORK (
     service_name VARCHAR(200) NOT NULL,
     state VARCHAR(200) NOT NULL,
     owner_id BIGINT NOT NULL,
-    date DATETIME,
+    create_date DATETIME,
     PRIMARY KEY (id),
     CONSTRAINT FK_APP_USER_W FOREIGN KEY (owner_id) REFERENCES APP_USER (id)
 );

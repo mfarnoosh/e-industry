@@ -27,13 +27,12 @@ public class Work {
     @Column(name = "STATE",nullable = false)
     private String state;
 
-//    @MapsId
     @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private User owner;
 
-    @Transient
+
     @Temporal(TemporalType.TIMESTAMP)
-    @Column(name = "Create_Date", nullable = false)
+    @Column(name = "CREATE_DATE", nullable = false)
     private Date createDate;
 
     /*@Lob

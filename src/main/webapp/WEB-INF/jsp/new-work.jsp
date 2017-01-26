@@ -37,7 +37,7 @@
                         <fieldset>
                             <legend class="text-center"><spring:message code="form.servive.title"/></legend>
                             <form:input path="id" id="id" type="hidden"/>
-                            <%--<form:input path="owner" type="hidden" value="${loggedinuser}"/>--%>
+
                             <!-- Work Name input-->
                             <div class="form-group">
                                 <label class="col-md-3 control-label" for="name"><spring:message code="form.work.serviceTitle"/> </label>
@@ -61,12 +61,12 @@
                                 </div>
                             </div>
                             <!-- Date input-->
-                            <div class="form-group" hidden>
+                            <%--<div class="form-group" hidden>
                                 <label class="col-md-3 control-label" for="date"><spring:message code="form.work.state"/> </label>
                                 <div class="col-md-9">
                                     <form:input path="createDate" id="date" name="state" type="text" class="form-control"/>
                                 </div>
-                            </div>
+                            </div>--%>
                             <!--File Input-->
                             <%--<div class="form-group">
                                 <label class="col-md-3 control-label" for="fileinput"><spring:message code="form.image"/> </label>
