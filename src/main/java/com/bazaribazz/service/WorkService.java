@@ -2,6 +2,8 @@ package com.bazaribazz.service;
 
 import com.bazaribazz.model.Work;
 
+import java.util.List;
+
 /**
  * Created by dorsa on 1/23/17.
  */
@@ -11,4 +13,6 @@ public interface WorkService {
     Work findBySku(String sku);
 
     void create(Work work);
+
+    List<Work> findAllWorks();
 }

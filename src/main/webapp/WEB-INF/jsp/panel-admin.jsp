@@ -20,7 +20,7 @@
 <body>
 <div class="container" id="body">
     <h3 class="bottom-margin2x"><spring:message code="admin.page.title"/> </h3>
-    <div class="col-md-2 text-center dashboard-box pull-right" onclick="openPage('works');">
+    <div class="col-md-2 text-center dashboard-box pull-right" onclick="openPage('work-list');">
         <i class="glyphicon glyphicon-wrench btn-block gi-4x"></i>
         <span class="text-bottom btn-block"><spring:message code="admin.works"/></span>
     </div>

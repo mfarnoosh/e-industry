@@ -1,4 +1,5 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: dorsa
@@ -29,13 +30,15 @@
         </tr>
         </thead>
         <tbody>
-        <tr>
-            <td>1</td>
-            <td>wallpaper</td>
-            <td>wood</td>
-            <td>comment coment comment</td>
-            <td><a href="#"><spring:message code="site.edit"/> </a> </td>
-        </tr>
+        <c:forEach items="${works}" var="work">
+            <tr>
+                <td>${work.id}</td>
+                <td>${work.serviceName}</td>
+                <td>${work.profession}</td>
+                <%--<td>${work.createDate}</td>--%>
+                <td><a href="#"><spring:message code="site.edit"/> </a> </td>
+            </tr>
+        </c:forEach>
         </tbody>
     </table>
 </div>

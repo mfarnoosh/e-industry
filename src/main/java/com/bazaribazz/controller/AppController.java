@@ -334,6 +334,13 @@ public class AppController {
         return "new-work";
     }
 
+    @RequestMapping(value = {"work-list","admin/work-list"},method = RequestMethod.GET)
+    public String workList(ModelMap model){
+        List<Work> works = workService.findAllWorks();
+        model.addAttribute("works",works);
+        return "works";
+    }
+
     /**
      * Add product page
      * @return
@@ -376,10 +383,10 @@ public class AppController {
     }
 
 
-    @RequestMapping(value = "admin/works",method = RequestMethod.GET)
+    /*@RequestMapping(value = "admin/works",method = RequestMethod.GET)
     public String servicesPage(){
         return "works";
-    }
+    }*/
     @RequestMapping(value = "admin/products",method = RequestMethod.GET)
     public String productsPage(){
         return "products";

@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.List;
 
 /**
  * Created by dorsa on 1/23/17.
@@ -29,5 +30,11 @@ public class WorkServiceImpl implements WorkService {
     @Override
     public void create(Work work) {
         dao.create(work);
+    }
+
+    @Override
+    public List<Work> findAllWorks() {
+
+        return dao.findAllService();
     }
 }
