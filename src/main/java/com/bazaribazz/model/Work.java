@@ -27,7 +27,7 @@ public class Work {
     @Column(name = "STATE",nullable = false)
     private String state;
 
-    @ManyToOne(optional = false, fetch = FetchType.LAZY)
+    @ManyToOne
     private User owner;
 
 

@@ -53,11 +53,11 @@ public class WorkDaoImpl extends AbstractDao<Integer,Work> implements WorkDao {
 
     @Override
     public List<Work> findAllService() {
-        Criteria criteria = createEntityCriteria().addOrder(Order.desc("create_date"));
+        Criteria criteria = createEntityCriteria().addOrder(Order.desc("createDate"));
         criteria.setResultTransformer(criteria.DISTINCT_ROOT_ENTITY);
         List<Work> works = (List<Work>) criteria.list();
         for (Work work: works){
-            Hibernate.initialize(work.getOwner());
+            Hibernate.initialize(work.getOwner().getSsoId());
         }
         return works;
     }

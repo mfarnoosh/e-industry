@@ -26,6 +26,7 @@
             <th><spring:message code="works.name"/> </th>
             <th><spring:message code="works.guild"/> </th>
             <th><spring:message code="works.comment"/> </th>
+            <th>Owner </th>
             <th></th>
         </tr>
         </thead>
@@ -35,7 +36,8 @@
                 <td>${work.id}</td>
                 <td>${work.serviceName}</td>
                 <td>${work.profession}</td>
-                <%--<td>${work.createDate}</td>--%>
+                <td>${work.createDate}</td>
+                <td>${work.owner.ssoId}</td>
                 <td><a href="#"><spring:message code="site.edit"/> </a> </td>
             </tr>
         </c:forEach>
