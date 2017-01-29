@@ -1,4 +1,4 @@
-<%@ page pageEncoding="UTF-8" %>
+<%@ page pageEncoding="UTF-8" contentType="text/html; charset=UTF-8" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -10,9 +10,11 @@
   Time: 11:50 AM
   To change this template use File | Settings | File Templates.
 --%>
+<%--<%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>--%>
 <!DOCTYPE html>
 <html>
 <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <title></title>
     <link href="<c:url value="/resources/css/style.css" />" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -33,7 +35,7 @@
             <div class="col-md-6 col-md-offset-3">
                 <div class="well well-sm">
                     <%--enctype="multipart/form-data"--%>
-                    <form:form class="form-horizontal" method="post" commandName="work">
+                    <form:form class="form-horizontal" method="post" commandName="work" acceptcharset="UTF-8">
                         <fieldset>
                             <legend class="text-center"><spring:message code="form.servive.title"/></legend>
                             <form:input path="id" id="id" type="hidden"/>
@@ -98,7 +100,14 @@
                             <!-- Form actions -->
                             <div class="form-group">
                                 <div class="col-md-12 text-right">
-                                    <button type="submit" class="btn btn-primary btn-lg" ><spring:message code="form.submit"/></button>
+                                    <c:choose>
+                                        <c:when test="${edit}">
+                                            <button type="submit" class="btn btn-primary btn-lg" >edit</button>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <button type="submit" class="btn btn-primary btn-lg" ><spring:message code="form.submit"/></button>
+                                        </c:otherwise>
+                                    </c:choose>
                                 </div>
                             </div>
                         </fieldset>

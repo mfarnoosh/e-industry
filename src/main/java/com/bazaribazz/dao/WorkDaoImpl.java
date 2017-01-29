@@ -26,7 +26,7 @@ public class WorkDaoImpl extends AbstractDao<Integer,Work> implements WorkDao {
     public Work findById(int id) {
         Work work = getByKey(id);
         if (work !=null){
-            Hibernate.initialize(work);
+            Hibernate.initialize(work.getOwner());
         }
         return work;
     }

@@ -14,5 +14,7 @@ public interface WorkService {
 
     void create(Work work);
 
+    void update(Work work);
+
     List<Work> findAllWorks();
 }

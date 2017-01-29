@@ -19,7 +19,7 @@ public class WorkServiceImpl implements WorkService {
     public WorkDao dao;
     @Override
     public Work findById(int id) {
-        return null;
+        return dao.findById(id);
     }
 
     @Override
@@ -30,6 +30,16 @@ public class WorkServiceImpl implements WorkService {
     @Override
     public void create(Work work) {
         dao.create(work);
+    }
+
+    @Override
+    public void update(Work work) {
+        Work entity = dao.findById(work.getId());
+        if (entity!=null){
+            entity.setServiceName(work.getServiceName());
+            entity.setProfession(work.getProfession());
+            entity.setState(work.getState());
+        }
     }
 
     @Override

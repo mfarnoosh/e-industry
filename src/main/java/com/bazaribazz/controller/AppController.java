@@ -337,6 +337,7 @@ public class AppController {
     @RequestMapping(value = {"work-list","admin/work-list"},method = RequestMethod.GET)
     public String workList(ModelMap model){
         List<Work> works = workService.findAllWorks();
+        model.addAttribute("edit",false);
         model.addAttribute("works",works);
         return "works";
     }
@@ -351,6 +352,23 @@ public class AppController {
     }
 
 
+    @RequestMapping(value = "admin/edit-work-{workid}",method = RequestMethod.GET)
+    public String editWork(@PathVariable int workid,ModelMap model){
+        Work work = workService.findById(workid);
+        model.addAttribute("work",work);
+        model.addAttribute("edit",true);
+        model.addAttribute("loggedinuser", getPrincipal());
+        return "new-work";
+    }
+
+    @RequestMapping(value = "admin/edit-work-{workid}",method = RequestMethod.POST)
+    public String updateWork(@Valid Work work, BindingResult result,ModelMap model,@PathVariable int workid){
+        if (result.hasErrors()) {
+            return "new-work";
+        }
+        workService.update(work);
+        return "new-work";
+    }
     /**
      * Get image file
      * @param service

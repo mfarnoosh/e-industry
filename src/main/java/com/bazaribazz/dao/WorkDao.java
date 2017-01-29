@@ -18,6 +18,7 @@ public interface WorkDao {
 
     void deleteById(int id);
 
+
     List<Work> findAllService();
 
 }

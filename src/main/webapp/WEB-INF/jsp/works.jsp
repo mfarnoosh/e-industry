@@ -38,7 +38,7 @@
                 <td>${work.profession}</td>
                 <td>${work.createDate}</td>
                 <td>${work.owner.ssoId}</td>
-                <td><a href="#"><spring:message code="site.edit"/> </a> </td>
+                <td><a href="<c:url value="edit-work-${work.id}"/>"class="btn btn-success custom-width"><spring:message code="site.edit"/> </a> </td>
             </tr>
         </c:forEach>
         </tbody>
