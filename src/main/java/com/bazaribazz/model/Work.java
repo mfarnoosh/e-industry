@@ -35,9 +35,8 @@ public class Work {
     @Column(name = "CREATE_DATE", nullable = false)
     private Date createDate;
 
-    /*@Lob
-    @Column(name = "IMAGE", length = Integer.MAX_VALUE)
-    private byte[] imageFile;*/
+    @OneToMany(mappedBy = "id")
+    private Set<UploadFile> uploadFile;
     /*@Column(name = "KEYWORDS",nullable = false)
     private String[] keywords;*/
 
@@ -122,11 +121,13 @@ public class Work {
         this.createDate = createDate;
     }
 
-    /*@Override
-    public String toString(){
-        return "Work [id="+id+"profession="+profession
-                +"serviceName="+serviceName+"state="+state+"]";
-    }*/
+    public Set<UploadFile> getUploadFile() {
+        return uploadFile;
+    }
+
+    public void setUploadFile(Set<UploadFile> uploadFile) {
+        this.uploadFile = uploadFile;
+    }
 
     @Override
     public String toString() {

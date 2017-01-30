@@ -2,6 +2,7 @@
 create table APP_USER (
    id BIGINT NOT NULL AUTO_INCREMENT,
    sso_id VARCHAR(30) NOT NULL,
+   mobile VARCHAR(30) NOT NULL,
    password VARCHAR(100) NOT NULL,
    first_name VARCHAR(30) NOT NULL,
    last_name  VARCHAR(30) NOT NULL,
@@ -39,13 +40,12 @@ VALUES ('DBA');
 
 
 /* Populate one Admin User which will further create other users for the application using GUI */
-INSERT INTO APP_USER(sso_id, password, first_name, last_name, email)
-VALUES ('sam','$2a$10$4eqIF5s/ewJwHK1p8lqlFOEm2QIA0S8g6./Lok.pQxqcxaBZYChRm', 'Sam','Smith','samy@xyz.com');
-
+INSERT INTO APP_USER(sso_id,mobile, password, first_name, last_name, email)
+VALUES ('sam','09111111111','$2a$10$4eqIF5s/ewJwHK1p8lqlFOEm2QIA0S8g6./Lok.pQxqcxaBZYChRm', 'Sam','Smith','samy@xyz.com');
 
 /* Populate JOIN Table */
 INSERT INTO APP_USER_USER_PROFILE (user_id, user_profile_id)
-  SELECT user.id, profile.id FROM app_user user, user_profile profile
+  SELECT user.id, profile.id FROM APP_USER user, USER_PROFILE profile
   where user.sso_id='sam' and profile.type='ADMIN';
 
 /* Create persistent_logins Table used to store rememberme related stuff*/
@@ -68,4 +68,13 @@ CREATE TABLE WORK (
     create_date DATETIME,
     PRIMARY KEY (id),
     CONSTRAINT FK_APP_USER_W FOREIGN KEY (owner_id) REFERENCES APP_USER (id)
+);
+/*Create file table used to store file location*/
+CREATE TABLE FILES_UPLOAD (
+    upload_id int(11) NOT NULL AUTO_INCREMENT,
+    file_name varchar(128) DEFAULT NULL,
+    file_data longblob,
+    work_id BIGINT NOT NULL,
+    PRIMARY KEY (`upload_id`),
+    CONSTRAINT FK_WORK FOREIGN KEY (work_id) REFERENCES WORK (id)
 );

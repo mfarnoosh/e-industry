@@ -1,5 +1,7 @@
 package com.bazaribazz.controller;
 
+import com.bazaribazz.dao.FileUploadDao;
+import com.bazaribazz.model.UploadFile;
 import com.bazaribazz.model.Work;
 import com.bazaribazz.model.User;
 import com.bazaribazz.model.UserProfile;
@@ -19,6 +21,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -51,6 +54,9 @@ public class AppController {
 
     @Autowired
     WorkService workService;
+
+    @Autowired
+    private FileUploadDao fileUploadDao;
 
 
     String str;
@@ -313,7 +319,7 @@ public class AppController {
     }
 
     @RequestMapping(value = "admin/new-work", method = RequestMethod.GET)
-    public String newWork(ModelMap map){
+    public String newWork(ModelMap map,HttpServletRequest request){
         Work work = new Work();
         map.addAttribute("work",work);
         map.addAttribute("loggedinuser", getPrincipal());
@@ -324,13 +330,28 @@ public class AppController {
      * Work add form
      * @return
      */
-    @RequestMapping(value = "admin/new-work", method = RequestMethod.POST)
-    public String addService(@Valid Work work,BindingResult result,ModelMap map){
+    @RequestMapping(value = "admin/new-work", method = RequestMethod.POST,headers = "Content-Type=multipart/form-data")
+    public String addService(@Valid Work work,BindingResult result,ModelMap map,
+                             HttpServletRequest request,
+                             @RequestParam CommonsMultipartFile[] uploadFile) throws Exception{
+        request.setCharacterEncoding("UTF-8");
         map.addAttribute("loggedinuser", getPrincipal());
         String username =getPrincipal();
         work.setOwner(userService.findBySSO(username));
         work.setCreateDate(new Date());
         workService.create(work);
+        if (uploadFile != null && uploadFile.length > 0) {
+            for (CommonsMultipartFile aFile : uploadFile){
+
+                System.out.println("Saving file: " + aFile.getOriginalFilename());
+
+                UploadFile upload_File = new UploadFile();
+                upload_File.setFileName(aFile.getOriginalFilename());
+                upload_File.setData(aFile.getBytes());
+                upload_File.setWork(work);
+                fileUploadDao.save(upload_File);
+            }
+        }
         return "new-work";
     }
 

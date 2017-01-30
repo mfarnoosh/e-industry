@@ -3,6 +3,8 @@ package com.bazaribazz.model;
 import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.*;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
@@ -21,6 +23,12 @@ public class User implements Serializable {
     @NotEmpty
     @Column(name = "SSO_ID", unique = true, nullable = false)
     private String ssoId;
+
+    @NotEmpty
+    @Size(max = 11,min = 11, message = "please insert the true number!")
+    @Pattern(regexp = "[0][9][0-9]{9}",message = "the number is false!")
+    @Column(name = "mobile")
+    private String mobile;
 
     @NotEmpty
     @Column(name = "PASSWORD", nullable = false)
@@ -62,6 +70,14 @@ public class User implements Serializable {
 
     public void setSsoId(String ssoId) {
         this.ssoId = ssoId;
+    }
+
+    public String getMobile() {
+        return mobile;
+    }
+
+    public void setMobile(String mobile) {
+        this.mobile = mobile;
     }
 
     public String getPassword() {

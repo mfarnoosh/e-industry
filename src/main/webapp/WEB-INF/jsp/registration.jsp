@@ -29,7 +29,7 @@
         <div class="row">
             <div class="col-md-6 col-md-offset-3">
                 <div class="well well-sm">
-                    <form:form class="form-horizontal" method="post" commandName="user">
+                    <form:form class="form-horizontal" method="post" commandName="user" acceptcharset="UTF-8">
                         <fieldset>
                             <legend class="text-center"><spring:message code="sign.up.page.title"/></legend>
                             <form:input path="id" id="id" type="hidden"/>
@@ -48,6 +48,16 @@
                                 <label class="col-md-3 control-label" for="last-name"><spring:message code="sign.up.last.name"/> </label>
                                 <div class="col-md-9">
                                     <form:input path="lastName" id="last-name" name="last-name" type="text" class="form-control"/>
+                                    <div class="has-error">
+                                        <form:errors path="lastName" class="help-inline"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- mobil number input-->
+                            <div class="form-group">
+                                <label class="col-md-3 control-label" for="mobil"><spring:message code="sign.up.mobile"/> </label>
+                                <div class="col-md-9">
+                                    <form:input path="mobile" id="mobil" name="mobile" type="text" class="form-control"/>
                                     <div class="has-error">
                                         <form:errors path="lastName" class="help-inline"/>
                                     </div>

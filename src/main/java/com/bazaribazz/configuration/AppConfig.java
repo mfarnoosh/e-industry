@@ -1,12 +1,16 @@
 package com.bazaribazz.configuration;
 
 import com.bazaribazz.converter.RoleToUserProfileConverter;
+import com.bazaribazz.dao.FileUploadDao;
+import com.bazaribazz.dao.FileUploadDaoImpl;
+import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.support.ResourceBundleMessageSource;
 import org.springframework.format.FormatterRegistry;
+import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.PathMatchConfigurer;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
@@ -72,4 +76,19 @@ public class AppConfig extends WebMvcConfigurerAdapter {
     public void configurePathMatch(PathMatchConfigurer matcher) {
         matcher.setUseRegisteredSuffixPatternMatch(true);
     }
+
+
+    @Autowired
+    @Bean(name = "fileUploadDao")
+    public FileUploadDao getUserDao(SessionFactory sessionFactory) {
+        return new FileUploadDaoImpl(sessionFactory);
+    }
+    @Bean(name = "multipartResolver")
+    public CommonsMultipartResolver getCommonsMultipartResolver() {
+        CommonsMultipartResolver multipartResolver = new CommonsMultipartResolver();
+        multipartResolver.setMaxUploadSize(20971520);	// 20MB
+        multipartResolver.setMaxInMemorySize(1048576);	// 1MB
+        return multipartResolver;
+    }
+
 }

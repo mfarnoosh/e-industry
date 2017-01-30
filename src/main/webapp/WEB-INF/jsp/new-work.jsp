@@ -1,4 +1,4 @@
-<%@ page pageEncoding="UTF-8" contentType="text/html; charset=UTF-8" %>
+<%--<%@ page pageEncoding="UTF-8" contentType="text/html; charset=UTF-8" %>--%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -10,7 +10,7 @@
   Time: 11:50 AM
   To change this template use File | Settings | File Templates.
 --%>
-<%--<%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>--%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -35,7 +35,9 @@
             <div class="col-md-6 col-md-offset-3">
                 <div class="well well-sm">
                     <%--enctype="multipart/form-data"--%>
-                    <form:form class="form-horizontal" method="post" commandName="work" acceptcharset="UTF-8">
+                    <form:form class="form-horizontal" method="post" commandName="work" enctype="multipart/form-data" accept-charset="UTF-8"
+                               action="./new-work?${_csrf.parameterName}=${_csrf.token}">
+                        <%--<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />--%>
                         <fieldset>
                             <legend class="text-center"><spring:message code="form.servive.title"/></legend>
                             <form:input path="id" id="id" type="hidden"/>
@@ -70,16 +72,19 @@
                                 </div>
                             </div>--%>
                             <!--File Input-->
-                            <%--<div class="form-group">
+                            <div class="form-group">
                                 <label class="col-md-3 control-label" for="fileinput"><spring:message code="form.image"/> </label>
                                 <div class="fileinput fileinput-new" data-provides="fileinput">
                                     <div id="fileinput" class="fileinput-preview thumbnail" data-trigger="fileinput" style="width: 200px; height: 150px;"></div>
                                     <div>
-                                        <span class="btn btn-default btn-file"><span class="fileinput-new">Select image</span><span class="fileinput-exists">Change</span><input type="file" name="..."></span>
+                                        <span class="btn btn-default btn-file">
+                                            <span class="fileinput-new">Select image</span><span class="fileinput-exists">Change</span>
+                                            <form:input path="uploadFile" type="file" name="fileUpload"/>
+                                        </span>
                                         <a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a>
                                     </div>
                                 </div>
-                            </div>--%>
+                            </div>
                             <!-- Tags -->
                             <%--<div class="form-group">
                                 <label class="col-md-3 control-label" for="tags">tags</label>
@@ -96,7 +101,7 @@
                                 </div>
                             </div>--%>
 
-
+                            <%--<input type="hidden" name="${_csrf.parameterName}"  value="${_csrf.token}" />--%>
                             <!-- Form actions -->
                             <div class="form-group">
                                 <div class="col-md-12 text-right">
@@ -110,9 +115,10 @@
                                     </c:choose>
                                 </div>
                             </div>
+                            <%--<input type="hidden" form:name="${_csrf.parameterName}" form=:value="${_csrf.token}"/>--%>
                         </fieldset>
                     </form:form>
-                    <%--<input type="button"  value=" " id="myButton" />--%>
+
                 </div>
             </div>
         </div>
