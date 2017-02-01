@@ -431,8 +431,16 @@ public class AppController {
         return "products";
     }
 
+
     @RequestMapping(value = "product",method = RequestMethod.GET)
-    public String productView(){
-        return  "view-product";
+    public String newProduct(){
+
+        return "new-product";
     }
+    /*@RequestMapping(value = "product",method = RequestMethod.POST)
+    public String saveProduct(){
+
+        return "product";
+    }*/
+
 }

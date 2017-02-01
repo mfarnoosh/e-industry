@@ -19,11 +19,14 @@
     <script src="<c:url value="/resources/bootstrap-3.3.7/dist/js/bootstrap.min.js"/>" type="text/javascript"></script>
     <link href="<c:url value="/resources/bootstrap-3.3.7/dist/css/bootstrap.min.css"/>" rel="stylesheet">
 </head>
-<body style="direction: rtl">
-<jsp:include page="header-menu.jsp"/>
+<body>
+
 <div id="body">
     <div class="container">
         <div class="row">
+            <jsp:include page="header.jsp"/>
+        </div>
+        <div class="row" dir="rtl">
             <div class="col-md-6 col-md-offset-3">
                 <div class="well well-sm">
                     <c:url var="loginUrl" value="login" />

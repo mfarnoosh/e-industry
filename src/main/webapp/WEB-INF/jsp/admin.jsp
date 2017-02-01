@@ -14,8 +14,8 @@
     <%--<script src = "https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>--%>
 <%--<script src="<c:url value="/resources/js/main.js" />"></script>--%>
 </head>
-<body style="direction: rtl">
-<jsp:include page="header-menu.jsp"/>
+<body>
+<jsp:include page="header.jsp"/>
 <jsp:include page="panel-admin.jsp"/>
 <jsp:include page="footer.jsp"/>
 </body>

@@ -16,7 +16,7 @@
 --%>
 <%--<%@ page contentType="text/html;charset=UTF-8" language="java" %>--%>
 <!DOCTYPE html>
-<html lang="${language}" style="direction: rtl">
+<html lang="${language}">
 <head>
 
     <title>Home</title>
@@ -30,19 +30,37 @@
 </head>
 <body data-spy="scroll" data-target=".container-navbar" data-offset="50">
 
+
 <%--Header and Menu--%>
-<jsp:include page="header-menu.jsp"/>
-<%-- Start Carousel--%>
-<jsp:include page="carousel.jsp"/>
+
+<div class="container">
+    <div class="row">
+        <jsp:include page="header.jsp"/>
+    </div>
+    <div class="row">
+        <%-- Start Carousel--%>
+        <div class="col-md-2">
+            <h3>تبلیغات</h3>
+        </div>
+        <div class="col-md-8" dir="rtl">
+            <jsp:include page="carousel.jsp"/>
+            <jsp:include page="content.jsp"/>
+        </div>
+        <div class="col-md-2" dir="rtl">
+            <jsp:include page="menu.jsp"/>
+        </div>
+    </div>
+
+
+</div>
+
 <!-- End Carousel -->
 
-<%@include file="authheader.jsp" %>
+
 
 <%--content container--%>
 <div class="container" id="body">
-    <div id="work" style="display: inline;">
-        <h3 style="margin-top: 3%; margin-right: 3%;">خدمات</h3>
-    </div>
+
     <%-- Work Items--%>
     <div class="container-fluid table" align="center">
         <c:forEach var="mitem" items="${myservice}">

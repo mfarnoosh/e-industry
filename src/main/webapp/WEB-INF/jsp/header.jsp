@@ -29,34 +29,77 @@
 </head>
 <body>
 <header>
-    <div class="header container-fluid">
-        <div class="col-md-3 search-box">
-            <form:form class="navbar-form" role="search" method="get" action="search" commandName="home">
-                <div class="input-group add-on">
-                    <input type="text" class="form-control" placeholder="<spring:message code="header.search" text="header.search"/>" name="srch" id="srch-term" onkeydown="if (event.keyCode == 13) window.location = 'search';">
-                    <div class="input-group-btn">
-                        <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+    <div class="header container-fluid" style="text-align: right">
+
+        <div class="row">
+            <%@include file="authheader.jsp" %>
+
+            <div class="col-md-5 col-md-offset-3" dir="rtl">
+                <form:form commandName="home" action="search" method="get" role="search" class="search-form" >
+                    <div class="form-group has-feedback">
+                        <label for="search" class="sr-only"><spring:message code="header.search" text="header.search"/></label>
+                        <input type="text" class="form-control" name="search" id="search" placeholder="<spring:message code="header.search" text="header.search"/>">
+                        <span class="glyphicon glyphicon-search form-control-feedback"></span>
+                    </div>
+                </form:form>
+            </div>
+        </div>
+        <div class="row" >
+            <div class="col-xs-2 pull-right" dir="rtl">
+                <a class="navbar-brand" href="/edustry"><spring:message code="site.name" text="site.name"/> </a>
+            </div>
+            <div class="col-xs-2" dir="rtl">
+                <c:choose>
+                    <c:when test="${pageContext.request.userPrincipal.authenticated}">
+                        <div type="button" onclick="location.href='logout'" class="btn btn-default login">
+                            <i class="glyphicon glyphicon-log-out"></i>
+                            <span><spring:message code="header.logout"/></span>
+                        </div>
+                    </c:when>
+                    <c:otherwise>
+                        <div type="button" onclick="location.href='login'" class="btn btn-default login">
+                            <i class="glyphicon glyphicon-log-in"></i>
+                            <span><spring:message code="header.login"/></span>
+                        </div>
+                    </c:otherwise>
+                </c:choose>
+                <div type="button" class="btn btn-primary" onclick="location.href='product'">
+                    <span>آگهی خرید</span>
+                </div>
+            </div>
+            <div class="col-md-8">
+                <form id="search-form" class="form-inline" role="form" method="post" action="//www.google.com/search" target="_blank">
+                    <div class="input-group">
+                        <input type="text" class="form-control search-form" placeholder="Search" dir="rtl">
+                        <span class="input-group-btn">
+                         <button type="submit" class="btn btn-primary search-btn" data-target="#search-form" name="q">
+                             <i class="glyphicon glyphicon-search "></i>
+                         </button>
+                     </span>
+                    </div>
+                </form>
+            </div>
+
+            <%--<form:form class="navbar-form" role="search" method="get" action="search" commandName="home">
+                <div id="custom-search-input">
+                    <div class="input-group col-md-8">
+                        <input type="text" class="form-control" placeholder="<spring:message code="header.search" text="header.search"/>" name="srch" id="srch-term" onkeydown="if (event.keyCode == 13) window.location = 'search';">
+                        <span class="input-group-btn">
+                                    <button class="btn btn-danger" type="button">
+                                        <span class=" glyphicon glyphicon-search"></span>
+                                    </button>
+                        </span>
                     </div>
                 </div>
-            </form:form>
+            </form:form>--%>
+
         </div>
-        <c:choose>
-            <c:when test="${pageContext.request.userPrincipal.authenticated}">
-                <div type="button" onclick="location.href='logout'" class="btn btn-default login">
-                    <i class="glyphicon glyphicon-log-out"></i>
-                    <span><spring:message code="header.logout"/></span>
-                </div>
-            </c:when>
-            <c:otherwise>
-                <div type="button" onclick="location.href='login'" class="btn btn-default login">
-                    <i class="glyphicon glyphicon-log-in"></i>
-                    <span><spring:message code="header.login"/></span>
-                </div>
-            </c:otherwise>
-        </c:choose>
+
+
     </div>
 </header>
 <%--navbar--%>
+<%--
 <div class="container-navbar" style="direction: rtl">
     <nav class="navbar navbar-default" data-spy="affix" data-offset-top="57">
         <div class="navbar-header navbar-right">
@@ -73,10 +116,10 @@
                 <li class="dropdown mega-dropdown navbar-right">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         <spring:message code="menu.works"/>
-                        <%--<span class="caret"></span>--%>
+                        &lt;%&ndash;<span class="caret"></span>&ndash;%&gt;
                     </a>
                     <ul class="dropdown-menu mega-dropdown-menu">
-                        <%--<li class="col-sm-3">
+                        &lt;%&ndash;<li class="col-sm-3">
                             <ul>
                                 <li class="dropdown-header">Men Collection</li>
                                 <div id="menCollection" class="carousel slide" data-ride="carousel">
@@ -134,7 +177,7 @@
                                 <li><a href="#">View all Collection <span
                                         class="glyphicon glyphicon-chevron-right pull-right"></span></a></li>
                             </ul>
-                        </li>--%>
+                        </li>&ndash;%&gt;
                         <li class="col-sm-3">
                             <ul>
                                 <li class="dropdown-header">حرفه</li>
@@ -148,7 +191,7 @@
                                 <li><a href="#">صنایع چوب</a></li>
                             </ul>
                         </li>
-                        <%--<li class="col-sm-3">
+                        &lt;%&ndash;<li class="col-sm-3">
                             <ul>
                                 <li class="dropdown-header">Plus</li>
                                 <li><a href="#">Navbar Inverse</a></li>
@@ -165,13 +208,13 @@
                                 <li><a href="#">Custom Fonts</a></li>
                                 <li><a href="#">Slide down on Hover</a></li>
                             </ul>
-                        </li>--%>
+                        </li>&ndash;%&gt;
                     </ul>
                 </li>
                 <li class="dropdown mega-dropdown navbar-right">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         <spring:message code="menu.products"/>
-                        <%--<span class="caret"></span>--%>
+                        &lt;%&ndash;<span class="caret"></span>&ndash;%&gt;
                     </a>
                     <ul class="dropdown-menu mega-dropdown-menu">
                         <li class="col-sm-3">
@@ -182,9 +225,9 @@
                                 <li><a href="#">گاز</a></li>
                                 <li><a href="#">جاروبرقی</a></li>
                                 <li class="divider"></li>
-                                <%--<li class="dropdown-header">Fonts</li>
+                                &lt;%&ndash;<li class="dropdown-header">Fonts</li>
                                 <li><a href="#">Glyphicon</a></li>
-                                <li><a href="#">Google Fonts</a></li>--%>
+                                <li><a href="#">Google Fonts</a></li>&ndash;%&gt;
                             </ul>
                         </li>
                         <li class="col-sm-3">
@@ -196,7 +239,7 @@
                                 <li><a href="#">ماشین‌های اداری</a></li>
                             </ul>
                         </li>
-                        <%--<li class="col-sm-3">
+                        &lt;%&ndash;<li class="col-sm-3">
                             <ul>
                                 <li class="dropdown-header">Much more</li>
                                 <li><a href="#">Easy to Customize</a></li>
@@ -204,8 +247,8 @@
                                 <li><a href="#">Custom Fonts</a></li>
                                 <li><a href="#">Slide down on Hover</a></li>
                             </ul>
-                        </li>--%>
-                        <%--<li class="col-sm-3">
+                        </li>&ndash;%&gt;
+                        &lt;%&ndash;<li class="col-sm-3">
                             <ul>
                                 <li class="dropdown-header">Women Collection</li>
                                 <div id="womenCollection" class="carousel slide" data-ride="carousel">
@@ -263,13 +306,13 @@
                                 <li><a href="#">View all Collection <span
                                         class="glyphicon glyphicon-chevron-right pull-right"></span></a></li>
                             </ul>
-                        </li>--%>
+                        </li>&ndash;%&gt;
                     </ul>
                 </li>
                 <li><a href="about-us"><spring:message code="menu.about.us" text="about us"/></a></li>
                 <li><a href="contact-us"><spring:message code="menu.contact.us" text="contact us"/></a></li>
             </ul>
-            <%--<ul class="nav navbar-nav navbar-right">
+            &lt;%&ndash;<ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">My
                         account <span class="caret"></span></a>
@@ -282,9 +325,11 @@
                     </ul>
                 </li>
                 <li><a href="#">My cart (0) items</a></li>
-            </ul>--%>
+            </ul>&ndash;%&gt;
         </div><!-- /.nav-collapse -->
     </nav>
 </div>
+--%>
+
 </body>
 </html>

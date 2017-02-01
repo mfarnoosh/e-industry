@@ -28,7 +28,7 @@
 </head>
 <body style="direction: rtl">
 
-<jsp:include page="header-menu.jsp"/>
+<jsp:include page="header.jsp"/>
 <div class="google_map" onload="loadMap()">
     <div id="map_container"></div>
 </div>

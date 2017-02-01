@@ -18,7 +18,7 @@
     <link href="<c:url value="/resources/css/style.css" />" rel="stylesheet">
 </head>
 <body>
-<div class="container" id="body">
+<div class="container" id="body" dir="rtl">
     <h3 class="bottom-margin2x"><spring:message code="admin.page.title"/> </h3>
     <div class="col-md-2 text-center dashboard-box pull-right" onclick="openPage('work-list');">
         <i class="glyphicon glyphicon-wrench btn-block gi-4x"></i>
