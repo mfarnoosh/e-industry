@@ -51,6 +51,204 @@
                                         </div>
                                     </div>
 
+                                    <!-- Work Name input-->
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label" for="name">ساخته شده در</label>
+                                        <div class="col-md-9">
+                                            <input id="f1" name="name" type="text" placeholder="ساخته شده در" class="form-control">
+                                        </div>
+                                    </div>
+
+                                    <!-- SKU input-->
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label" for="product-sku">مواد تشکیل دهنده </label>
+                                        <div class="col-md-9">
+                                            <input id="f2" name="product-sku" type="text" placeholder="مواد تشکیل دهنده " class="form-control">
+                                        </div>
+                                    </div>
+
+                                    <!-- Work Name input-->
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label" for="name">نام برند </label>
+                                        <div class="col-md-9">
+                                            <input id="f3" name="name" type="text" placeholder="نام برند" class="form-control">
+                                        </div>
+                                    </div>
+
+                                    <!-- SKU input-->
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label" for="product-sku">عملکرد </label>
+                                        <div class="col-md-9">
+                                            <input id="f4" name="product-sku" type="text" placeholder="عملکرد" class="form-control">
+                                        </div>
+                                    </div>
+
+                                    <!-- Work Name input-->
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label" for="name">درجه‌ی کیفیت </label>
+                                        <div class="col-md-9">
+                                            <input id="f5" name="name" type="text" placeholder="" class="form-control">
+                                        </div>
+                                    </div>
+
+                                    <!-- SKU input-->
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label" for="product-sku">شماره‌ی مدل</label>
+                                        <div class="col-md-9">
+                                            <input id="f6" name="product-sku" type="text" placeholder="" class="form-control">
+                                        </div>
+                                    </div>
+
+                                    <!-- SKU input-->
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label" for="product-sku">رنگ </label>
+                                        <div class="col-md-9">
+                                            <input id="f7" name="product-sku" type="text" placeholder="" class="form-control">
+                                        </div>
+                                    </div>
+
+                                    <!-- SKU input-->
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label" for="product-sku">قیمت</label>
+                                        <div class="col-md-9">
+                                            <input id="f8" name="product-sku" type="text" placeholder="" class="form-control">
+                                        </div>
+                                    </div>
+
+                                    <!-- SKU input-->
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label" for="product-sku">ویژگی</label>
+                                        <div class="col-md-9">
+                                            <input id="f9" name="product-sku" type="text" placeholder="" class="form-control">
+                                        </div>
+                                    </div>
+
+                                    <!-- SKU input-->
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label" for="product-sku">سایز بندی</label>
+                                        <div class="col-md-9">
+                                            <input id="f10" name="product-sku" type="text" placeholder="" class="form-control">
+                                        </div>
+                                    </div>
+
+                                    <!-- SKU input-->
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label" for="product-sku">حداقل سفارش</label>
+                                        <div class="col-md-9">
+                                            <input id="f11" name="product-sku" type="text" placeholder="" class="form-control">
+                                        </div>
+                                    </div>
+
+                                    <!-- SKU input-->
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label" for="product-sku">حداکثر سفارش</label>
+                                        <div class="col-md-9">
+                                            <input id="f12" name="product-sku" type="text" placeholder="" class="form-control">
+                                        </div>
+                                    </div>
+
+                                    <!-- SKU input-->
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label" for="product-sku">تعداد</label>
+                                        <div class="col-md-9">
+                                            <input id="f13" name="product-sku" type="text" placeholder="" class="form-control">
+                                        </div>
+                                    </div>
+
+                                    <!-- SKU input-->
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label" for="product-sku">قیمت واحد</label>
+                                        <div class="col-md-9">
+                                            <input id="f14" name="product-sku" type="text" placeholder="" class="form-control">
+                                        </div>
+                                    </div>
+
+                                    <!-- SKU input-->
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label" for="product-sku">قیمت کل</label>
+                                        <div class="col-md-9">
+                                            <input id="f15" name="product-sku" type="text" placeholder="" class="form-control">
+                                        </div>
+                                    </div>
+
+                                    <!-- SKU input-->
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label" for="product-sku">خصوصیات محصول</label>
+                                        <div class="col-md-9">
+                                            <input id="f16" name="product-sku" type="text" placeholder="" class="form-control">
+                                        </div>
+                                    </div>
+
+                                    <!-- SKU input-->
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label" for="product-sku">نوع</label>
+                                        <div class="col-md-9">
+                                            <input id="f17" name="product-sku" type="text" placeholder="" class="form-control">
+                                        </div>
+                                    </div>
+
+
+                                    <!-- SKU input-->
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label" for="product-sku">موارد استفاده</label>
+                                        <div class="col-md-9">
+                                            <input id="f18" name="product-sku" type="text" placeholder="" class="form-control">
+                                        </div>
+                                    </div>
+
+                                    <!-- SKU input-->
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label" for="product-sku">موچودی</label>
+                                        <div class="col-md-9">
+                                            <input id="f20" name="product-sku" type="text" placeholder="" class="form-control">
+                                        </div>
+                                    </div>
+
+                                    <!-- SKU input-->
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label" for="product-sku">محصول شرکت</label>
+                                        <div class="col-md-9">
+                                            <input id="f21" name="product-sku" type="text" placeholder="" class="form-control">
+                                        </div>
+                                    </div>
+
+                                    <!-- SKU input-->
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label" for="product-sku">استانداردها</label>
+                                        <div class="col-md-9">
+                                            <input id="f22" name="product-sku" type="text" placeholder="" class="form-control">
+                                        </div>
+                                    </div>
+                                    <!-- SKU input-->
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label" for="product-sku">قابلیت محصول</label>
+                                        <div class="col-md-9">
+                                            <input id="f23" name="product-sku" type="text" placeholder="" class="form-control">
+                                        </div>
+                                    </div>
+                                    <!-- SKU input-->
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label" for="product-sku">امکانات ویژه</label>
+                                        <div class="col-md-9">
+                                            <input id="f24" name="product-sku" type="text" placeholder="" class="form-control">
+                                        </div>
+                                    </div>
+                                    <!-- SKU input-->
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label" for="product-sku">تکنولوژی ساخت</label>
+                                        <div class="col-md-9">
+                                            <input id="f25" name="product-sku" type="text" placeholder="" class="form-control">
+                                        </div>
+                                    </div>
+                                    <!-- SKU input-->
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label" for="product-sku">میزان فروش سالیانه‌ی محصول</label>
+                                        <div class="col-md-9">
+                                            <input id="f26" name="product-sku" type="text" placeholder="" class="form-control">
+                                        </div>
+                                    </div>
+
+
                                     <!-- Message body -->
                                     <div class="form-group">
                                         <label class="col-md-3 control-label" for="message"><spring:message code="form.comment"/> </label>
