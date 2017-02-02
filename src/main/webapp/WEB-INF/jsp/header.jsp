@@ -29,7 +29,7 @@
 </head>
 <body>
 <header>
-    <div class="header container-fluid" style="text-align: right">
+    <div class="header container" style="text-align: right">
 
         <div class="row">
             <%@include file="authheader.jsp" %>
@@ -45,10 +45,10 @@
             </div>
         </div>
         <div class="row" >
-            <div class="col-xs-2 pull-right" dir="rtl">
+            <div class="col-xs-3 pull-right" dir="rtl">
                 <a class="navbar-brand" href="/edustry"><spring:message code="site.name" text="site.name"/> </a>
             </div>
-            <div class="col-xs-2" dir="rtl">
+            <div class="col-xs-3" dir="rtl">
                 <c:choose>
                     <c:when test="${pageContext.request.userPrincipal.authenticated}">
                         <div type="button" onclick="location.href='logout'" class="btn btn-default login">
@@ -67,7 +67,7 @@
                     <span>آگهی خرید</span>
                 </div>
             </div>
-            <div class="col-md-8">
+            <div class="col-md-6">
                 <form id="search-form" class="form-inline" role="form" method="post" action="//www.google.com/search" target="_blank">
                     <div class="input-group">
                         <input type="text" class="form-control search-form" placeholder="Search" dir="rtl">
