@@ -32,11 +32,11 @@
 
 
 <%--Header and Menu--%>
-
+<jsp:include page="header.jsp"/>
 <div class="container">
-    <div class="row">
-        <jsp:include page="header.jsp"/>
-    </div>
+    <%--<div class="row">--%>
+
+    <%--</div>--%>
     <div class="row">
         <%-- Start Carousel--%>
         <div class="col-md-2">

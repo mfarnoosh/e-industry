@@ -29,71 +29,86 @@
 </head>
 <body>
 <header>
-    <div class="header container" style="text-align: right">
+    <div class="header" style="text-align: right">
 
-        <div class="row">
-            <%@include file="authheader.jsp" %>
-
-            <div class="col-md-5 col-md-offset-3" dir="rtl">
-                <form:form commandName="home" action="search" method="get" role="search" class="search-form" >
-                    <div class="form-group has-feedback">
-                        <label for="search" class="sr-only"><spring:message code="header.search" text="header.search"/></label>
-                        <input type="text" class="form-control" name="search" id="search" placeholder="<spring:message code="header.search" text="header.search"/>">
-                        <span class="glyphicon glyphicon-search form-control-feedback"></span>
+        <div class="primary-nav">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-1">
+                        <%@include file="authheader.jsp" %>
                     </div>
-                </form:form>
-            </div>
-        </div>
-        <div class="row" >
-            <div class="col-xs-3 pull-right" dir="rtl">
-                <a class="navbar-brand" href="/edustry"><spring:message code="site.name" text="site.name"/> </a>
-            </div>
-            <div class="col-xs-3" dir="rtl">
-                <c:choose>
-                    <c:when test="${pageContext.request.userPrincipal.authenticated}">
-                        <div type="button" onclick="location.href='logout'" class="btn btn-default login">
-                            <i class="glyphicon glyphicon-log-out"></i>
-                            <span><spring:message code="header.logout"/></span>
-                        </div>
-                    </c:when>
-                    <c:otherwise>
-                        <div type="button" onclick="location.href='login'" class="btn btn-default login">
-                            <i class="glyphicon glyphicon-log-in"></i>
-                            <span><spring:message code="header.login"/></span>
-                        </div>
-                    </c:otherwise>
-                </c:choose>
-                <div type="button" class="btn btn-primary" onclick="location.href='product'">
-                    <span>آگهی خرید</span>
+                    <div class="col-md-2">
+                        <c:choose>
+                            <c:when test="${pageContext.request.userPrincipal.authenticated}">
+                                <div type="button" onclick="location.href='logout'" class="btn btn-default login">
+                                    <i class="glyphicon glyphicon-log-out"></i>
+                                    <span><spring:message code="header.logout"/></span>
+                                </div>
+                            </c:when>
+                            <c:otherwise>
+                                <div type="button" onclick="location.href='login'" class="btn btn-default login">
+                                    <i class="glyphicon glyphicon-log-in"></i>
+                                    <span><spring:message code="header.login"/></span>
+                                </div>
+                            </c:otherwise>
+                        </c:choose>
+                    </div>
                 </div>
             </div>
-            <div class="col-md-6">
-                <form id="search-form" class="form-inline" role="form" method="post" action="//www.google.com/search" target="_blank">
-                    <div class="input-group">
-                        <input type="text" class="form-control search-form" placeholder="Search" dir="rtl">
+        </div>
+        <div class="secondary-nav">
+            <div class="container">
+                <div class="row" >
+                    <div class="col-md-3 pull-right" dir="rtl">
+                        <a class="navbar-brand" href="/edustry"><spring:message code="site.name" text="site.name"/> </a>
+                    </div>
+                    <div class="col-md-3" dir="rtl">
+                        <div type="button" class="btn btn-primary" onclick="location.href='product'">
+                            <span>آگهی خرید</span>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <form id="search-form" class="form-inline" role="search" method="get" action="search"
+                              commandName="home">
+                            <div class="input-group">
+
                         <span class="input-group-btn">
                          <button type="submit" class="btn btn-primary search-btn" data-target="#search-form" name="q">
                              <i class="glyphicon glyphicon-search "></i>
                          </button>
-                     </span>
-                    </div>
-                </form>
-            </div>
-
-            <%--<form:form class="navbar-form" role="search" method="get" action="search" commandName="home">
-                <div id="custom-search-input">
-                    <div class="input-group col-md-8">
-                        <input type="text" class="form-control" placeholder="<spring:message code="header.search" text="header.search"/>" name="srch" id="srch-term" onkeydown="if (event.keyCode == 13) window.location = 'search';">
-                        <span class="input-group-btn">
-                                    <button class="btn btn-danger" type="button">
-                                        <span class=" glyphicon glyphicon-search"></span>
-                                    </button>
                         </span>
+                                <input type="text" class="form-control search-form" placeholder="Search" dir="rtl">
+                                <div class="input-group-btn">
+                                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                                        <span id="search_concept">Filter by</span> <span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li>list1</li>
+                                        <li>list2</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </form>
                     </div>
-                </div>
-            </form:form>--%>
 
+                    <%--<form:form class="navbar-form" role="search" method="get" action="search" commandName="home">
+                        <div id="custom-search-input">
+                            <div class="input-group col-md-8">
+                                <input type="text" class="form-control" placeholder="<spring:message code="header.search" text="header.search"/>" name="srch" id="srch-term" onkeydown="if (event.keyCode == 13) window.location = 'search';">
+                                <span class="input-group-btn">
+                                            <button class="btn btn-danger" type="button">
+                                                <span class=" glyphicon glyphicon-search"></span>
+                                            </button>
+                                </span>
+                            </div>
+                        </div>
+                    </form:form>--%>
+
+                </div>
+            </div>
         </div>
+
+
 
 
     </div>
