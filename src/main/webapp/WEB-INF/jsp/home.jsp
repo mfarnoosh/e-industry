@@ -33,7 +33,7 @@
 
 <%--Header and Menu--%>
 <jsp:include page="header.jsp"/>
-<div class="container">
+<div class="container content-page">
     <%--<div class="row">--%>
 
     <%--</div>--%>
@@ -94,7 +94,7 @@
         </c:forEach>
     </div>
     <div style="display: inline;">
-        <h3 style="margin-top: 3%; margin-right: 3%;">محصولات</h3>
+        <%--<h3 style="margin-top: 3%; margin-right: 3%;">محصولات</h3>--%>
     </div>
     <div class="product-container">
         <c:forEach var="mitem" items="${myproduct}">

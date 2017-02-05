@@ -1,5 +1,8 @@
 @import "yekan/font-style.css";
 
+body{
+    background-color: #eee;
+}
 .container {
 
     margin-right: 75px;
@@ -10,6 +13,12 @@
 
 .header{
     height: auto;
+    box-shadow: 0 1px 4px 0 rgba(0,0,0,.1);
+    background-color: #fff;
+    padding-top: 8px;
+    padding-bottom: 16px;
+    margin-bottom: 20px;
+    position: relative;
 }
 .add-on .input-group-btn > .btn {
     border-left-width:0;left:-2px;
@@ -22,14 +31,11 @@
     -webkit-box-shadow:none;
     border-color:#cccccc;
 }
-.login{
-    /*float: left;*/
+.primary-nav{
+    padding-top: 10px;
+    padding-bottom: 5px;
 }
-.login:hover{
-    color: #e67e22;
-    background-color: #333;
-    border-color: #333;
-}
+
 .affix {
     top: 0;
     width: 100%;
@@ -48,6 +54,19 @@
     cursor:pointer;
 }
 .input-group-btn{}
+.search-input{
+    padding-top: 15px ;
+    padding-bottom: 15px;
+}
+.ads-btn{
+    margin-top: 15px;
+    margin-bottom: 15px;
+    padding-left: 100px;
+    padding-right: 100px;
+}
+input.form-control.search-form{
+    width: 628px !important;
+}
 /*-----Page: all-----Navbar Style-----------*/
 
 /*@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,700);*/
@@ -252,6 +271,33 @@ label.col-md-3.control-label{float: right;}
 }
 .servicetitle{
     font-weight: normal;
+}
+/*--service2--*/
+.section-title{
+    padding-right: 15px;
+}
+.more-btn{
+    margin-top: 20px;
+    position: relative;
+    cursor: pointer;
+    display: inline-block;
+    overflow: hidden;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    vertical-align: middle;
+    z-index: 1;
+    will-change: opacity,transform;
+    transition: all .3s ease-out;
+}
+.section-header::after{
+    clear: both;
+    content: "";
+    display: table;
+}
+hr{
+    border-top: 3px solid #e00;
 }
 /*product*/
 .productbox {

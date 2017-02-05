@@ -8,8 +8,12 @@ import com.bazaribazz.model.UserProfile;
 import com.bazaribazz.service.UserProfileService;
 import com.bazaribazz.service.UserService;
 import com.bazaribazz.service.WorkService;
+
+import org.apache.commons.codec.binary.*;
+import org.apache.commons.codec.binary.Base64;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
+
 import org.springframework.security.authentication.AuthenticationTrustResolver;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -23,12 +27,16 @@ import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
+import javax.imageio.ImageIO;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
-import java.io.IOException;
-import java.text.SimpleDateFormat;
+import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.*;
+
 import java.util.*;
+import java.util.List;
 
 /**
  * Created by dorsa on 1/15/17.
@@ -264,15 +272,32 @@ public class AppController {
      * @param model
      * @return
      */
-
+    CommonsMultipartFile imgs;
+    BufferedImage bimg;
     @RequestMapping(value = {"/","home"},method = {RequestMethod.GET,RequestMethod.POST})
-    public String viewHome(Model model){
+    public String viewHome(ModelMap model){
 //        ServiceForm serviceForm = new ServiceForm();
 //        serviceForm.setWorks(works);
 //        model.addAttribute("myservice",serviceForm.getWorks());
+
+        List<Work> works = workService.findAllWorks();
+        List<UploadFile> uploadFiles = fileUploadDao.findAll();
+
+       InputStream inputStream=new ByteArrayInputStream(uploadFiles.get(0).getData());
+        try {
+            bimg = ImageIO.read(new ByteArrayInputStream(uploadFiles.get(0).getData()));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        model.addAttribute("edit",false);
+        model.addAttribute("works",works);
+        model.addAttribute("files",bimg.getGraphics());
+
         model.addAttribute("loggedinuser", getPrincipal());
         return "home";
     }
+
     @RequestMapping(value = "admin", method = RequestMethod.GET)
     public String adminPage(){
         return "admin";

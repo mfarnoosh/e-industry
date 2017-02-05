@@ -1,6 +1,7 @@
 package com.bazaribazz.model;
 
 import javax.persistence.*;
+import java.util.Arrays;
 
 /**
  * Created by dorsa on 1/29/17.
@@ -10,7 +11,7 @@ import javax.persistence.*;
 public class UploadFile {
     @Id
     @GeneratedValue
-    @Column(name = "FILE_ID")
+    @Column(name = "UPLOAD_ID")
     private long id;
 
     @Column(name = "FILE_NAME")
@@ -54,5 +55,37 @@ public class UploadFile {
 
     public void setWork(Work work) {
         this.work = work;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof UploadFile)) return false;
+
+        UploadFile that = (UploadFile) o;
+
+        if (id != that.id) return false;
+        if (fileName != null ? !fileName.equals(that.fileName) : that.fileName != null) return false;
+        if (!Arrays.equals(data, that.data)) return false;
+        return work != null ? work.equals(that.work) : that.work == null;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = (int) (id ^ (id >>> 32));
+        result = 31 * result + (fileName != null ? fileName.hashCode() : 0);
+        result = 31 * result + Arrays.hashCode(data);
+        result = 31 * result + (work != null ? work.hashCode() : 0);
+        return result;
+    }
+
+    @Override
+    public String toString() {
+        return "UploadFile{" +
+                "id=" + id +
+                ", fileName='" + fileName + '\'' +
+                ", data=" + Arrays.toString(data) +
+                ", work=" + work +
+                '}';
     }
 }

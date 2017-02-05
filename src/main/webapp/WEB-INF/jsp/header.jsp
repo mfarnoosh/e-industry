@@ -31,44 +31,46 @@
 <header>
     <div class="header" style="text-align: right">
 
-        <div class="primary-nav">
+        <div class="primary-nav" dir="rtl">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-1">
-                        <%@include file="authheader.jsp" %>
-                    </div>
-                    <div class="col-md-2">
-                        <c:choose>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li></li>
+                        <li>
+                            <c:choose>
                             <c:when test="${pageContext.request.userPrincipal.authenticated}">
-                                <div type="button" onclick="location.href='logout'" class="btn btn-default login">
-                                    <i class="glyphicon glyphicon-log-out"></i>
-                                    <span><spring:message code="header.logout"/></span>
+                                <div onclick="location.href='logout'" class="login">
+                                    <i class="glyphicon glyphicon-user"></i>
+                                    <span>${loggedinuser}</span>
                                 </div>
                             </c:when>
                             <c:otherwise>
-                                <div type="button" onclick="location.href='login'" class="btn btn-default login">
-                                    <i class="glyphicon glyphicon-log-in"></i>
+                                <div onclick="location.href='login'" class=" login">
+                                    <i class="glyphicon glyphicon-user"></i>
                                     <span><spring:message code="header.login"/></span>
                                 </div>
                             </c:otherwise>
                         </c:choose>
+                        </li>
+                        <li></li>
+                    </ul>
+
                     </div>
                 </div>
             </div>
-        </div>
         <div class="secondary-nav">
             <div class="container">
                 <div class="row" >
                     <div class="col-md-3 pull-right" dir="rtl">
                         <a class="navbar-brand" href="/edustry"><spring:message code="site.name" text="site.name"/> </a>
                     </div>
-                    <div class="col-md-3" dir="rtl">
-                        <div type="button" class="btn btn-primary" onclick="location.href='product'">
+                    <div class="col-md-2" dir="rtl">
+                        <div type="button" class="btn btn-primary ads-btn" onclick="location.href='product'">
                             <span>آگهی خرید</span>
                         </div>
                     </div>
-                    <div class="col-md-6">
-                        <form id="search-form" class="form-inline" role="search" method="get" action="search"
+                    <div class="col-md-7">
+                        <form id="search-form" class="form-inline search-input" role="search" method="get" action="search"
                               commandName="home">
                             <div class="input-group">
 
@@ -107,6 +109,8 @@
                 </div>
             </div>
         </div>
+        </div>
+
 
 
 
