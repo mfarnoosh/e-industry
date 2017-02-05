@@ -9,15 +9,16 @@ import com.bazaribazz.service.UserProfileService;
 import com.bazaribazz.service.UserService;
 import com.bazaribazz.service.WorkService;
 
-import org.apache.commons.codec.binary.*;
-import org.apache.commons.codec.binary.Base64;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 
+import com.sun.org.apache.xerces.internal.impl.dv.util.Base64;
 import org.springframework.security.authentication.AuthenticationTrustResolver;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
+
 import org.springframework.security.web.authentication.rememberme.PersistentTokenBasedRememberMeServices;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -27,12 +28,9 @@ import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
-import javax.imageio.ImageIO;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
-import java.awt.*;
-import java.awt.image.BufferedImage;
 import java.io.*;
 
 import java.util.*;
@@ -272,8 +270,7 @@ public class AppController {
      * @param model
      * @return
      */
-    CommonsMultipartFile imgs;
-    BufferedImage bimg;
+    String imag;
     @RequestMapping(value = {"/","home"},method = {RequestMethod.GET,RequestMethod.POST})
     public String viewHome(ModelMap model){
 //        ServiceForm serviceForm = new ServiceForm();
@@ -282,17 +279,11 @@ public class AppController {
 
         List<Work> works = workService.findAllWorks();
         List<UploadFile> uploadFiles = fileUploadDao.findAll();
-
-       InputStream inputStream=new ByteArrayInputStream(uploadFiles.get(0).getData());
-        try {
-            bimg = ImageIO.read(new ByteArrayInputStream(uploadFiles.get(0).getData()));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        imag = Base64.encode(uploadFiles.get(0).getData());
 
         model.addAttribute("edit",false);
         model.addAttribute("works",works);
-        model.addAttribute("files",bimg.getGraphics());
+        model.addAttribute("files",imag);
 
         model.addAttribute("loggedinuser", getPrincipal());
         return "home";

@@ -35,8 +35,8 @@
                         <%--<c:choose>--%>
                             <%--<c:when test="${mfile.work.id == work.id}">--%>
 
-                                <%--<img src="data:image/jpeg;base64,${files}" class="img-responsive">--%>
-                                <img src="<c:out value="${files}"/>" class="img-responsive">
+                                <img src="data:image/jpg;base64,${files}" class="img-responsive">
+                                <%--<img src="<c:out value="${files}"/>" class="img-responsive">--%>
                             <%--</c:when>--%>
                         <%--</c:choose>--%>
                     <%--</c:forEach>--%>
