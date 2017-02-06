@@ -279,6 +279,20 @@ public class AppController {
 
         List<Work> works = workService.findAllWorks();
         List<UploadFile> uploadFiles = fileUploadDao.findAll();
+
+        for (Work w: works){
+            String[] ms = new String[3];
+            int i= 0;
+            for (UploadFile uf: uploadFiles){
+                if (uf.getWork().getId()== w.getId()){
+                    imag=Base64.encode(uf.getData());
+                    ms[i]=imag;
+                    w.setImages(ms);
+                }
+                i++;
+            }
+        }
+
         imag = Base64.encode(uploadFiles.get(0).getData());
 
         model.addAttribute("edit",false);
@@ -290,7 +304,8 @@ public class AppController {
     }
 
     @RequestMapping(value = "admin", method = RequestMethod.GET)
-    public String adminPage(){
+    public String adminPage(ModelMap map){
+        map.addAttribute("loggedinuser", getPrincipal());
         return "admin";
     }
 

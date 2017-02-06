@@ -47,6 +47,70 @@ body{
     padding-top: 70px;
 }
 
+.user-menu-header ul{
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    margin: 8px 0 0;
+    padding: 8px 16px;
+    box-shadow: 1px 1px 3px 0 #aaa;
+    background: #fff;
+    min-width: 180%;
+    z-index: 160;
+}
+.user-menu-header:hover ul{
+    visibility: visible;
+    opacity: 1;
+}
+.user-menu-header:hover::before{
+    box-shadow: 1px 1px 3px 0 #aaa;
+}
+.primary-nav ul.navbar-nav>li .user-menu-header::before{
+    top: 0;
+    height: 150%;
+    z-index: 155;
+}
+.primary-nav ul.navbar-nav>li .user-menu-header:after,
+.primary-nav ul.navbar-nav>li .user-menu-header:before{
+    content: '';
+    position: absolute;
+    width: 100%;
+    background: #fff;
+    right: 0;
+    left: 0;
+}
+.primary-nav ul.navbar-nav>li{
+    transition: background-color .3s;
+    float: right;
+    padding: 8px 0 0;
+    margin: 0 0 0 16px;
+    font-size: 13px;
+}
+ul {
+    list-style-type: none;
+}
+.user-menu-header ul li{
+    display: list-item;
+}
+.btn-group-horizontal{
+    white-space: nowrap;
+    padding-bottom: 10px;
+    text-align: center;
+}
+.user-menu-header, ul.navbar-nav>li, .primary-nav{
+    padding: 8px 8px 0;
+    position: relative;
+    margin-top: -8px;
+}
+.login{
+    z-index: 170;
+    position: relative;
+    font-weight: 700;
+}
+
+
 /*------search expanded full--------*/
 /*SEARCH FORM*/
 .search-btn {

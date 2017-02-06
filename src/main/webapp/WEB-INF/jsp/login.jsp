@@ -20,12 +20,11 @@
     <link href="<c:url value="/resources/bootstrap-3.3.7/dist/css/bootstrap.min.css"/>" rel="stylesheet">
 </head>
 <body>
-
+<jsp:include page="header.jsp"/>
 <div id="body">
+
     <div class="container">
-        <div class="row">
-            <jsp:include page="header.jsp"/>
-        </div>
+
         <div class="row" dir="rtl">
             <div class="col-md-6 col-md-offset-3">
                 <div class="well well-sm">

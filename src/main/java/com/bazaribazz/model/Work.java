@@ -1,10 +1,8 @@
 package com.bazaribazz.model;
 
 import org.hibernate.validator.constraints.NotEmpty;
-import org.springframework.web.multipart.MultipartFile;
 
 import javax.persistence.*;
-import java.io.File;
 import java.util.*;
 
 /**
@@ -40,7 +38,8 @@ public class Work {
     /*@Column(name = "KEYWORDS",nullable = false)
     private String[] keywords;*/
 
-
+    @Transient
+    private String[] images;
 
     /*public Work(String profession, String servicename, String state){
         this.id = UUID.randomUUID();
@@ -127,6 +126,14 @@ public class Work {
 
     public void setUploadFile(Set<UploadFile> uploadFile) {
         this.uploadFile = uploadFile;
+    }
+
+    public String[] getImages() {
+        return images;
+    }
+
+    public void setImages(String[] images) {
+        this.images = images;
     }
 
     @Override

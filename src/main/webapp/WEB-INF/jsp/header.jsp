@@ -45,9 +45,19 @@
                                 </div>
                             </c:when>
                             <c:otherwise>
-                                <div onclick="location.href='login'" class=" login">
-                                    <i class="glyphicon glyphicon-user"></i>
-                                    <span><spring:message code="header.login"/></span>
+                                <div class="user-menu-header">
+                                    <div onclick="location.href='login'" class=" login">
+                                        <i class="glyphicon glyphicon-user"></i>
+                                        <span><spring:message code="header.login"/></span>
+                                    </div>
+                                    <ul>
+                                        <li>
+                                            <div class="btn-group-horizontal">
+                                                <a href="login" class="btn btn-primary"><spring:message code="header.login"/></a>
+                                                <a href="newuser" class="btn btn-primary"><spring:message code="login.register.button"/> </a>
+                                            </div>
+                                        </li>
+                                    </ul>
                                 </div>
                             </c:otherwise>
                         </c:choose>
