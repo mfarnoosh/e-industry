@@ -27,9 +27,9 @@
     <link href="<c:url value="/resources/bootstrap-tagsinput.css"/>" rel="stylesheet">
     <link href="<c:url value="/resources/jasny-bootstrap/css/jasny-bootstrap.min.css"/>" rel="stylesheet">
 </head>
-<body style="direction: rtl">
+<body>
 <jsp:include page="header.jsp"/>
-<div class="work-form">
+<div class="work-form" dir="rtl">
     <div class="container">
         <div class="row">
             <div class="col-md-6 col-md-offset-3">
@@ -124,5 +124,6 @@
         </div>
     </div>
 </div>
+<jsp:include page="footer.jsp"/>
 </body>
 </html>

@@ -293,11 +293,11 @@ public class AppController {
             }
         }
 
-        imag = Base64.encode(uploadFiles.get(0).getData());
+//        imag = Base64.encode(uploadFiles.get(0).getData());
 
         model.addAttribute("edit",false);
         model.addAttribute("works",works);
-        model.addAttribute("files",imag);
+//        model.addAttribute("files",imag);
 
         model.addAttribute("loggedinuser", getPrincipal());
         return "home";
@@ -322,7 +322,7 @@ public class AppController {
         return "search";
     }
     private List<Work> searchResult(String name){
-        List<Work> result = new ArrayList<Work>();
+        List<Work> result = workService.findAllWorks();
         for (Work se : works){
             if (se.getServiceName().contains(name)){
                 result.add(se);
@@ -399,7 +399,8 @@ public class AppController {
      * @return
      */
     @RequestMapping(value = "admin/new-product", method = RequestMethod.GET)
-    public String addProduct(){
+    public String addProduct(ModelMap model){
+        model.addAttribute("loggedinuser", getPrincipal());
         return "new-product";
     }
 
@@ -464,8 +465,8 @@ public class AppController {
 
 
     @RequestMapping(value = "product",method = RequestMethod.GET)
-    public String newProduct(){
-
+    public String newProduct(ModelMap model){
+        model.addAttribute("loggedinuser", getPrincipal());
         return "new-product";
     }
     /*@RequestMapping(value = "product",method = RequestMethod.POST)

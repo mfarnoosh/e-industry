@@ -31,15 +31,15 @@
             <div class="col-md-4 column servicebox pull-right">
                 <%--<img src="/edustry/resources/img/brush.jpg" class="img-responsive">--%>
                 <div class="img-responsive">
-                    <%--<c:forEach items="${files}" var="mfile">--%>
-                        <%--<c:choose>--%>
-                            <%--<c:when test="${mfile.work.id == work.id}">--%>
+                    <c:forEach items="${work.images}" var="image">
+                        <c:choose>
+                            <c:when test="${image!=null}">
 
-                                <img src="data:image/jpg;base64,${work.images[0]}" class="img-responsive">
-                                <%--<img src="<c:out value="${files}"/>" class="img-responsive">--%>
-                            <%--</c:when>--%>
-                        <%--</c:choose>--%>
-                    <%--</c:forEach>--%>
+                                <img src="data:image/jpg;base64,${image}" class="img-responsive">
+
+                            </c:when>
+                        </c:choose>
+                    </c:forEach>
                 </div>
                 <div class="servicetitle">
                     <dl>

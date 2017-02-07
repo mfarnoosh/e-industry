@@ -1,6 +1,6 @@
 // $('body').scrollspy({ target: '.container-navbar' })
 /*--------Mega Menu------------*/
-$(document).ready(function(){
+/*$(document).ready(function(){
     $(".dropdown").hover(
         function() {
             $('.dropdown-menu', this).not('.in .dropdown-menu').stop(true,true).slideDown("400");
@@ -11,7 +11,7 @@ $(document).ready(function(){
             $(this).toggleClass('open');
         }
     );
-});
+});*/
 /*---------carousel-------------*/
 $(document).ready(function () {
     $('#myCarousel').carousel();
