@@ -80,16 +80,15 @@
                         </div>
                     </div>
                     <div class="col-md-7">
-                        <form:form id="search-form" class="form-inline search-input" role="search" method="get" action="search"
-                             commandName="work" >
+                        <form:form id="search-form" class="form-inline search-input" role="search" method="get" action="search">
                             <div class="input-group">
 
                         <span class="input-group-btn">
-                         <button type="submit" class="btn btn-primary search-btn" data-target="#search-form" name="srch">
+                         <button type="submit" class="btn btn-primary search-btn" data-target="#search-form" >
                              <i class="glyphicon glyphicon-search "></i>
                          </button>
                         </span>
-                                <input  type="text" class="form-control search-form" placeholder="Search" dir="rtl"/>
+                                <input type="text" class="form-control search-form" placeholder="Search" dir="rtl" name="srch"/>
                                 <div class="input-group-btn">
                                     <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
                                         <span id="search_concept">Filter by</span> <span class="caret"></span>
