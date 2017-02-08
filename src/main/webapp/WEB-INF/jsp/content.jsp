@@ -30,13 +30,11 @@
         <c:forEach var="work" items="${works}">
             <div class="col-md-4 column servicebox pull-right">
                 <%--<img src="/edustry/resources/img/brush.jpg" class="img-responsive">--%>
-                <div class="img-responsive">
+                <div>
                     <c:forEach items="${work.images}" var="image">
                         <c:choose>
                             <c:when test="${image!=null}">
-
-                                <img src="data:image/jpg;base64,${image}" class="img-responsive">
-
+                                <img src="data:image/jpg;base64,${image}" width="200px" height="100px">
                             </c:when>
                         </c:choose>
                     </c:forEach>

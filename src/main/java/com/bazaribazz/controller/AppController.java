@@ -276,10 +276,30 @@ public class AppController {
 //        ServiceForm serviceForm = new ServiceForm();
 //        serviceForm.setWorks(works);
 //        model.addAttribute("myservice",serviceForm.getWorks());
-
         List<Work> works = workService.findAllWorks();
-        List<UploadFile> uploadFiles = fileUploadDao.findAll();
+//        List<UploadFile> uploadFiles = fileUploadDao.findAll();
 
+        /*for (Work w: works){
+            String[] ms = new String[3];
+            int i= 0;
+            for (UploadFile uf: uploadFiles){
+                if (uf.getWork().getId()== w.getId()){
+                    imag=Base64.encode(uf.getData());
+                    ms[i]=imag;
+                    w.setImages(ms);
+                }
+                i++;
+            }
+        }*/
+        appendPics(works);
+        model.addAttribute("edit",false);
+        model.addAttribute("works",works);
+        model.addAttribute("loggedinuser", getPrincipal());
+        return "home";
+    }
+
+    private void appendPics(List<Work> works){
+        List<UploadFile> uploadFiles = fileUploadDao.findAll();
         for (Work w: works){
             String[] ms = new String[3];
             int i= 0;
@@ -292,15 +312,6 @@ public class AppController {
                 i++;
             }
         }
-
-//        imag = Base64.encode(uploadFiles.get(0).getData());
-
-        model.addAttribute("edit",false);
-        model.addAttribute("works",works);
-//        model.addAttribute("files",imag);
-
-        model.addAttribute("loggedinuser", getPrincipal());
-        return "home";
     }
 
     @RequestMapping(value = "admin", method = RequestMethod.GET)
@@ -318,6 +329,8 @@ public class AppController {
     @RequestMapping(value = "search", method = RequestMethod.GET)
     public String search(@RequestParam("srch") String serviceName,Model model){
         List<Work> sr = searchResult(serviceName);
+        appendPics(sr);
+
         model.addAttribute("shj",sr);
         return "search";
     }

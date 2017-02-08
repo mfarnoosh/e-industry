@@ -407,15 +407,11 @@ hr{
 
 /*----Page: Search ---Section: Search Result----------*/
 
-.search-result{
-    margin: 10px;
-    padding: 8px;
-    background-color: #f8f8f8;
-}
-table,.table>tbody>tr>th,.table>tbody>tr,.table>thead>tr>th,p{
+
+/*table,.table>tbody>tr>th,.table>tbody>tr,.table>thead>tr>th,p{
     direction: rtl;
     text-align: right;
-}
+}*/
 /*-----Page: Contact us------Section: contact-form*/
 .contact-form{
     margin-top: 20px;
