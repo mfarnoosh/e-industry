@@ -61,4 +61,18 @@ public class WorkDaoImpl extends AbstractDao<Integer,Work> implements WorkDao {
         }
         return works;
     }
+
+    /*---pagination---*/
+    @Override
+    public List<Work> findTop10Service() {
+        Criteria criteria = createEntityCriteria().addOrder(Order.desc("createDate"));
+        criteria.setResultTransformer(criteria.DISTINCT_ROOT_ENTITY);
+        criteria.setFirstResult(0);
+        criteria.setMaxResults(1);
+        List<Work> works = (List<Work>) criteria.list();
+        for (Work work: works){
+            Hibernate.initialize(work.getOwner().getSsoId());
+        }
+        return works;
+    }
 }

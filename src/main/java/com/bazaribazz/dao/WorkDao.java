@@ -21,4 +21,6 @@ public interface WorkDao {
 
     List<Work> findAllService();
 
+    List<Work> findTop10Service();
+
 }
