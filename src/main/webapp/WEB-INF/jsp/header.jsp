@@ -80,16 +80,16 @@
                         </div>
                     </div>
                     <div class="col-md-7">
-                        <form id="search-form" class="form-inline search-input" role="search" method="get" action="search"
-                              commandName="home">
+                        <form:form id="search-form" class="form-inline search-input" role="search" method="get" action="search"
+                             commandName="work" >
                             <div class="input-group">
 
                         <span class="input-group-btn">
-                         <button type="submit" class="btn btn-primary search-btn" data-target="#search-form" name="q">
+                         <button type="submit" class="btn btn-primary search-btn" data-target="#search-form" name="srch">
                              <i class="glyphicon glyphicon-search "></i>
                          </button>
                         </span>
-                                <input type="text" class="form-control search-form" placeholder="Search" dir="rtl">
+                                <input  type="text" class="form-control search-form" placeholder="Search" dir="rtl"/>
                                 <div class="input-group-btn">
                                     <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
                                         <span id="search_concept">Filter by</span> <span class="caret"></span>
@@ -100,7 +100,7 @@
                                     </ul>
                                 </div>
                             </div>
-                        </form>
+                        </form:form>
                     </div>
 
                     <%--<form:form class="navbar-form" role="search" method="get" action="search" commandName="home">

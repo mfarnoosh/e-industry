@@ -322,7 +322,7 @@ public class AppController {
         return "search";
     }
     private List<Work> searchResult(String name){
-        List<Work> result = workService.findAllWorks();
+        List<Work> result = workService.findByName(name);
         for (Work se : works){
             if (se.getServiceName().contains(name)){
                 result.add(se);

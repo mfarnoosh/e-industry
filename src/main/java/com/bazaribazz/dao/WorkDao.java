@@ -10,7 +10,7 @@ import java.util.List;
 public interface WorkDao {
     Work findById(int id);
 
-    Work findByName(String serviceName);
+    List<Work> findByName(String serviceName);
 
     Work findByProfession(String profession);
 

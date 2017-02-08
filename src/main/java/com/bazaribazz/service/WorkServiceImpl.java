@@ -28,6 +28,12 @@ public class WorkServiceImpl implements WorkService {
     }
 
     @Override
+    public List<Work> findByName(String serviceName) {
+        List<Work> works = dao.findByName(serviceName);
+        return works;
+    }
+
+    @Override
     public void create(Work work) {
         dao.create(work);
     }

@@ -12,6 +12,8 @@ public interface WorkService {
 
     Work findBySku(String sku);
 
+    List<Work> findByName(String serviceName);
+
     void create(Work work);
 
     void update(Work work);
