@@ -1,4 +1,6 @@
-$(document).ready(function(){
+// $('body').scrollspy({ target: '.container-navbar' })
+/*--------Mega Menu------------*/
+/*$(document).ready(function(){
     $(".dropdown").hover(
         function() {
             $('.dropdown-menu', this).not('.in .dropdown-menu').stop(true,true).slideDown("400");
@@ -9,28 +11,41 @@ $(document).ready(function(){
             $(this).toggleClass('open');
         }
     );
-});
+});*/
 /*---------carousel-------------*/
-$(document).ready( function() {
-    $('#myCarousel').carousel({
-        interval:   4000
-    });
+$(document).ready(function () {
+    $('#myCarousel').carousel();
+    var winWidth = $(window).innerWidth();
+    $(window).resize(function () {
 
-    var clickEvent = false;
-    $('#myCarousel').on('click', '.nav a', function() {
-        clickEvent = true;
-        $('.nav li').removeClass('active');
-        $(this).parent().addClass('active');
-    }).on('slid.bs.carousel', function(e) {
-        if(!clickEvent) {
-            var count = $('.nav').children().length -1;
-            var current = $('.nav li.active');
-            current.removeClass('active').next().addClass('active');
-            var id = parseInt(current.data('slide-to'));
-            if(count == id) {
-                $('.nav li').first().addClass('active');
-            }
+        if ($(window).innerWidth() < winWidth) {
+            $('.carousel-inner>.item>img').css({
+                'min-width': winWidth, 'width': winWidth
+            });
         }
-        clickEvent = false;
+        else {
+            winWidth = $(window).innerWidth();
+            $('.carousel-inner>.item>img').css({
+                'min-width': '', 'width': ''
+            });
+        }
     });
-});
+})
+
+/*---------Confirm Password----------*/
+/*
+function checkPasswordMatch() {
+    var password = $('#password').val();
+    var confirmPassword = $('#re-password').val();
+    if (password != confirmPassword)
+        $("#divCheckPasswordMatch").html("گذرواژه‌هایکسان نیستند!");
+    else
+        // $("#divCheckPasswordMatch").html("Passwords match.");
+        $("#divCheckPasswordMatch").hide();
+
+}
+$(document).ready(function () {
+    $("#password, #re-password").keyup(checkPasswordMatch);
+});*/
+
+/*-----submit button-------*/
