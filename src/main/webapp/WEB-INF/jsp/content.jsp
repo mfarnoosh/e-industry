@@ -35,6 +35,7 @@
                         <c:choose>
                             <c:when test="${image!=null}">
 
+
                                 <img src="data:image/jpg;base64,${image}" width="200" height="100">
 
                             </c:when>

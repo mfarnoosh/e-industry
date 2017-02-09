@@ -6,6 +6,7 @@ import org.hibernate.Criteria;
 import org.hibernate.Hibernate;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Order;
+import org.hibernate.criterion.Restrictions;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,8 +33,16 @@ public class WorkDaoImpl extends AbstractDao<Integer,Work> implements WorkDao {
     }
 
     @Override
-    public Work findByName(String serviceName) {
-        return null;
+    public List<Work> findByName(String serviceName) {
+        Criteria criteria = createEntityCriteria();
+        criteria.add(Restrictions.eq("serviceName",serviceName));
+        List<Work> works = (List<Work>) criteria.list();
+        if (works!=null){
+            for (Work work: works){
+                Hibernate.initialize(work.getOwner().getSsoId());
+            }
+        }
+        return works;
     }
 
     @Override
@@ -55,6 +64,20 @@ public class WorkDaoImpl extends AbstractDao<Integer,Work> implements WorkDao {
     public List<Work> findAllService() {
         Criteria criteria = createEntityCriteria().addOrder(Order.desc("createDate"));
         criteria.setResultTransformer(criteria.DISTINCT_ROOT_ENTITY);
+        List<Work> works = (List<Work>) criteria.list();
+        for (Work work: works){
+            Hibernate.initialize(work.getOwner().getSsoId());
+        }
+        return works;
+    }
+
+    /*---pagination---*/
+    @Override
+    public List<Work> findTop10Service() {
+        Criteria criteria = createEntityCriteria().addOrder(Order.desc("createDate"));
+        criteria.setResultTransformer(criteria.DISTINCT_ROOT_ENTITY);
+        criteria.setFirstResult(0);
+        criteria.setMaxResults(1);
         List<Work> works = (List<Work>) criteria.list();
         for (Work work: works){
             Hibernate.initialize(work.getOwner().getSsoId());

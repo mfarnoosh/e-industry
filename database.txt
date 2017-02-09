@@ -78,3 +78,5 @@ CREATE TABLE FILES_UPLOAD (
     PRIMARY KEY (`upload_id`),
     CONSTRAINT FK_WORK FOREIGN KEY (work_id) REFERENCES WORK (id)
 );
+
+ALTER TABLE <table_name> MODIFY <column_name> VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci;

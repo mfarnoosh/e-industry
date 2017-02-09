@@ -2,6 +2,7 @@
 
 body{
     background-color: #eee;
+    font-family: yekan;
 }
 .container {
 
@@ -416,15 +417,11 @@ img.img-responsive{
 
 /*----Page: Search ---Section: Search Result----------*/
 
-.search-result{
-    margin: 10px;
-    padding: 8px;
-    background-color: #f8f8f8;
-}
-table,.table>tbody>tr>th,.table>tbody>tr,.table>thead>tr>th,p{
+
+/*table,.table>tbody>tr>th,.table>tbody>tr,.table>thead>tr>th,p{
     direction: rtl;
     text-align: right;
-}
+}*/
 /*-----Page: Contact us------Section: contact-form*/
 .contact-form{
     margin-top: 20px;
@@ -469,6 +466,34 @@ table,.table>tbody>tr>th,.table>tbody>tr,.table>thead>tr>th,p{
 }
 .actions{
     margin-bottom: 5%;
+}
+
+/*------Page: Work-view-{workid}----section: content----------*/
+.card{
+    width: 100%;
+    box-shadow: 0 1px 4px 0 rgba(0,0,0,.1);
+    position: relative;
+    margin: 30px 0 1rem;
+    background-color: #fff;
+    transition: box-shadow .25s;
+    border-radius: 2px;
+}
+.card-content{
+    padding: 16px;
+    border-radius: 0 0 2px 2px;
+}
+.border-bottom{
+    border-bottom: 1px solid rgba(0,0,0,.12);
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+}
+.service-picture>img{
+    width: 100%;
+}
+.title{margin-bottom: 30px;}
+.service-detail-item{
+    margin-bottom: 10px;
+    font-size: medium;
 }
 /**
 * Footer

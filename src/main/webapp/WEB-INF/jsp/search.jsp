@@ -23,12 +23,13 @@
     <link href="<c:url value="/resources/bootstrap-3.3.7/dist/css/bootstrap.min.css"/>" rel="stylesheet">
 
 </head>
-<body style="direction: rtl">
+<body>
 <jsp:include page="header.jsp"/>
 
-<div class="container">
-    <%--Sidebar--%>
+<div class="container" dir="rtl">
+
     <div class="row">
+        <%--Sidebar--%>
         <div class="col-sm-3 col-md-3 sidebar-first">
             <div class="panel-group" id="accordion">
                 <div class="panel panel-default">
@@ -66,21 +67,43 @@
             </div>
         </div>
         <%--Search Reasult--%>
-        <div class="col-md-8 col-sm-8 search-result">
+        <div class="container-fluid table">
             <c:if test="${not empty shj}">
                 <c:forEach var="count" items="${shj}">
-                    <table class="table">
-                        <tr>
-                            <th>
-                                <p>${count.serviceName}</p>
-                            </th>
-                        </tr>
-                        <tr>
-                            <td>
-                                <p>${count.profession}</p>
-                            </td>
-                        </tr>
-                    </table>
+                    <div class="col-md-4 column servicebox pull-right">
+                            <%--<img src="/edustry/resources/img/brush.jpg" class="img-responsive">--%>
+                        <div>
+                            <c:forEach items="${count.images}" var="image">
+                                <c:choose>
+                                    <c:when test="${image!=null}">
+                                        <img src="data:image/jpg;base64,${image}" width="200px" height="100px">
+                                    </c:when>
+                                </c:choose>
+                            </c:forEach>
+                        </div>
+                        <div class="servicetitle">
+                            <dl>
+                                    <%--<dt><c:out value="${vars.serviceName}"/></dt>--%>
+                                <dt><spring:message code="item.work.profession"/> </dt>
+                                <dd>
+                                        ${count.profession}
+                                </dd>
+                                <dt><spring:message code="item.work.nameservice"/></dt>
+                                <dd>
+                                        ${count.serviceName}
+                                </dd>
+                                <dt><spring:message code="item.work.state"/></dt>
+                                <dd>
+                                        ${count.state}
+                                </dd>
+                            </dl>
+                        </div>
+                        <div class="productprice">
+                            <div class="pull-right">
+                                <a href="#" class="btn btn-danger btn-sm" role="button">بیشتر</a>
+                            </div>
+                        </div>
+                    </div>
                 </c:forEach>
             </c:if>
             <c:if test="${empty shj}">

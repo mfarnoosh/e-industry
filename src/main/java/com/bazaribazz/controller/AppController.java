@@ -276,11 +276,22 @@ public class AppController {
 //        ServiceForm serviceForm = new ServiceForm();
 //        serviceForm.setWorks(works);
 //        model.addAttribute("myservice",serviceForm.getWorks());
-
         List<Work> works = workService.findAllWorks();
-        List<UploadFile> uploadFiles = fileUploadDao.findAll();
+//        List<UploadFile> uploadFiles = fileUploadDao.findAll();
 
         for (Work w: works){
+            appendPics(w);
+        }
+
+        model.addAttribute("edit",false);
+        model.addAttribute("works",works);
+        model.addAttribute("loggedinuser", getPrincipal());
+        return "home";
+    }
+
+    private void appendPics(Work w){
+        List<UploadFile> uploadFiles = fileUploadDao.findAll();
+//        for (Work w: works){
             String[] ms = new String[3];
             int i= 0;
             for (UploadFile uf: uploadFiles){
@@ -291,16 +302,7 @@ public class AppController {
                 }
                 i++;
             }
-        }
-
-//        imag = Base64.encode(uploadFiles.get(0).getData());
-
-        model.addAttribute("edit",false);
-        model.addAttribute("works",works);
-//        model.addAttribute("files",imag);
-
-        model.addAttribute("loggedinuser", getPrincipal());
-        return "home";
+//        }
     }
 
     @RequestMapping(value = "admin", method = RequestMethod.GET)
@@ -318,11 +320,15 @@ public class AppController {
     @RequestMapping(value = "search", method = RequestMethod.GET)
     public String search(@RequestParam("srch") String serviceName,Model model){
         List<Work> sr = searchResult(serviceName);
+        for (Work w: sr){
+            appendPics(w);
+        }
+
         model.addAttribute("shj",sr);
         return "search";
     }
     private List<Work> searchResult(String name){
-        List<Work> result = workService.findAllWorks();
+        List<Work> result = workService.findByName(name);
         for (Work se : works){
             if (se.getServiceName().contains(name)){
                 result.add(se);
@@ -423,9 +429,10 @@ public class AppController {
         return "new-work";
     }
 
-    @RequestMapping(value = "view-work-{woerkid}",method = RequestMethod.GET)
+    @RequestMapping(value = "view-work-{workid}",method = RequestMethod.GET)
     public String visitWork(@PathVariable int workid,ModelMap model){
         Work work = workService.findById(workid);
+        appendPics(work);
         model.addAttribute("work",work);
         model.addAttribute("edit",false);
         model.addAttribute("loggedinuser", getPrincipal());
