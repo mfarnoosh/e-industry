@@ -422,6 +422,16 @@ public class AppController {
         workService.update(work);
         return "new-work";
     }
+
+    @RequestMapping(value = "view-work-{woerkid}",method = RequestMethod.GET)
+    public String visitWork(@PathVariable int workid,ModelMap model){
+        Work work = workService.findById(workid);
+        model.addAttribute("work",work);
+        model.addAttribute("edit",false);
+        model.addAttribute("loggedinuser", getPrincipal());
+        return "view-work";
+    }
+
     /**
      * Get image file
      * @param service

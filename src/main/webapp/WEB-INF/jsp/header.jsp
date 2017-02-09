@@ -89,14 +89,14 @@
                              <i class="glyphicon glyphicon-search "></i>
                          </button>
                         </span>
-                                <input type="text" class="form-control search-form" placeholder="Search" dir="rtl">
-                                <div class="input-group-btn">
+                                <input type="text" class="form-control search-form" placeholder="<spring:message code="header.search"/>" dir="rtl">
+                                <div class="input-group-btn" dir="rtl">
                                     <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                                        <span id="search_concept">Filter by</span> <span class="caret"></span>
+                                        <span id="search_concept">دسته‌بندی</span> <span class="caret"></span>
                                     </button>
                                     <ul class="dropdown-menu">
-                                        <li>list1</li>
-                                        <li>list2</li>
+                                        <li>دسته‌۱</li>
+                                        <li>دسته۲</li>
                                     </ul>
                                 </div>
                             </div>

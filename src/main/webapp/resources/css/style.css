@@ -131,6 +131,11 @@ ul {
 input.form-control.search-form{
     width: 628px !important;
 }
+ul.dropdown-menu{
+    text-align: center;
+    min-width: 95px;
+    font-size: 16px;
+}
 /*-----Page: all-----Navbar Style-----------*/
 
 /*@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,700);*/
@@ -326,6 +331,7 @@ label.col-md-3.control-label{float: right;}
     background-color:#ffffff;
     padding:10px;
     margin-bottom:10px;
+    margin-left: 10px;
     -webkit-box-shadow: 0 8px 6px -6px  #999;
     -moz-box-shadow: 0 8px 6px -6px  #999;
     box-shadow: 0 8px 6px -6px #999;
@@ -362,6 +368,9 @@ label.col-md-3.control-label{float: right;}
 }
 hr{
     border-top: 3px solid #e00;
+}
+img.img-responsive{
+    max-height: 100px;
 }
 /*product*/
 .productbox {
