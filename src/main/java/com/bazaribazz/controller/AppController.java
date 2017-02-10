@@ -299,8 +299,9 @@ public class AppController {
                     imag=Base64.encode(uf.getData());
                     ms[i]=imag;
                     w.setImages(ms);
+                    i++;
                 }
-                i++;
+
             }
 //        }
     }

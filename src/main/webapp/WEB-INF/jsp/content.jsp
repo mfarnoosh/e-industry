@@ -28,9 +28,8 @@
 
     <div class="container-fluid table" align="center">
         <c:forEach var="work" items="${works}">
-            <div class="col-md-3 column servicebox pull-right" onclick="openPage('view-work-${work.id}');">
+            <div class="col-md-3 col- column servicebox pull-right" onclick="openPage('view-work-${work.id}');">
                 <%--<img src="/edustry/resources/img/brush.jpg" class="img-responsive">--%>
-                <div>
                     <c:forEach items="${work.images}" var="image">
                         <c:choose>
                             <c:when test="${image!=null}">
@@ -41,7 +40,6 @@
                             </c:when>
                         </c:choose>
                     </c:forEach>
-                </div>
                 <div class="servicetitle caption">
                     <dl>
                             <%--<dt><c:out value="${vars.serviceName}"/></dt>--%>

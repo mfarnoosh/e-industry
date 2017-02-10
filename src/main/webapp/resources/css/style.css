@@ -308,7 +308,7 @@ dt{
     float: right !important;
 }
 dd{
-    margin-right: 180px;
+    margin-right: 60px;
     text-align: right;
 }
 li.col-sm-3{
@@ -342,6 +342,9 @@ label.col-md-3.control-label{float: right;}
 }
 .servicetitle{
     font-weight: normal;
+}
+.last-work .table .col-md-3{
+    width: 24%;
 }
 /*--service2--*/
 .section-title{
