@@ -299,8 +299,9 @@ public class AppController {
                     imag=Base64.encode(uf.getData());
                     ms[i]=imag;
                     w.setImages(ms);
+                    i++;
                 }
-                i++;
+
             }
 //        }
     }
@@ -320,20 +321,30 @@ public class AppController {
     @RequestMapping(value = "search", method = RequestMethod.GET)
     public String search(@RequestParam("srch") String serviceName,Model model){
         List<Work> sr = searchResult(serviceName);
+        List<String> professions = new ArrayList<String>();
         for (Work w: sr){
             appendPics(w);
+            if (professions.size()==0){
+                professions.add(w.getProfession());
+            }
+            if (!professions.contains(w.getProfession())){
+                professions.add(w.getProfession());
+            }
+
         }
+        model.addAttribute("professions",professions);
 
         model.addAttribute("shj",sr);
         return "search";
     }
     private List<Work> searchResult(String name){
-        List<Work> result = workService.findByName(name);
-        for (Work se : works){
+//        List<Work> result = workService.findByName(name);
+        List<Work> result = workService.searchWork(name);
+       /* for (Work se : works){
             if (se.getServiceName().contains(name)){
                 result.add(se);
             }
-        }
+        }*/
         return result;
     }
 

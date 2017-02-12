@@ -44,31 +44,28 @@
                     </div>
                     <div id="collapseOne" class="panel-collapse collapse in">
                         <div class="panel-body">
-                            <c:if test="${not empty shj}">
-                                <c:forEach var="count" items="${shj}">
-                                    <table class="table">
-                                        <tr>
-                                            <td>
-                                                <span class="glyphicon glyphicon-grain text-primary"></span>
-                                                <a href="http://www.jquery2dotnet.com">${count.profession}</a>
-                                            </td>
-                                        </tr>
-                                        <%--<tr>
-                                            <td>
-                                                <span class="glyphicon glyphicon-pencil text-primary"></span>
-                                                <a href="http://www.jquery2dotnet.com">Painting</a>
-                                            </td>
-                                        </tr>--%>
-                                    </table>
+                            <ul>
+                                <c:forEach items="${professions}" var="profession">
+                                    <li data-toggle="collapse">
+                                        <span class="glyphicon glyphicon-grain text-primary"></span>
+                                        <a href="#">${profession}</a>
+                                    </li>
+                                    <c:forEach var="count" items="${shj}">
+                                        <c:if test="${profession == count.profession}">
+                                            <ul>
+                                                <li>${count.serviceName}</li>
+                                            </ul>
+                                        </c:if>
+                                    </c:forEach>
                                 </c:forEach>
-                            </c:if>
+                            </ul>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
         <%--Search Reasult--%>
-        <div class="container-fluid table">
+        <div class="col-md-8">
             <c:if test="${not empty shj}">
                 <c:forEach var="count" items="${shj}">
                     <div class="col-md-4 column servicebox pull-right">
@@ -77,7 +74,7 @@
                             <c:forEach items="${count.images}" var="image">
                                 <c:choose>
                                     <c:when test="${image!=null}">
-                                        <img src="data:image/jpg;base64,${image}" width="200px" height="100px">
+                                        <img src="data:image/jpg;base64,${image}" height="100px">
                                     </c:when>
                                 </c:choose>
                             </c:forEach>

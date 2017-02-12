@@ -84,4 +84,23 @@ public class WorkDaoImpl extends AbstractDao<Integer,Work> implements WorkDao {
         }
         return works;
     }
+
+    @Override
+    public List<Work> searchWork(String string) {
+        Criteria criteria = createEntityCriteria().addOrder(Order.desc("createDate"));
+        criteria.setResultTransformer(criteria.DISTINCT_ROOT_ENTITY);
+        List<Work> works = (List<Work>) criteria.list();
+        List<Work> result = new ArrayList<Work>();
+        String[] strArray=string.split(" ");
+        for (String str: strArray){
+            for (Work work:works){
+                if (work.getServiceName().contains(str) || work.getState().contains(str) || work.getProfession().contains(str)){
+                    result.add(work);
+                    Hibernate.initialize(work.getOwner().getSsoId());
+                }
+            }
+        }
+
+        return result;
+    }
 }

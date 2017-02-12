@@ -53,4 +53,10 @@ public class WorkServiceImpl implements WorkService {
 
         return dao.findAllService();
     }
+
+    @Override
+    public List<Work> searchWork(String string) {
+
+        return dao.searchWork(string);
+    }
 }
