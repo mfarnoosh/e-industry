@@ -236,7 +236,11 @@
       <artifactId>google-api-services-oauth2</artifactId>
       <version>v2-rev70-1.17.0-rc</version>
     </dependency>
-
+      <dependency>
+        <groupId>com.rethinkdb</groupId>
+        <artifactId>rethinkdb-driver</artifactId>
+        <version>2.3.3</version>
+      </dependency>
 
   </dependencies>
   <build>
