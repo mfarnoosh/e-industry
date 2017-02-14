@@ -30,7 +30,7 @@ $(document).ready(function () {
             });
         }
     });
-})
+});
 
 /*---------Confirm Password----------*/
 /*
@@ -48,4 +48,11 @@ $(document).ready(function () {
     $("#password, #re-password").keyup(checkPasswordMatch);
 });*/
 
-/*-----submit button-------*/
+/*-----Live Search-------*/
+$(document).read(function () {
+    $('#search-form').onkeyup(function () {
+        var keywords = this.val();
+
+    });
+
+});

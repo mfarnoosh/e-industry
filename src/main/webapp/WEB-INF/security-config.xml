@@ -11,6 +11,8 @@
         <intercept-url pattern="/admin/*" access="hasRole('ADMIN')" />
         <intercept-url pattern="/seller/*" access="hasRole('ADMIN') and hasRole('SELLER')" />
         <intercept-url pattern="/job/*" access="hasRole('ADMIN') and hasRole('JOB')" />
+        <intercept-url pattern="/user-panel/*" access="hasRole('ADMIN') or hasRole('JOB')
+                                                        or hasRole('SELLER') or hasRole('USER')" />
         <form-login  login-page="/login"
                      username-parameter="ssoId"
                      password-parameter="password"

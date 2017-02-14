@@ -1,6 +1,7 @@
 package com.bazaribazz.service;
 
 import com.bazaribazz.dao.WorkDao;
+import com.bazaribazz.model.User;
 import com.bazaribazz.model.Work;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -58,5 +59,10 @@ public class WorkServiceImpl implements WorkService {
     public List<Work> searchWork(String string) {
 
         return dao.searchWork(string);
+    }
+
+    @Override
+    public List<Work> findByOwner(User owner) {
+        return dao.findByOwner(owner);
     }
 }

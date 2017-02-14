@@ -1,5 +1,6 @@
 package com.bazaribazz.dao;
 
+import com.bazaribazz.model.User;
 import com.bazaribazz.model.Work;
 
 import java.util.List;
@@ -24,5 +25,7 @@ public interface WorkDao {
     List<Work> findTop10Service();
 
     List<Work> searchWork(String string);
+
+    List<Work> findByOwner(User owner);
 
 }

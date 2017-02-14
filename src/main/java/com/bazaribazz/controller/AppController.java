@@ -255,15 +255,6 @@ public class AppController {
     /**
      * Home controller
      */
-    private static List<Work> works = new ArrayList<Work>();
-
-    /*static {
-        works.add(new Work("نصب کاغذ دیواری","نصب کاغذ دیواری","تهران"));
-        works.add(new Work("کابینت","نصب کابینت","تهران"));
-        works.add(new Work("طراحی و دکوراسیون","طراحی و دکوراسیون داخلی","کرج"));
-        works.add(new Work("نقاشی ساختمان","رنگ و نقاشی ساختمان","کرج"));
-        works.add(new Work("تعمیر کار","تعمیرکار یخچال","تهران"));
-    }*/
 
     /**
      * Home
@@ -366,7 +357,7 @@ public class AppController {
         return "contact-us";
     }
 
-    @RequestMapping(value = "admin/new-work", method = RequestMethod.GET)
+    @RequestMapping(value = {"admin/new-work","new-work"}, method = RequestMethod.GET)
     public String newWork(ModelMap map,HttpServletRequest request){
         Work work = new Work();
         map.addAttribute("work",work);
@@ -378,7 +369,7 @@ public class AppController {
      * Work add form
      * @return
      */
-    @RequestMapping(value = "admin/new-work", method = RequestMethod.POST,headers = "Content-Type=multipart/form-data")
+    @RequestMapping(value = {"admin/new-work","new-work"}, method = RequestMethod.POST,headers = "Content-Type=multipart/form-data")
     public String addService(@Valid Work work,BindingResult result,ModelMap map,
                              HttpServletRequest request,
                              @RequestParam CommonsMultipartFile[] uploadFile) throws Exception{
@@ -503,4 +494,27 @@ public class AppController {
         return "product";
     }*/
 
+    @RequestMapping(value = "user-panel/{ssoId}", method = RequestMethod.GET)
+    public String userProfile(@PathVariable String ssoId,ModelMap model){
+        User user = userService.findBySSO(ssoId);
+        User currentUser = userService.findBySSO(getPrincipal());
+        str=currentUser.getUserProfiles().toString().split("\\[")[2].split("=")[2].split("\\]")[0];
+        model.addAttribute("loggedinuser",getPrincipal());
+        List<Work> works = workService.findByOwner(currentUser);
+        if (ssoId.equals(getPrincipal()) || str.equals("ADMIN")){
+            model.addAttribute("user",user);
+            model.addAttribute("works",works);
+            return "user-panel";
+        }else {
+            return "accessDenied";
+        }
+
+
+
+    }
+    /*@RequestMapping(value = "user-panel/{uid}", method = RequestMethod.POST)
+    public String findUserProfile(@Valid User user, BindingResult result,
+                                  ModelMap model, @PathVariable String ssoId){
+        return "user-panel";
+    }*/
 }

@@ -7,11 +7,16 @@ import org.hibernate.Hibernate;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
+import org.omg.PortableInterceptor.USER_EXCEPTION;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import javax.persistence.EntityManager;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,6 +28,7 @@ public class WorkDaoImpl extends AbstractDao<Integer,Work> implements WorkDao {
     static final Logger logger = LoggerFactory.getLogger(UserDaoImpl.class);
     @Autowired
     private SessionFactory sessionFactory;
+
     @Override
     public Work findById(int id) {
         Work work = getByKey(id);
@@ -102,5 +108,18 @@ public class WorkDaoImpl extends AbstractDao<Integer,Work> implements WorkDao {
         }
 
         return result;
+    }
+
+    @Override
+    public List<Work> findByOwner(User owner) {
+        Criteria criteria = createEntityCriteria();
+        criteria.add(Restrictions.eq("owner",owner));
+        List<Work> works = (List<Work>) criteria.list();
+        if (works!=null){
+            for (Work work: works){
+                Hibernate.initialize(work.getOwner().getSsoId());
+            }
+        }
+        return works;
     }
 }

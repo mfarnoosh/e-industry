@@ -1,5 +1,6 @@
 package com.bazaribazz.service;
 
+import com.bazaribazz.model.User;
 import com.bazaribazz.model.Work;
 
 import java.util.List;
@@ -21,4 +22,6 @@ public interface WorkService {
     List<Work> findAllWorks();
 
     List<Work> searchWork(String string);
+
+    List<Work> findByOwner(User owner);
 }

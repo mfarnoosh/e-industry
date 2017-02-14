@@ -2,6 +2,7 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <%--
   Created by IntelliJ IDEA.
   User: dorsa
@@ -39,9 +40,22 @@
                         <li>
                             <c:choose>
                             <c:when test="${pageContext.request.userPrincipal.authenticated}">
-                                <div onclick="location.href='logout'" class="login">
-                                    <i class="glyphicon glyphicon-user"></i>
-                                    <span>${loggedinuser}</span>
+                                <div class="user-menu-header">
+                                    <div onclick="location.href='logout'" class="login">
+                                        <i class="glyphicon glyphicon-user"></i>
+                                        <span>${loggedinuser}</span>
+                                    </div>
+                                    <ul>
+                                        <li>
+                                            <div class="btn-group-horizontal">
+                                                <a href="<%=request.getContextPath() %>/logout" class="btn btn-primary"><spring:message code="header.logout"/></a>
+                                                <a href="<%=request.getContextPath() %>/user-panel/${loggedinuser}" class="btn btn-primary">ناحیه کاربری</a>
+                                                <sec:authorize access="hasRole('ADMIN')">
+                                                    <a href="<%=request.getContextPath() %>/admin/" class="btn btn-primary">پنل مدیریت</a>
+                                                </sec:authorize>
+                                            </div>
+                                        </li>
+                                    </ul>
                                 </div>
                             </c:when>
                             <c:otherwise>
@@ -71,25 +85,24 @@
         <div class="secondary-nav">
             <div class="container">
                 <div class="row" >
-                    <div class="col-md-3 pull-right" dir="rtl">
+                    <div class="col-md-3 col-sm-3 pull-right" dir="rtl">
                         <a class="navbar-brand" href="/edustry"><spring:message code="site.name" text="site.name"/> </a>
                     </div>
-                    <div class="col-md-2" dir="rtl">
+                    <div class="col-md-2 col-sm-2" dir="rtl">
                         <div type="button" class="btn btn-primary ads-btn" onclick="location.href='product'">
                             <span>آگهی خرید</span>
                         </div>
                     </div>
-                    <div class="col-md-7">
+                    <div class="col-md-7 col-sm-5">
                         <form:form id="search-form" class="form-inline search-input" role="search" method="get" action="search">
                             <div class="input-group">
-
-                        <span class="input-group-btn">
+                                <span class="input-group-btn">
                          <button type="submit" class="btn btn-primary search-btn" data-target="#search-form" >
                              <i class="glyphicon glyphicon-search "></i>
                          </button>
                         </span>
-
                                 <input type="text" class="form-control search-form" placeholder="<spring:message code="header.search"/>" dir="rtl" name="srch"/>
+                                <div id="search-result"></div>
                                 <div class="input-group-btn">
                                     <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
                                         <span id="search_concept">دسته‌بندی</span> <span class="caret"></span>
