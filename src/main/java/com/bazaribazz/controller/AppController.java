@@ -70,15 +70,6 @@ public class AppController {
     String str;
 
 
-    public static final RethinkDB r = RethinkDB.r;
-
-
-    public void chat(){
-        Connection conn = r.connection().hostname("localhost").port(28015).timeout(60).connect();
-//        Connection conn= r.connect(host="localhost", port=28015).repl();
-        r.db("bazaribaz").tableCreate("tv_shows").run(conn);
-        r.table("tv_shows").insert(r.hashMap("name", "Star Trek TNG")).run(conn);
-    }
 
     @RequestMapping(value = {"list","admin/users"}, method = RequestMethod.GET)
     public String listUsers(ModelMap model) {
@@ -290,7 +281,6 @@ public class AppController {
         model.addAttribute("edit",false);
         model.addAttribute("works",works);
         model.addAttribute("loggedinuser", getPrincipal());
-        chat();
         return "home";
     }
 
