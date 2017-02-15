@@ -19,4 +19,6 @@ public interface WorkService {
     void update(Work work);
 
     List<Work> findAllWorks();
+
+    List<Work> searchWork(String searchText);
 }

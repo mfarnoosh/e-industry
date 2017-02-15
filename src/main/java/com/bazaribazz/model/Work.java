@@ -1,5 +1,7 @@
 package com.bazaribazz.model;
 
+import org.hibernate.search.annotations.*;
+import org.hibernate.search.annotations.Index;
 import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.*;
@@ -9,6 +11,7 @@ import java.util.*;
  * Created by dorsa on 12/5/16.
  */
 @Entity
+@Indexed(index = "WORK")
 @Table(name = "WORK")
 public class Work {
     @Id
@@ -19,6 +22,7 @@ public class Work {
     @Column(name = "PROFESSION", unique = true, nullable = false)
     private String profession;
     @NotEmpty
+    @Field(index = Index.YES,analyze = Analyze.YES)
     @Column(name = "SERVICE_NAME", nullable = false)
     private String serviceName;
     @NotEmpty

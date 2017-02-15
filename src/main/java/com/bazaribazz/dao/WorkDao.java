@@ -18,9 +18,10 @@ public interface WorkDao {
 
     void deleteById(int id);
 
-
     List<Work> findAllService();
 
     List<Work> findTop10Service();
+
+    List<Work> searchWork(String searchText);
 
 }

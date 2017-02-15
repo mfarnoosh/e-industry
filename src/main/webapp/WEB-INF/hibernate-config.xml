@@ -37,6 +37,8 @@
                 <prop key="hibernate.dialect">${hibernate.dialect}</prop>
                 <prop key="hibernate.show_sql">${hibernate.show_sql:false}</prop>
                 <prop key="hibernate.format_sql">${hibernate.format_sql:false}</prop>
+                <prop key="hibernate.search.default.directory_provider">
+                    org.hibernate.search.store.impl.FSDirectoryProvider</prop>
             </props>
         </property>
     </bean>
@@ -50,7 +52,8 @@
 
     <mvc:annotation-driven conversion-service="conversionService"/>
 
-    <bean id="conversionService" class="org.springframework.format.support.FormattingConversionServiceFactoryBean">
+    <!--<bean id="conversionService" class="org.springframework.format.support.FormattingConversionServiceFactoryBean">-->
+    <bean id="conversionService" class="org.springframework.context.support.ConversionServiceFactoryBean">
 
         <property name="converters">
             <util:list>

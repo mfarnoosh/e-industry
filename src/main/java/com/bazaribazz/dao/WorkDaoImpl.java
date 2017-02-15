@@ -4,13 +4,17 @@ import com.bazaribazz.model.User;
 import com.bazaribazz.model.Work;
 import org.hibernate.Criteria;
 import org.hibernate.Hibernate;
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
+import org.hibernate.search.FullTextSession;
+import org.hibernate.search.Search;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -83,5 +87,13 @@ public class WorkDaoImpl extends AbstractDao<Integer,Work> implements WorkDao {
             Hibernate.initialize(work.getOwner().getSsoId());
         }
         return works;
+    }
+
+    @Override
+    @Transactional
+    public List<Work> searchWork(String searchText) {
+        Session session = sessionFactory.getCurrentSession();
+        FullTextSession fullTextSession = Search.getFullTextSession(session);
+        return null;
     }
 }
