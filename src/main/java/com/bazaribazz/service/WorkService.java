@@ -20,5 +20,5 @@ public interface WorkService {
 
     List<Work> findAllWorks();
 
-    List<Work> searchWork(String searchText);
+    List<Work> searchWork(String string);
 }

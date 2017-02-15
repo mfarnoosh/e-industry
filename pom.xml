@@ -237,8 +237,6 @@
       <version>v2-rev70-1.17.0-rc</version>
     </dependency>
 
-
-
   </dependencies>
   <build>
     <finalName>edustry</finalName>

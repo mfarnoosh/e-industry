@@ -55,8 +55,8 @@ public class WorkServiceImpl implements WorkService {
     }
 
     @Override
-    public List<Work> searchWork(String searchText) {
+    public List<Work> searchWork(String string) {
 
-        return null;
+        return dao.searchWork(string);
     }
 }

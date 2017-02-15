@@ -373,6 +373,9 @@ hr{
 img.img-responsive{
     max-height: 100px;
 }
+.servicebox.col-md-3{
+    width: 24%;
+}
 /*product*/
 .productbox {
     background-color:#ffffff;
@@ -414,7 +417,6 @@ img.img-responsive{
 .panel-body table tr td { padding-left: 15px }
 .panel-body .table {margin-bottom: 0px; }
 .sidebar-first{float: right;}
-
 /*----Page: Search ---Section: Search Result----------*/
 
 
