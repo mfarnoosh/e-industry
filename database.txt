@@ -58,6 +58,8 @@ CREATE TABLE PERSISTENT_LOGINS (
 );
 
 
+
+
 /* Create work table used to store services and has a column join to user*/
 CREATE TABLE WORK (
     id BIGINT NOT NULL AUTO_INCREMENT,
@@ -78,5 +80,25 @@ CREATE TABLE FILES_UPLOAD (
     PRIMARY KEY (`upload_id`),
     CONSTRAINT FK_WORK FOREIGN KEY (work_id) REFERENCES WORK (id)
 );
+/*join files to bundles*/
+CREATE TABLE FILE_BUNDLES(
+    bundle VARCHAR(64) NOT NULL,
+    bundle_id BIGINT NOT NULL,
+    fid int(11) NOT NULL,
+    PRIMARY KEY (fid),
+        CONSTRAINT FK_FILE FOREIGN KEY (fid) REFERENCES FILES_UPLOAD (id),
 
+);
 ALTER TABLE <table_name> MODIFY <column_name> VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+
+
+/*Categories*/
+CREATE TABLE `CATEGORY` (
+  `category_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `category_name` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `category_link` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `parent_id` int(10) unsigned NOT NULL DEFAULT '0',
+  `sort_order` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`category_id`),
+  UNIQUE KEY `unique` (`category_name`)
+)AUTO_INCREMENT=12 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;

@@ -71,14 +71,34 @@
                 <div id="my-work" class="tab-pane fade">
                     <h3> خدمات</h3>
                     <table class="table">
+                        <tr>
+                            <th>
+                                <label for="work-title">عنوان خدمت</label>
+                            </th>
+                            <th>
+                                <label for="work-profession">صنف</label>
+                            </th>
+                            <th>
+                                <label for="work-state">مکان</label>
+                            </th>
+                            <th>
+                                <label for="work-date">تاریخ</label>
+                            </th>
+                        </tr>
                         <c:if test="${not empty works}">
                             <c:forEach items="${works}" var="work">
                                 <tr>
-                                    <th>
-                                        <label for="work-title">عنوان خدمت</label>
-                                    </th>
                                     <td>
                                         <div id="work-title">${work.serviceName}</div>
+                                    </td>
+                                    <td>
+                                        <div id="work-profession">${work.profession}</div>
+                                    </td>
+                                    <td>
+                                        <div id="work-state">${work.state}</div>
+                                    </td>
+                                    <td>
+                                        <div id="work-date">${work.createDate}</div>
                                     </td>
                                 </tr>
                             </c:forEach>
