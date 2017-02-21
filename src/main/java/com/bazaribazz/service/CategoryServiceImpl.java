@@ -1,6 +1,8 @@
 package com.bazaribazz.service;
 
+import com.bazaribazz.dao.CategoryDao;
 import com.bazaribazz.model.Category;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -12,14 +14,16 @@ import java.util.List;
 @Service("categoryService")
 @Transactional
 public class CategoryServiceImpl implements CategoryService {
+    @Autowired
+    public CategoryDao dao;
     @Override
     public List<Category> findAllCategory() {
-        return null;
+        return dao.findAllCategory();
     }
 
     @Override
     public void insertCategory(Category category) {
-
+        dao.insertCategory(category);
     }
 
     @Override

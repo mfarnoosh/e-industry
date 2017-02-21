@@ -1,10 +1,8 @@
 package com.bazaribazz.controller;
 
 import com.bazaribazz.dao.FileUploadDao;
-import com.bazaribazz.model.UploadFile;
-import com.bazaribazz.model.Work;
-import com.bazaribazz.model.User;
-import com.bazaribazz.model.UserProfile;
+import com.bazaribazz.model.*;
+import com.bazaribazz.service.CategoryService;
 import com.bazaribazz.service.UserProfileService;
 import com.bazaribazz.service.UserService;
 import com.bazaribazz.service.WorkService;
@@ -63,6 +61,9 @@ public class AppController {
 
     @Autowired
     private FileUploadDao fileUploadDao;
+
+    @Autowired
+    private CategoryService categoryService;
 
 
     String str;
@@ -512,6 +513,31 @@ public class AppController {
 
 
     }
+
+    @RequestMapping(value = {"admin/new-category"},method = RequestMethod.GET)
+    public String newCategory(ModelMap model){
+        Category category = new Category();
+        model.addAttribute("category", category);
+        model.addAttribute("edit", false);
+        model.addAttribute("loggedinuser", getPrincipal());
+        return "new-category";
+    }
+    @RequestMapping(value = {"admin/new-category","admin/category-list"},method = RequestMethod.POST)
+    public String saveCategory(@Valid Category category, BindingResult result, ModelMap model){
+        categoryService.insertCategory(category);
+        model.addAttribute("category",category);
+        return "redirect:/admin/";
+    }
+
+    @RequestMapping(value = "admin/category-list", method = RequestMethod.GET)
+    public String categoryList(ModelMap model){
+        List<Category> categories = categoryService.findAllCategory();
+        model.addAttribute("categories",categories);
+        Category category = new Category();
+        model.addAttribute("category", category);
+        return "category-list";
+    }
+
     /*@RequestMapping(value = "user-panel/{uid}", method = RequestMethod.POST)
     public String findUserProfile(@Valid User user, BindingResult result,
                                   ModelMap model, @PathVariable String ssoId){

@@ -15,7 +15,7 @@
 <body>
 <div class="actions">
     <div class="col-md-3 pull-right">
-        <span class=""><a href="new-work"><i class="glyphicon glyphicon-plus-sign"></i><spring:message code="works.add.work"/></a></span>
+        <a href="new-work"><i class="glyphicon glyphicon-plus-sign"></i><spring:message code="works.add.work"/></a>
     </div>
 </div>
 <div class="table-responsive">

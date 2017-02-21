@@ -3,6 +3,7 @@ package com.bazaribazz.model;
 import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 /**
  * Created by dorsa on 2/16/17.
@@ -13,7 +14,7 @@ public class Category {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
+    @Column(name = "category_id")
     private Integer id;
 
     @NotEmpty
@@ -24,13 +25,13 @@ public class Category {
     @Column(name = "CATEGORY_LINK", nullable = false)
     private String categoryLink;
 
-    @NotEmpty
-    @Column(name = "PARENT_ID", nullable = false)
+
+    @Column(name = "PARENT_ID")
     private Integer parentId;
 
-    @NotEmpty
-    @Column(name = "SORT_ORDER", nullable = false)
-    private Integer sortOrder;
+
+    @Column(name = "SORT_ORDER")
+    private int sortOrder;
 
     public Integer getId() {
         return id;
@@ -64,38 +65,15 @@ public class Category {
         this.parentId = parentId;
     }
 
-    public Integer getSortOrder() {
+    public int getSortOrder() {
         return sortOrder;
     }
 
-    public void setSortOrder(Integer sortOrder) {
+    public void setSortOrder(int sortOrder) {
         this.sortOrder = sortOrder;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
 
-        Category category = (Category) o;
-
-        if (!id.equals(category.id)) return false;
-        if (!categoryName.equals(category.categoryName)) return false;
-        if (!categoryLink.equals(category.categoryLink)) return false;
-        if (!parentId.equals(category.parentId)) return false;
-        return sortOrder.equals(category.sortOrder);
-
-    }
-
-    @Override
-    public int hashCode() {
-        int result = id.hashCode();
-        result = 31 * result + categoryName.hashCode();
-        result = 31 * result + categoryLink.hashCode();
-        result = 31 * result + parentId.hashCode();
-        result = 31 * result + sortOrder.hashCode();
-        return result;
-    }
 
     @Override
     public String toString() {

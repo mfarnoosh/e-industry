@@ -11,12 +11,16 @@
 <html>
 <head>
     <title>admin</title>
+
     <%--<script src = "https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>--%>
 <%--<script src="<c:url value="/resources/js/main.js" />"></script>--%>
 </head>
-<body>
-<jsp:include page="header.jsp"/>
-<jsp:include page="panel-admin.jsp"/>
-<jsp:include page="footer.jsp"/>
+<body style="background-color: white">
+<jsp:include page="admin-header.jsp"/>
+<div class="container">
+    <%--<jsp:include page="panel-admin.jsp"/>--%>
+    <jsp:include page="admin-menu.jsp"/>
+</div>
+<%--<jsp:include page="footer.jsp"/>--%>
 </body>
 </html>

@@ -193,9 +193,58 @@ a.navbar-brand, .navbar-default .navbar-nav>li>a{
 
 }*/
 a.navbar-brand, .navbar-default .navbar-nav>li>a{
-    color: #000 !important;
+    /*color: #000 !important;*/
     float: right;
 }
+
+/*--------Page: Admin pages------section: admin-header-----*/
+.admin-header a.navbar-brand, .navbar-default .navbar-nav>li>a{
+    color: #9d9d9d;
+}
+.admin-header .navbar{
+    margin-bottom: 0;
+}
+/*--------Page: Admin pages------section: admin-menu-----*/
+.navbar-static-top {
+    margin-bottom:20px;
+}
+
+i {
+    font-size:16px;
+}
+
+.nav > li > a {
+    color:#787878;
+}
+
+/* count indicator near icons */
+.nav>li .count {
+    /*position: absolute;*/
+    bottom: 12px;
+    right: 6px;
+    font-size: 10px;
+    font-weight: normal;
+    background: rgba(51,200,51,0.55);
+    color: rgba(255,255,255,0.9);
+    line-height: 1em;
+    padding: 2px 4px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    border-radius: 10px;
+}
+
+/*----collapsible menu------*/
+/* Toggle Styles */
+
+
+
+/* indent 2nd level */
+/*.list-unstyled li > ul > li {
+    margin-left:10px;
+    padding:8px;
+}*/
 /*--------vertical megamenu*/
 
 .category {
@@ -471,6 +520,51 @@ img.img-responsive{
 }
 .actions{
     margin-bottom: 5%;
+}
+
+/*-----Page: Admin------section: Category list-----*/
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+}
+
+/* The Close Button */
+.close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/*category list table*/
+.table-responsive .table thead tr th{
+    text-align: right;
 }
 
 /*------Page: Work-view-{workid}----section: content----------*/
