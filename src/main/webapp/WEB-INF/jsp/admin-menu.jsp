@@ -15,6 +15,7 @@
     <%--<script src="<c:url value="/resources/js/main.js" />"></script>--%>
     <script src="<c:url value="/resources/bootstrap-3.3.7/dist/js/bootstrap.min.js"/>" type="text/javascript"></script>
     <link href="<c:url value="/resources/bootstrap-3.3.7/dist/css/bootstrap.min.css"/>" rel="stylesheet">
+    <link href="<c:url value="/resources/font-awesome-4.6.3/css/font-awesome.min.css"/>" rel="stylesheet">
     <%--<link href="<c:url value="/resources/css/style.css" />" rel="stylesheet">--%>
     <style>
         #wrapper {
@@ -222,21 +223,21 @@
             <li class="sidebar-brand">
 
                 <a href="#menu-toggle"  id="menu-toggle" style="margin-top:0px;float:right;" >
-                    <i class="glyphicon glyphicon-align-justify" style="font-size:20px !Important;" aria-hidden="true" aria-hidden="true"></i>
+                    <i class="fa fa-align-justify" style="font-size:20px !Important;" aria-hidden="true" aria-hidden="true"></i>
                 </a>
 
             </li>
             <li >
-                <a id="h" href="#"><i class="glyphicon glyphicon-home " aria-hidden="true"> </i> <span style="margin-right:10px;">خانه</span>  </a>
+                <a id="h" href="#"><i class="fa fa-home fa-lg" aria-hidden="true"> </i> <span style="margin-right:10px;">خانه</span>  </a>
             </li>
             <li >
-                <a id="service" href="#"> <i class="glyphicon glyphicon-wrench" aria-hidden="true"> </i> <span style="margin-right:10px;"> خدمات</span> </a>
+                <a id="service" href="#"> <i class="fa fa-wrench" aria-hidden="true"> </i> <span style="margin-right:10px;"> خدمات</span> </a>
             </li>
             <li>
-                <a id="category" href="#"> <i class="glyphicon glyphicon-grain" aria-hidden="true"> </i> <span style="margin-right:10px;"> دسته‌بندی‌ها</span> </a>
+                <a id="category" href="#"> <i class="fa fa-tags" aria-hidden="true"> </i> <span style="margin-right:10px;"> دسته‌بندی‌ها</span> </a>
             </li>
             <li >
-                <a id="user" href="#users"> <i class="glyphicon glyphicon-user" aria-hidden="true"> </i> <span style="margin-right:10px;"> کابرها</span> </a>
+                <a id="user" href="#users"> <i class="fa fa-users" aria-hidden="true"> </i> <span style="margin-right:10px;"> کابرها</span> </a>
             </li>
             <%--<li>
                 <a href="#"><i class="fa fa-info-circle " aria-hidden="true"> </i> <span style="margin-left:10px;">Section </span> </a>

@@ -18,7 +18,7 @@
     <div class="col-md-3 pull-right">
         <sec:authorize access="hasRole('ADMIN')">
             <div class="well">
-                <a href="<c:url value='newuser' />"><i class="glyphicon glyphicon-plus-sign"></i>افزودن کاربر</a>
+                <a href="<c:url value='newuser' />"><i class=""></i>افزودن کاربر</a>
             </div>
         </sec:authorize>
     </div>
