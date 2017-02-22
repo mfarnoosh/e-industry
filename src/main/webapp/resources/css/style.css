@@ -519,7 +519,9 @@ img.img-responsive{
     display: inline;
 }
 .actions{
-    margin-bottom: 5%;
+    margin-bottom: 10%;
+    padding-bottom: 5%;
+    padding-top: 5%;
 }
 
 /*-----Page: Admin------section: Category list-----*/

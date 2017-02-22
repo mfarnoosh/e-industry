@@ -66,15 +66,15 @@ public class AppController {
     private CategoryService categoryService;
 
 
-    String str;
+
 
     @RequestMapping(value = {"list","admin/users"}, method = RequestMethod.GET)
     public String listUsers(ModelMap model) {
         List<User> users = userService.findAllUsers();
         for(User user:users){
-            str=user.getUserProfiles().toString().split("\\[")[2].split("=")[2].split("\\]")[0];
+            user.setUserRole(user.getUserProfiles().toString().split("\\[")[2].split("=")[2].split("\\]")[0]);
         }
-        model.addAttribute("userRole",str);
+//        model.addAttribute("userRole",str);
         model.addAttribute("users", users);
         model.addAttribute("loggedinuser", getPrincipal());
         return "users";
@@ -494,7 +494,7 @@ public class AppController {
 
         return "product";
     }*/
-
+String str;
     @RequestMapping(value = "user-panel/{ssoId}", method = RequestMethod.GET)
     public String userProfile(@PathVariable String ssoId,ModelMap model){
         User user = userService.findBySSO(ssoId);

@@ -18,7 +18,7 @@
     <%--<link href="<c:url value="/resources/css/style.css" />" rel="stylesheet">--%>
     <style>
         #wrapper {
-            padding-left: 0;
+            padding-right: 0;
             -webkit-transition: all 0.6s ease;
             -moz-transition: all 0.6s ease;
             -o-transition: all 0.6s ease;
@@ -27,7 +27,7 @@
         }
 
         #wrapper.toggled {
-            padding-left: 200px;
+            padding-right: 120px;
         }
 
         #sidebar-wrapper {
@@ -113,7 +113,7 @@
 
         @media(min-width:768px) {
             #wrapper {
-                padding-left: 220px;
+                padding-right: 150px;
             }
 
             #wrapper.toggled {
@@ -252,7 +252,7 @@
     <div id="page-content-wrapper">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-lg-12">
+                <div class="col-lg-10 col-md-8">
 
                     <div id="result">
 
