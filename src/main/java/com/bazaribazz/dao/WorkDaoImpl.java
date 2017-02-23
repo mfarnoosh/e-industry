@@ -1,5 +1,6 @@
 package com.bazaribazz.dao;
 
+import com.bazaribazz.model.UploadFile;
 import com.bazaribazz.model.User;
 import com.bazaribazz.model.Work;
 import org.hibernate.Criteria;
@@ -34,6 +35,9 @@ public class WorkDaoImpl extends AbstractDao<Integer,Work> implements WorkDao {
         Work work = getByKey(id);
         if (work !=null){
             Hibernate.initialize(work.getOwner());
+            for (UploadFile uf: work.getUploadFile()){
+                Hibernate.initialize(uf.getData());
+            }
         }
         return work;
     }

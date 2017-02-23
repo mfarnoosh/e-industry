@@ -34,7 +34,7 @@ public class Work {
     @Column(name = "CREATE_DATE", nullable = false)
     private Date createDate;
 
-    @OneToMany(mappedBy = "id")
+    @OneToMany(mappedBy = "id",fetch = FetchType.LAZY)
     private Set<UploadFile> uploadFile;
     /*@Column(name = "KEYWORDS",nullable = false)
     private String[] keywords;*/

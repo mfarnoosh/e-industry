@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%--
   Created by IntelliJ IDEA.
   User: dorsa
@@ -27,7 +28,7 @@
             <ul class="nav nav-tabs ">
                 <li class="active"><a href="#user-info">مشخصات کاربر</a></li>
                 <li><a href="#my-work">خدمات</a></li>
-                <%--<li><a href="#menu2">Menu 2</a></li>--%>
+                <li><a href="#more-info">اطلاعات تکمیلی</a></li>
                 <%--<li><a href="#menu3">Menu 3</a></li>--%>
             </ul>
             <div class="tab-content">
@@ -104,6 +105,9 @@
                             </c:forEach>
                         </c:if>
                     </table>
+                </div>
+                <div id="more-info" class="tab-pane fade">
+                    <a href="<c:url value="/information-${user.ssoId}"/>" class="btn btn-bottom">فرم</a>
                 </div>
             </div>
         </div>

@@ -17,8 +17,8 @@
 <div class="actions">
     <div class="col-md-3 pull-right">
         <sec:authorize access="hasRole('ADMIN')">
-            <div class="well">
-                <a href="<c:url value='newuser' />"><i class=""></i>افزودن کاربر</a>
+            <div>
+                <a href="<c:url value='newuser' />"><i class="fa fa-user-plus" aria-hidden="true"></i>افزودن کاربر</a>
             </div>
         </sec:authorize>
     </div>

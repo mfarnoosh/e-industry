@@ -132,7 +132,7 @@ public class AppController {
     /**
      * This method will provide the medium to update an existing user.
      */
-    @RequestMapping(value = { "edit-user-{ssoId}" }, method = RequestMethod.GET)
+    @RequestMapping(value = { "admin/edit-user-{ssoId}" }, method = RequestMethod.GET)
     public String editUser(@PathVariable String ssoId, ModelMap model) {
         User user = userService.findBySSO(ssoId);
         model.addAttribute("user", user);
@@ -543,4 +543,14 @@ String str;
                                   ModelMap model, @PathVariable String ssoId){
         return "user-panel";
     }*/
+    @RequestMapping(value = "information-{ssoId}", method = RequestMethod.GET)
+    public String showCompleteInfo(@PathVariable String ssoId, ModelMap model){
+        User user = userService.findBySSO(ssoId);
+        model.addAttribute("user",user);
+        return "user-form-info";
+    }
+    @RequestMapping(value = "information-{ssoId}", method = RequestMethod.POST)
+    public String saveCompleteInfo(){
+        return "user-form-info";
+    }
 }
