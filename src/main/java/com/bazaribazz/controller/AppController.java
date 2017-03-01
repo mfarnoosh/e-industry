@@ -532,7 +532,22 @@ String str;
     @RequestMapping(value = "admin/category-list", method = RequestMethod.GET)
     public String categoryList(ModelMap model){
         List<Category> categories = categoryService.findAllCategory();
-        model.addAttribute("categories",categories);
+        List<Category> children;
+        List<Category> single = new ArrayList<Category>();
+        Map<Category,List<Category>> categoryGroup = new HashMap<>();
+        for (Category category:categories){
+            children = categoryService.findByParent(category.getId());
+            if (children.size()!=0){
+                categoryGroup.put(category,children);
+
+            }else if (category.getParentId()==0){
+                single.add(category);
+            }
+        }
+
+        model.addAttribute("cat",categories);
+        model.addAttribute("singles",single);
+        model.addAttribute("categories",categoryGroup);
         Category category = new Category();
         model.addAttribute("category", category);
         return "category-list";

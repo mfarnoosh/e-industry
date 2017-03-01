@@ -11,6 +11,6 @@ public interface CategoryService {
 
     List<Category> findAllCategory();
     void insertCategory(Category category);
-    List<Category> findByParent();
+    List<Category> findByParent(Integer parentId);
     void delete(Category category);
 }

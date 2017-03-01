@@ -97,7 +97,7 @@ CREATE TABLE CATEGORY (
   category_id BIGINT NOT NULL AUTO_INCREMENT,
   category_name varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   category_link varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  parent_id BIGINT NOT NULL DEFAULT '0',
+  parent_id BIGINT NOT NULL,
   sort_order int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (category_id),
   UNIQUE (category_name)

@@ -4,6 +4,8 @@ import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by dorsa on 2/16/17.
@@ -25,10 +27,14 @@ public class Category {
     @Column(name = "CATEGORY_LINK", nullable = false)
     private String categoryLink;
 
-
     @Column(name = "PARENT_ID")
     private Integer parentId;
+    /*@ManyToOne
+    private Category parentCategory;
 
+    @OneToMany(fetch = FetchType.EAGER, mappedBy="parentCategory", cascade=CascadeType.REMOVE, orphanRemoval=true)
+    private List<Category> childCategories = new ArrayList<>();
+*/
 
     @Column(name = "SORT_ORDER")
     private int sortOrder;
@@ -65,6 +71,22 @@ public class Category {
         this.parentId = parentId;
     }
 
+    /*public Category getParentCategory() {
+        return parentCategory;
+    }
+
+    public void setParentCategory(Category parentCategory) {
+        this.parentCategory = parentCategory;
+    }
+
+    public List<Category> getChildCategories() {
+        return childCategories;
+    }
+
+    public void setChildCategories(List<Category> childCategories) {
+        this.childCategories = childCategories;
+    }*/
+
     public int getSortOrder() {
         return sortOrder;
     }
@@ -81,7 +103,6 @@ public class Category {
                 "id=" + id +
                 ", categoryName='" + categoryName + '\'' +
                 ", categoryLink='" + categoryLink + '\'' +
-                ", parentId=" + parentId +
                 ", sortOrder=" + sortOrder +
                 '}';
     }

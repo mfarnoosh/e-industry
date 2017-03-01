@@ -11,6 +11,9 @@
 <html>
 <head>
     <title>Category List</title>
+    <script src = "https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <%--<script src="<c:url value="/resources/js/main.js" />"></script>--%>
+    <%--<script src="<c:url value="/resources/bootstrap-3.3.7/dist/js/bootstrap.min.js"/>" type="text/javascript"></script>--%>
 </head>
 <body>
 <%--<jsp:include page="new-category.jsp"/>--%>
@@ -31,7 +34,7 @@
 </div>
 
     <div class="table-responsive" dir="rtl">
-        <table class="table table-hover">
+        <table class="table table-hover tree-table-view">
             <thead>
             <tr>
                 <%--<th><spring:message code="works.id"/> </th>
@@ -45,11 +48,34 @@
             </tr>
             </thead>
             <tbody>
-            <c:forEach items="${categories}" var="categoryI">
+
+
+
+            <c:forEach items="${categories}" var="category">
                 <tr>
-                    <td>${categoryI.id}</td>
-                    <td>${categoryI.categoryName}</td>
-                    <td>${categoryI.parentId}</td>
+                    <td>${category.key.id}</td>
+                    <td>${category.key.categoryName}</td>
+                    <td>${category.key.parentId}</td>
+                        <%--<td>${categoryI.createDate}</td>
+                        <td>${work.owner.ssoId}</td>--%>
+                    <td><a href="<c:url value="edit-work-${work.id}"/>"class="btn btn-success custom-width"><spring:message code="site.edit"/> </a> </td>
+                </tr>
+                <c:forEach items="${category.value}" var="child">
+                    <tr>
+                        <td>${child.id}</td>
+                        <td style="padding-right: 55px;">${child.categoryName}</td>
+                        <td>${child.parentId}</td>
+                            <%--<td>${categoryI.createDate}</td>
+                            <td>${work.owner.ssoId}</td>--%>
+                        <td><a href="<c:url value="edit-work-${work.id}"/>"class="btn btn-success custom-width"><spring:message code="site.edit"/> </a> </td>
+                    </tr>
+                </c:forEach>
+            </c:forEach>
+            <c:forEach items="${singles}" var="single">
+                <tr>
+                    <td>${single.id}</td>
+                    <td>${single.categoryName}</td>
+                    <td>${single.parentId}</td>
                         <%--<td>${categoryI.createDate}</td>
                         <td>${work.owner.ssoId}</td>--%>
                     <td><a href="<c:url value="edit-work-${work.id}"/>"class="btn btn-success custom-width"><spring:message code="site.edit"/> </a> </td>
@@ -58,5 +84,12 @@
             </tbody>
         </table>
     </div>
+
+<script>
+    $(document).ready(function () {
+        var parentNumber = $('table tr.data-tree .parent-n').innerHTML;
+
+    });
+</script>
 </body>
 </html>

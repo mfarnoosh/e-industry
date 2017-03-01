@@ -27,8 +27,8 @@ public class CategoryServiceImpl implements CategoryService {
     }
 
     @Override
-    public List<Category> findByParent() {
-        return null;
+    public List<Category> findByParent(Integer parentId) {
+        return dao.findByParent(parentId);
     }
 
     @Override
